@@ -1,0 +1,58 @@
+ 25%|██▌       | 30/120 [00:32<01:25,  1.05itTraceback (most recent call last):
+{'loss': 2.1447, 'grad_norm': 4.512943267822266, 'learning_rate': 8.333333333333334e-05, 'epoch': 0.41}
+{'loss': 1.4498, 'grad_norm': 3.9914965629577637, 'learning_rate': 9.865224352899119e-05, 'epoch': 0.82}
+{'loss': 1.2324, 'grad_norm': 2.333048105239868, 'learning_rate': 9.330127018922194e-05, 'epoch': 1.2}
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 176, in <module>
+{'eval_loss': 2.061598777770996, 'eval_runtime': 0.6233, 'eval_samples_per_second': 275.958, 'eval_steps_per_second': 9.626, 'epoch': 1.2}
+    train()
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 170, in train
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2598, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3078, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial)
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3213, in _save_checkpoint
+    self._save_optimizer_and_scheduler(output_dir)
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3323, in _save_optimizer_and_scheduler
+    self.model_wrapped.save_checkpoint(output_dir)
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 3206, in save_checkpoint
+    self._save_zero_checkpoint(save_dir, tag)
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 3567, in _save_zero_checkpoint
+    self.checkpoint_engine.save(zero_sd, zero_checkpoint_name)
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/deepspeed/runtime/checkpoint_engine/torch_checkpoint_engine.py", line 22, in save
+    torch.save(state_dict, path)
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/torch/serialization.py", line 944, in save
+    _save(
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/torch/serialization.py", line 1216, in _save
+    zip_file.write_record(name, storage, num_bytes)
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 176, in <module>
+[rank0]:     train()
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 170, in train
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2171, in train
+[rank0]:     return inner_training_loop(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2598, in _inner_training_loop
+[rank0]:     self._maybe_log_save_evaluate(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3078, in _maybe_log_save_evaluate
+[rank0]:     self._save_checkpoint(model, trial)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3213, in _save_checkpoint
+[rank0]:     self._save_optimizer_and_scheduler(output_dir)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3323, in _save_optimizer_and_scheduler
+[rank0]:     self.model_wrapped.save_checkpoint(output_dir)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 3206, in save_checkpoint
+[rank0]:     self._save_zero_checkpoint(save_dir, tag)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 3567, in _save_zero_checkpoint
+[rank0]:     self.checkpoint_engine.save(zero_sd, zero_checkpoint_name)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/deepspeed/runtime/checkpoint_engine/torch_checkpoint_engine.py", line 22, in save
+[rank0]:     torch.save(state_dict, path)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/torch/serialization.py", line 944, in save
+[rank0]:     _save(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/torch/serialization.py", line 1216, in _save
+[rank0]:     zip_file.write_record(name, storage, num_bytes)
+[rank0]: KeyboardInterrupt

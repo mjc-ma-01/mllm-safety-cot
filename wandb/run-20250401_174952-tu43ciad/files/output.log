@@ -1,0 +1,60 @@
+100%|██████████| 120/120 [12:35<00:00,  6.30s/it] 
+{'loss': 2.1868, 'grad_norm': 12.719393730163574, 'learning_rate': 8.333333333333334e-05, 'epoch': 0.41}
+{'loss': 1.538, 'grad_norm': 2.74433970451355, 'learning_rate': 9.865224352899119e-05, 'epoch': 0.82}
+{'loss': 1.2208, 'grad_norm': 2.8494226932525635, 'learning_rate': 9.330127018922194e-05, 'epoch': 1.2}
+Traceback (most recent call last):           
+{'eval_loss': 2.097839117050171, 'eval_runtime': 0.5582, 'eval_samples_per_second': 308.136, 'eval_steps_per_second': 10.749, 'epoch': 1.2}
+{'loss': 0.9544, 'grad_norm': 1.940604329109192, 'learning_rate': 8.43120818934367e-05, 'epoch': 1.61}
+{'loss': 0.8439, 'grad_norm': 3.1338577270507812, 'learning_rate': 7.243995901002312e-05, 'epoch': 2.0}
+{'loss': 0.6498, 'grad_norm': 1.879135012626648, 'learning_rate': 5.868240888334653e-05, 'epoch': 2.41}
+{'eval_loss': 2.2949533462524414, 'eval_runtime': 0.5555, 'eval_samples_per_second': 309.652, 'eval_steps_per_second': 10.802, 'epoch': 2.41}
+{'loss': 0.4915, 'grad_norm': 1.4804651737213135, 'learning_rate': 4.4195354293738484e-05, 'epoch': 2.82}
+{'loss': 0.3324, 'grad_norm': 1.9571919441223145, 'learning_rate': 3.019601169804216e-05, 'epoch': 3.2}
+{'loss': 0.2738, 'grad_norm': 1.138112187385559, 'learning_rate': 1.7860619515673033e-05, 'epoch': 3.61}
+{'eval_loss': 2.343613386154175, 'eval_runtime': 0.5934, 'eval_samples_per_second': 289.845, 'eval_steps_per_second': 10.111, 'epoch': 3.61}
+{'loss': 0.2115, 'grad_norm': 1.6368731260299683, 'learning_rate': 8.225609429353187e-06, 'epoch': 4.0}
+{'loss': 0.1493, 'grad_norm': 0.6607295274734497, 'learning_rate': 2.100524384225555e-06, 'epoch': 4.41}
+{'loss': 0.1316, 'grad_norm': 1.273237943649292, 'learning_rate': 0.0, 'epoch': 4.82}
+{'eval_loss': 2.370795726776123, 'eval_runtime': 0.5576, 'eval_samples_per_second': 308.45, 'eval_steps_per_second': 10.76, 'epoch': 4.82}
+{'train_runtime': 757.0508, 'train_samples_per_second': 10.224, 'train_steps_per_second': 0.159, 'train_loss': 0.7486528883377711, 'epoch': 4.82}
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 176, in <module>
+    train()
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 172, in train
+    trainer.save_model(os.path.join(training_args.output_dir, save_name))
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3815, in save_model
+    self._save(output_dir, state_dict=state_dict)
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3932, in _save
+    self.model.save_pretrained(
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/modeling_utils.py", line 2980, in save_pretrained
+    safe_save_file(shard, os.path.join(save_directory, shard_file), metadata={"format": "pt"})
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/safetensors/torch.py", line 286, in save_file
+    serialize_file(_flatten(tensors), filename, metadata=metadata)
+                   ^^^^^^^^^^^^^^^^^
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/safetensors/torch.py", line 500, in _flatten
+    "data": _tobytes(v, k),
+            ^^^^^^^^^^^^^^
+  File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/safetensors/torch.py", line 460, in _tobytes
+    return data.tobytes()
+           ^^^^^^^^^^^^^^
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 176, in <module>
+[rank0]:     train()
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_llm_cot.py", line 172, in train
+[rank0]:     trainer.save_model(os.path.join(training_args.output_dir, save_name))
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3815, in save_model
+[rank0]:     self._save(output_dir, state_dict=state_dict)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3932, in _save
+[rank0]:     self.model.save_pretrained(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/transformers/modeling_utils.py", line 2980, in save_pretrained
+[rank0]:     safe_save_file(shard, os.path.join(save_directory, shard_file), metadata={"format": "pt"})
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/safetensors/torch.py", line 286, in save_file
+[rank0]:     serialize_file(_flatten(tensors), filename, metadata=metadata)
+[rank0]:                    ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/safetensors/torch.py", line 500, in _flatten
+[rank0]:     "data": _tobytes(v, k),
+[rank0]:             ^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/lib/python3.12/site-packages/safetensors/torch.py", line 460, in _tobytes
+[rank0]:     return data.tobytes()
+[rank0]:            ^^^^^^^^^^^^^^
+[rank0]: KeyboardInterrupt

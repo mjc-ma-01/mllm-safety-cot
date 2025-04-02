@@ -14,8 +14,6 @@ accelerate launch \
     --logging_strategy="steps" \
     --logging_steps 1 \
     --save_only_model \
-    # --metric_for_best_model eval_loss \
-    # --evaluation_strategy steps 
 
 
 # 这个是对应的启动脚本，里面deepspeed的config路径可能要换一下~
