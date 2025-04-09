@@ -28,7 +28,7 @@ class ModelArguments:
 class TaskArguments:
     task_config_path: str  = "config/cot_prompt_llm.yaml"
     train_task_names: str  = "AdvBench+general_v0"
-    think_mode: str = True
+    think_mode: str = False
     num_proc: int = 1
 @dataclass
 class PeftArguments:
@@ -94,14 +94,17 @@ def train():
     if not tokenizer.pad_token: tokenizer.pad_token = tokenizer.unk_token
     
     # dataset_mm = Dataset.load_from_disk("/fs-computility/ai-shen/majiachen/project/MLLM_CoT/dataset/cot_data_v1")
-    advbench = AdvBenchDataset(num_samples=1200,think_mode=True)
-    reject_cot_dataset = advbench.get_dataset()
-    
-    general_ds = GeneralDataset(num_samples=1200,think_mode=True)
+    # advbench = AdvBenchDataset(num_samples=1200,think_mode=True)
+    # reject_cot_dataset = advbench.get_dataset()
+    cot_data1 = DoNotAnswerDataset(num_samples=1200,think_mode=task_args.think_mode)
+    ds1 = cot_data1.get_dataset()
+    cot_data2 = HExDataset(num_samples=1200,think_mode=task_args.think_mode)
+    ds2 = cot_data2.get_dataset()
+    general_ds = GeneralDataset(num_samples=1200,think_mode=task_args.think_mode)
     general_dataset = general_ds.get_dataset()
-    
-    combined_train = concatenate_datasets([reject_cot_dataset["train"],general_dataset["train"]]).shuffle(seed=42)
-    combined_test = concatenate_datasets([reject_cot_dataset["test"],general_dataset["test"]]).shuffle(seed=42)
+    # breakpoint()
+    combined_train = concatenate_datasets([ds1["train"],ds2["train"],general_dataset["train"]]).shuffle(seed=42)
+    combined_test = concatenate_datasets([ds1["test"],ds2["test"],general_dataset["test"]]).shuffle(seed=42)
     train_dataset = DatasetDict({'train': combined_train,'test': combined_test})
 
     
@@ -124,7 +127,7 @@ def train():
         
     train_dataset = train_dataset.map(sft_map)
 
-    train_dataset = train_dataset.remove_columns(["label","question"])
+    train_dataset = train_dataset.remove_columns(["label","question","harm_type","specific_harm_type"])
     print(f"-----------------------------{task_args.think_mode}--------------------------------")
     # initiate trainer
     trainer = Trainer(

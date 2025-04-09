@@ -5,7 +5,7 @@ config_file=config/deepspeed_zero2.yaml
 
 model_name=sft_llm_zephyer
 version=v1
-train_task_names=AdvBench_520+ultrachat_1200_${version}
+train_task_names=HEX_270+DoNotAns_720+ultrachat_1200_${version}
 
 # model_path=/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct
 # model_path=/mnt/lustrenew/mllm_safety-shared/models/huggingface/lmsys/vicuna-7b-v1.5
@@ -15,7 +15,7 @@ model_path=/mnt/lustrenew/mllm_safety-shared/models/huggingface/HuggingFaceH4/ze
 base_dir=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:${model_name}/train:${train_task_names}
 
 think_mode=True
-num_train_epochs=12
+num_train_epochs=15
 per_device_train_batch_size=4
 gradient_accumulation_steps=$((16 / ngpu))
 per_device_eval_batch_size=4

@@ -28,11 +28,30 @@ from huggingface_hub import snapshot_download
 # repo_id = "google/gemma-2-9b"
 # repo_id = "HuggingFaceH4/zephyr-7b-beta"
 # repo_id = "allenai/OLMo-7B-0424-hf"
-repo_id = "lmsys/vicuna-7b-v1.5"
-revision = None
+# repo_id = "lmsys/vicuna-7b-v1.5"
+# repo_id = "meta-llama/Llama-Guard-3-8B"
+# repo_id = "sinwang/SIUO"
+# repo_id = "kzhou35/mssbench"
 
-# Specify the local directory where you want to save the files
+
+# repo_id = "Qwen/Qwen2.5-VL-7B-Instruct"
+
+# refer to : https://huggingface.co/deepseek-ai/deepseek-vl2-small
+# repo_id = "deepseek-ai/deepseek-vl2-small"
+
+## refer to : https://huggingface.co/OpenGVLab/InternVL2_5-8B  ## Finetune on https://internvl.readthedocs.io/en/latest/tutorials/coco_caption_finetune.html
+# repo_id = "OpenGVLab/InternVL2_5-8B" 
+
+# repo_id = "llava-hf/llava-v1.6-mistral-7b-hf"
+repo_id = "mistralai/Pixtral-12B-2409"
+# repo_id = "allenai/Molmo-7B-D-0924"
+# repo_id = "Qwen/Qwen2-VL-7B-Instruct"
+
+
+
+revision = None
 local_directory = f"/mnt/lustrenew/mllm_safety-shared/models/huggingface/{repo_id}"
+# local_directory = f"/mnt/lustrenew/mllm_safety-shared/datasets/SIUO"
 
 # Download the repository files
 snapshot_download(

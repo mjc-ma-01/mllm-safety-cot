@@ -1,0 +1,16 @@
+{"time":"2025-04-09T16:52:01.821847694+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250409_165201-w3wqgj35/logs/debug-core.log"}
+{"time":"2025-04-09T16:52:01.939450168+08:00","level":"INFO","msg":"created new stream","id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:01.939845516+08:00","level":"INFO","msg":"stream: started","id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:01.939852799+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:01.940111032+08:00","level":"INFO","msg":"handler: started","stream_id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:01.940143086+08:00","level":"INFO","msg":"sender: started","stream_id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:02.967241666+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-09T16:52:21.596262329+08:00","level":"INFO","msg":"stream: closing","id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:21.596347616+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-09T16:52:21.597577001+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-09T16:52:35.158261096+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-09T16:52:47.801531705+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/mjc_hndx/llm-cot-safety/w3wqgj35/file_stream\": unexpected EOF"}
+{"time":"2025-04-09T16:52:51.825315272+08:00","level":"INFO","msg":"handler: closed","stream_id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:51.825376634+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:51.825385068+08:00","level":"INFO","msg":"sender: closed","stream_id":"w3wqgj35"}
+{"time":"2025-04-09T16:52:51.826827837+08:00","level":"INFO","msg":"stream: closed","id":"w3wqgj35"}

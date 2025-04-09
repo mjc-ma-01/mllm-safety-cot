@@ -5,27 +5,27 @@ batch_size=4
 
 model_name=sft_llm_zephyer
 version=v0
-train_task_names=AdvBench_520+ultrachat_1200_${version}
+train_task_names=HEX_270+DoNotAns_720+ultrachat_1200_${version}
 think_mode=False
 path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:${model_name}/train:${train_task_names}/checkpoint-best
 
-# for rank in $(seq 0 $((world_size - 1))); do
-#     # gpu_id=$((rank % num_gpus))  # 根据 rank 分配 GPU 编号
-#     # echo "Launching task with rank ${rank} on GPU ${gpu_id}..."
+for rank in $(seq 0 $((world_size - 1))); do
+    # gpu_id=$((rank % num_gpus))  # 根据 rank 分配 GPU 编号
+    # echo "Launching task with rank ${rank} on GPU ${gpu_id}..."
     
-#     save_path=./logs/sft_answer/model:${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json
+    save_path=./logs/sft_answer/model:${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json
     
-#     PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
-#      python src/inference_llm.py \
-#     --model_path ${path} \
-#     --save_log_path  ${save_path} \
-#     --test_dataset ${test_dataset} \
-#     --cot ${think_mode} \
-#     --world_size ${world_size} \
-#     --rank ${rank} \
-#     --batch_size ${batch_size} &
-# done
-# wait  # 等待所有脚本完成
+    PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
+     python src/inference_llm.py \
+    --model_path ${path} \
+    --save_log_path  ${save_path} \
+    --test_dataset ${test_dataset} \
+    --cot ${think_mode} \
+    --world_size ${world_size} \
+    --rank ${rank} \
+    --batch_size ${batch_size} &
+done
+wait  # 等待所有脚本完成
 
 
 ############################## 用score模型给判断是否安全（危险问题拒答、非危险问题做出回答） ##############################

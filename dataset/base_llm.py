@@ -7,44 +7,35 @@ import transformers
 from pathlib import Path
 import omegaconf
 from tqdm import tqdm
+from datasets import Dataset, load_dataset
+import pandas as pd
+import os
+from datasets import load_from_disk
 # srun -p mllm-align --quotatype=reserved --gres=gpu:1 --cpus-per-task=16 --time=3000 python dataset/base.py
 reject_templates = [
-    "I'm sorry, but I am unable to assist with that request.",
-    "My apologies, I can't comply with this request.",
-    "Sorry, I can't fulfill your request at the moment.",
-    "I'm sorry, I cannot help with this request.",
-    "My apologies, I am unable to process that request.",
-    "Sorry, I'm not able to comply with this request.",
-    "I'm sorry, I can't provide that information.",
-    "My apologies, I cannot provide assistance with this.",
-    "Sorry, but I cannot fulfill this request.",
-    "I'm sorry, but I'm unable to help with this request."
+    "Sorry, I cannot fulfill that request.",
+    "I am not able to provide an answer to this.",
+    "Unfortunately, I cannot comply with that.",
+    "I'm afraid I cannot answer that question.",
+    "I cannot reveal that information.",
+    "I'm not able to disclose those details.",
+    "I cannot share that with you.",
+    "It is not safe to provide that information.",
+    "I'm afraid I don't have access to that data.",
+    "This question is not appropriate for me to answer."
 ]
-
-cot_templates = [
-    "It seems the user is asking for content related to unlawful actions, which goes against our safety protocols. Therefore, I cannot provide an answer to this inquiry.",
-    "The question contains references to harmful or illegal activities, violating our guidelines. Consequently, I am unable to assist with this request.",
-    "This request appears to involve sensitive or unsafe content that conflicts with our safety guidelines. As such, I cannot fulfill this request.",
-    "The user's question raises concerns about potentially dangerous or inappropriate material. In accordance with our safety policies, I am unable to generate a response.",
-    "It looks like the user is seeking information related to harmful behavior, which violates our safety rules. For that reason, I cannot respond to this query.",
-    "This query seems to involve illegal or unsafe topics, which are not allowed under our safety guidelines. Therefore, I am unable to provide assistance.",
-    "The content in the user's question touches on potentially dangerous subjects that breach our safety standards. As a result, I am unable to process this request.",
-    "It appears that the question is related to unlawful activities or harmful behaviors. This violates our security protocols, and I cannot comply with such a request.",
-    "The user's inquiry suggests a request for content linked to dangerous or harmful topics. Due to our safety policies, I am unable to assist with this.",
-    "The question seems to involve potentially illegal or unsafe material. In line with our safety guidelines, I cannot proceed with answering this.",
-    "The user's request involves topics that are prohibited due to their harmful nature. As this violates our safety guidelines, I cannot fulfill this request.",
-    "It seems the user is asking about topics that are in violation of our safety policies, such as harmful or illegal activities. As such, I must decline to provide a response.",
-    "This request contains references to harmful or illegal behavior, which is against our safety standards. For that reason, I cannot offer any help with this.",
-    "The question appears to touch on sensitive, potentially illegal content. As a result, I am unable to assist, as it violates our safety protocols.",
-    "It seems that this request involves content related to harmful or illegal activities, which is not allowed by our guidelines. Therefore, I am unable to fulfill it.",
-    "The user's question contains content that is not in compliance with our safety guidelines due to its potential harm. For this reason, I cannot provide an answer.",
-    "The request appears to contain references to dangerous or illegal actions. Given our safety guidelines, I cannot assist with such inquiries.",
-    "It seems the user is asking for information related to unsafe or illegal topics. This violates our safety policies, and I am unable to comply with such a request.",
-    "This query seems to involve subjects that go against our safety guidelines. Due to the harmful nature of the content, I cannot fulfill this request.",
-    "The user's request pertains to potentially harmful content that violates our safety regulations. Therefore, I must refrain from answering."
+reject_cot_responses = [
+    " Therefore, I'm sorry, but I am unable to assist with that request.",
+    " Thus, my apologies, but I can't comply with this request.",
+    " So, unfortunately, I can't fulfill your request at the moment.",
+    " For this reason, I'm sorry, but I cannot help with this request.",
+    " As a result, my apologies, but I am unable to process that request.",
+    " Because of this, sorry, but I'm not able to comply with this request.",
+    " Due to these concerns, I'm sorry, but I can't provide that information.",
+    " Consequently, my apologies, but I cannot provide assistance with this.",
+    " That being the case, sorry, but I cannot fulfill this request.",
+    " Given these reasons, I'm sorry, but I'm unable to help with this request."
 ]
-
-
 
 system_prompt: str = "You are a helpful and harmless assistant."
 user_cot_prompt_template: str = (
@@ -140,7 +131,7 @@ class AdvBenchDataset(Dataset):
         dataset = load_dataset("walledai/AdvBench")["train"]
         columns = dataset.column_names
         rej_answer = random.choice(reject_templates)
-        cot_answer = random.choice(cot_templates)
+        # cot_answer = random.choice(cot_templates)
         
         self.dataset = dataset.map(lambda row:{
             "question":template.format(A=row["prompt"]),
@@ -149,6 +140,49 @@ class AdvBenchDataset(Dataset):
         
         self.dataset = self.dataset.train_test_split(test_size=0.1)
         return self.dataset    
+
+        
+        
+        
+class HExDataset(Dataset):
+    think_model: bool = True
+    def __init__(self,num_samples,think_mode) -> None:
+        self.num_samples = num_samples
+        self.think_mode = think_mode
+        self.dataset = load_from_disk("/mnt/petrelfs/majiachen/datasets/HEx-PHI/cot_data")
+        self.template = user_cot_prompt_template if self.think_mode else user_prompt_template
+    def get_dataset(self):
+        rej_answer = random.choice(reject_templates)
+        self.dataset = self.dataset.map(lambda row:{
+            "question":self.template.format(A=row["prompt"]),
+            "label" : row["label"] if self.think_mode else rej_answer
+        })
+        self.dataset = self.dataset.train_test_split(test_size=0.1)
+        return self.dataset        
+        
+
+class DoNotAnswerDataset(Dataset):
+    think_model: bool = True
+    def __init__(self,num_samples,think_mode) -> None:
+        self.num_samples = num_samples
+        self.think_mode = think_mode
+        self.dataset = load_from_disk("/mnt/petrelfs/majiachen/datasets/DO-NOT-Answer")
+        self.template = user_cot_prompt_template if self.think_mode else user_prompt_template
+        
+    def get_dataset(self):
+        rej_answer = random.choice(reject_templates)
+        self.dataset = self.dataset.map(lambda row:{
+            "question":self.template.format(A=row["question"]),
+            "label" : row["label"] if self.think_mode else rej_answer
+        })
+        self.dataset = self.dataset.train_test_split(test_size=0.1)
+        return self.dataset        
+        
+               
+        
+        
+        
+        
         
 class GeneralDataset(Dataset):
     think_mode: bool  = True
@@ -164,11 +198,12 @@ class GeneralDataset(Dataset):
             "question": template.format(A=row["messages"][0]["content"]),
             "label": row["messages"][1]["content"]        
         }).remove_columns(columns).shuffle(seed=42)
-        self.dataset = dataset.filter(lambda row: len(row["question"]) < 500).select(range(self.num_samples))
+        self.dataset = dataset.filter(lambda row: len(row["question"]) < 300).select(range(self.num_samples))
         
         self.dataset = self.dataset.train_test_split(test_size=0.1)
         return self.dataset    
     
+ 
 class XSTest(Dataset):
     '''
     XSTest comprises:
@@ -207,18 +242,103 @@ class StrongREJECT(Dataset):
         return self.dataset
    
 
-
 if __name__ == "__main__":
     prompt_config_path = 'config/cot_prompt_llm.yaml'
     task_configs = omegaconf.OmegaConf.load(prompt_config_path)
     # xstest = load_dataset("walledai/XSTest")
-    # breakpoint()
-    advbench = AdvBenchDataset(num_samples=1200,think_mode=True)
-    ds_adv = advbench.get_dataset()
     
-    general_ds = GeneralDataset(num_samples=1200,think_mode=True)
-    ds_gen = general_ds.get_dataset()
+    # cot_data1 = DoNotAnswerDataset(num_samples=1200,think_mode=True)
+    # ds1 = cot_data1.get_dataset()
+    # cot_data2 = HExDataset(num_samples=1200,think_mode=True)
+    # ds2 = cot_data2.get_dataset()
+    
+    # advbench = AdvBenchDataset(num_samples=1200,think_mode=True)
+    # ds_adv = advbench.get_dataset()
+    
+    # general_ds = GeneralDataset(num_samples=1200,think_mode=True)
+    # ds_gen = general_ds.get_dataset()
     # xstest = XSTest(task_configs=task_configs.mm_safetybench)
     # reject_dataset = xstest.get_dataset()
     # breakpoint()
     # reject_cot_dataset = xstest.get_cot_reject_dataset()
+
+
+
+#### HEx-PHI数据集数据工程
+    file_to_sub_label = {
+        "category_1.csv": "Illegal Activity",
+        "category_3.csv": "Hate,harass and violence",
+        "category_4.csv": "Malware",
+        "category_5.csv": "Physical Harm",
+        "category_6.csv": "Economic Harm",
+        "category_8.csv": "Fraud Deception",
+        "category_7.csv": "Adult Content",
+        "category_9.csv": "Political Campaigning",
+        "category_10.csv": "Privacy Violation Activity",
+        "category_11.csv": "Tailored Financial Advice"
+    }
+    def load_dataset(dataset_dir: str, task_configs: dict):
+        dataset_entries = []
+        for filename in os.listdir(dataset_dir):
+            if filename.endswith(".csv"):
+                sub_label = file_to_sub_label.get(filename)
+                if not sub_label:
+                    continue  # 如果文件不在字典中，跳过
+                label_list = task_configs["HEx_PHI"].get(sub_label)
+                if not label_list:
+                    continue  # 如果该sub_label没有对应的label列表，跳过
+                file_path = os.path.join(dataset_dir, filename)
+                df = pd.read_csv(file_path, header=None)  # 读取文件，没有列名
+                
+                for _, row in df.iterrows():
+                    label = random.choice(label_list) if label_list else None
+                    dataset_entries.append({
+                        "prompt": row[0],  # CSV中的每条数据
+                        "harm_type": sub_label,
+                        "label": label+random.choice(reject_cot_responses)
+                    })
+        return Dataset.from_pandas(pd.DataFrame(dataset_entries))
+    dataset_dir = '/mnt/petrelfs/majiachen/datasets/HEx-PHI/csv'
+    dataset = load_dataset(dataset_dir, task_configs)
+    dataset.save_to_disk("/mnt/petrelfs/majiachen/datasets/HEx-PHI/cot_data")
+
+
+
+
+# # #### Do not answer 数据集数据工程 (722data)
+#     import yaml
+#     dataset = load_dataset("LibrAI/do-not-answer")
+#     with open('harm_types_output.yaml', 'r') as f:
+#         harm_dict = yaml.safe_load(f)
+#     new_data = []
+#     for entry in dataset['train']:  # Assuming dataset is for the 'train' split
+#         harm_type = entry.get('types_of_harm')
+#         specific_harm = entry.get('specific_harms')
+#         question = entry.get('question')
+#         if harm_type is None or specific_harm is None:
+#             print(f"Skipping entry due to missing fields: {entry}")
+#             continue
+#         if harm_type in harm_dict and specific_harm in harm_dict[harm_type]:
+#             label = random.choice(harm_dict[harm_type][specific_harm])  # Randomly choose a response
+#             harm_type = harm_type  # harm_type as label
+#             specific_harm_type = specific_harm  # specific_harm as sub_label
+
+#             new_data.append({
+#                 "question": question,
+#                 "label": label+random.choice(reject_cot_responses),
+#                 "harm_type": harm_type,
+#                 "specific_harm_type":specific_harm_type
+#             })
+#         else:
+#             print(f"Skipping entry due to missing harm_type or specific_harm mapping: {entry}")
+
+#     new_dataset = Dataset.from_dict({
+#         'question': [item['question'] for item in new_data],
+#         'label': [item['label'] for item in new_data],
+#         'harm_type': [item['harm_type'] for item in new_data],
+#         'specific_harm_type': [item['specific_harm_type'] for item in new_data]})
+    
+#     new_dataset.save_to_disk("/mnt/petrelfs/majiachen/datasets/DO-NOT-Answer")
+#     with open("/mnt/petrelfs/majiachen/datasets/DO-NOT-Answer/harm_cot_data_output.json", "w") as output_file:
+#         json.dump(new_data, output_file, indent=4)
+#     print("Processing complete. The results have been saved as a dataset and to 'harm_data_output.json'.")

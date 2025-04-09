@@ -12,7 +12,7 @@ rejection_templates = [
     "Sorry, I cannot fulfill that request.",
     "I am not able to provide an answer to this.",
     "Unfortunately, I cannot comply with that.",
-    "I’m afraid I cannot answer that question.",
+    "I'm afraid I cannot answer that question.",
     "I cannot reveal that information.",
     "I'm not able to disclose those details.",
     "I cannot share that with you.",
@@ -21,9 +21,6 @@ rejection_templates = [
     "This question is not appropriate for me to answer."
 ]
 
-# answer_prompt_template: str = (
-#     "<think>{A}</think>\n\n"
-# )
 system_prompt: str = "You are a helpful and harmless assistant."
 user_cot_prompt_template: str = (
     "You are given an image and a question, You should think step-by-step and answer the question.\n"
@@ -44,18 +41,20 @@ generate_cot_prompt_template: str = (
 )
 
 class MSSBenchDataset(Dataset):
-    prompt_path: str = '/fs-computility/ai-shen/majiachen/datasets/mssbench/combined_full.json'
-    image_path: str = "/fs-computility/ai-shen/majiachen/datasets/mssbench"
-    def __init__(self,task_configs,think_mode,scene) -> None:
+    prompt_path: str = '/mnt/lustrenew/mllm_safety-shared/datasets/mssbench/combined_full.json'
+    image_path: str = "/mnt/lustrenew/mllm_safety-shared/datasets/mssbench"
+    def __init__(self,task_configs,think_mode) -> None:
         self.annotations = []
         self.task_configs = task_configs
         self.think_mode = think_mode
         self.image_path = os.path.join(self.image_path,scene)
-        self.scene = scene
-    def get_reject_dataset(self):
+        self.scene = "chat"
+        
+    def get_dataset(self):
         print(f"This is in the {self.scene} ood test_scene")
         val_data = json.load(open(self.prompt_path, "r"))
-        for i, data in tqdm(enumerate(val_data[self.scene])):
+        for i, data in tqdm(val_data[self.scene]):
+        # for i, data in tqdm(enumerate(val_data[self.scene])):
             safe_image = os.path.join(self.image_path, data["safe_image_path"])
             unsafe_image = os.path.join(self.image_path, data["unsafe_image_path"])
             # breakpoint()
@@ -81,12 +80,21 @@ class MSSBenchDataset(Dataset):
     def dataset_split(self):
         self.dataset = self.dataset.train_test_split(test_size=0.1)
         
-        
+class SIUO(Dataset):
+    def __init__(self,think_mode) -> None:
+        self.think_mode = think_mode
+        self.dataset = load_dataset("/mnt/lustrenew/mllm_safety-shared/datasets/SIUO")
+        self.image_path = "/mnt/lustrenew/mllm_safety-shared/datasets/SIUO/images"
+    # def get_dataset(self):
+
+
+
+
         
 class ShareGPT4vDataset(Dataset):
     dataset_ids: str = "ShareGPT-4V"
-    prompt_path: str = "/fs-computility/ai-shen/shared/llm-safety/datasets/ShareGPT4V"
-    image_path: str = "/fs-computility/ai-shen/shared/llm-safety/datasets/MSCOCO/MSCOCO2017/train2017"
+    prompt_path: str = "/mnt/lustrenew/mllm_safety-shared/datasets/ShareGPT4V"
+    image_path: str = "/mnt/lustrenew/mllm_safety-shared/datasets/MSCOCO/MSCOCO2017/train2017"
     think_mode: bool  = True
     def __init__(self,num_samples,think_mode) -> None:
         self.annotations = []
@@ -94,54 +102,45 @@ class ShareGPT4vDataset(Dataset):
         self.dataset = load_dataset(self.prompt_path,"ShareGPT4V")["train"]
         self.think_mode = think_mode
         # breakpoint()
-        def filter_coco_images(dataset):
+        def filter_samples(dataset):
+            base_path = "/mnt/lustrenew/mllm_safety-shared/datasets/ShareGPT4V/data/"
             filtered_dataset = dataset.filter(lambda example: example['image'].startswith('coco'))
-            
-            filtered_dataset = filtered_dataset.map(lambda example: {"image": "/fs-computility/ai-shen/shared/llm-safety/datasets/MSCOCO/MSCOCO2017/train2017/"+ example["image"].split("/")[-1]}).select(range(10000))
+            filtered_dataset = filtered_dataset.map(lambda example: {"image": base_path + example["image"]}).select(range(10000))
             
             filtered_dataset1 = dataset.filter(lambda example: example['image'].startswith('sam'))
-            filtered_dataset1 = filtered_dataset1.map(lambda example: {"image": "/fs-computility/ai-shen/shared/llm-safety/datasets/ShareGPT4V/data/" + example["image"]}).select(range(8000))
+            filtered_dataset1 = filtered_dataset1.map(lambda example: {"image": base_path + example["image"]}).select(range(8000))
             
             filtered_dataset2 = dataset.filter(lambda example: example['image'].startswith('web-landmark'))
-            filtered_dataset2 = filtered_dataset2.map(lambda example: {"image": "/fs-computility/ai-shen/shared/llm-safety/datasets/ShareGPT4V/data/" + example["image"]})
+            filtered_dataset2 = filtered_dataset2.map(lambda example: {"image": base_path + example["image"]})
             
             filtered_dataset3 = dataset.filter(lambda example: example['image'].startswith('wikiart'))
-            filtered_dataset3 = filtered_dataset3.map(lambda example: {"image": "/fs-computility/ai-shen/shared/llm-safety/datasets/ShareGPT4V/data/" + example["image"]})
+            filtered_dataset3 = filtered_dataset3.map(lambda example: {"image": base_path + example["image"]})
             
             # 将所有数据集拼接
             combined_dataset = concatenate_datasets([filtered_dataset, filtered_dataset1, filtered_dataset2, filtered_dataset3])
-        
             shuffled_dataset = combined_dataset.shuffle(seed=42).select(range(min(self.num_samples, len(combined_dataset))))
-        
-            # sampled_dataset = shuffled_dataset
-        
             return shuffled_dataset
-
-        self.dataset = filter_coco_images(self.dataset)
-        # self.dataset = filter_coco_images(self.dataset).shuffle(seed=42).select(range(self.num_samples))
+        self.dataset = filter_samples(self.dataset)
         
-        
-    def get_reject_dataset(self):
-        
-        def convert_to_llama(row):
-            # image_paths = os.path.join(self.image_path, row["image"].split("/")[-1])
-            for dict in row["conversations"]:
-                if dict["from"] == "human":
-                    # questions.append(dict["value"].replace("<image>\n",""))
-                    questions = system_prompt+user_cot_prompt_template.format(A=dict["value"].replace("<image>\n","")) if self.think_mode else system_prompt+user_prompt_template.format(A=dict["value"].replace("<image>\n",""))
-                elif dict["from"] == "gpt":
-                    # answers.append(dict["value"])
-                    answers = dict["value"]
+    def get_dataset(self):
+        def convert_to_llama_map(row):
+            for entry in row["conversations"]:
+                if entry["from"] == "human":
+                    questions = system_prompt+user_cot_prompt_template.format(A=entry["value"].replace("<image>\n","")) if self.think_mode else system_prompt+user_prompt_template.format(A=entry["value"].replace("<image>\n",""))
+                elif entry["from"] == "gpt":
+                    answers = entry["value"]
                     
             return {
                 "question": questions,
                 "image_path": row["image"],
                 "label": answers
             }
-        self.dataset = self.dataset.map(convert_to_llama).remove_columns(["id","image","conversations"])
-        # breakpoint()
+        self.dataset = self.dataset.map(convert_to_llama_map).remove_columns(["id","image","conversations"])
         self.dataset = self.dataset.train_test_split(test_size=0.1)
         return self.dataset
+    
+
+
 
 
 
@@ -149,13 +148,13 @@ class MMSafetyBenchDataset(Dataset):
     dataset_ids: str = "mm-safety-bench"
     dataset_categories_list: Sequence[str] = ['04-Physical_Harm', '05-EconomicHarm', '12-Health_Consultation', '10-Legal_Opinion', '06-Fraud', '13-Gov_Decision', '09-Privacy_Violence', '03-Malware_Generation', '08-Political_Lobbying', '11-Financial_Advice', '07-Sex', '02-HateSpeech', '01-Illegal_Activity']
 
-    name_list : str = '/fs-computility/ai-shen/shared/llm-safety/datasets/mm-safetybench/processed_questions'
-    image_dir : str ='/fs-computility/ai-shen/shared/llm-safety/datasets/mm-safetybench/imgs'
-    think_mode : bool = True
+    name_list : str = '/mnt/lustrenew/mllm_safety-shared/datasets/mm-safetybench/processed_questions'
+    image_dir : str ='/mnt/lustrenew/mllm_safety-shared/datasets/mm-safetybench/imgs'
     def __init__(self,task_configs,think_mode) -> None:
         self.annotations = []
         self.task_configs = task_configs
         self.think_mode = think_mode
+        
     def get_cot_training_dataset(self):
         for i in self.dataset_categories_list:
             self.dataset_categories = i
@@ -173,35 +172,33 @@ class MMSafetyBenchDataset(Dataset):
                     }
                 )
         self.dataset = Dataset.from_dict({
-            "question": [item["question"] for item in self.annotations],
+            "question": [item["question"] for item in self.annotations], 
             "prompt_question": [item["prompt_question"] for item in self.annotations],
             "image_path": [item["image_path"] for item in self.annotations],
-            "catagory": [item["catagory"] for item in self.annotations]
-        })
-        # self.dataset = self.dataset.train_test_split(test_size=0.1)
+            "catagory": [item["catagory"] for item in self.annotations]})
         return self.dataset
     
-    def get_reject_dataset(self):
+    def get_dataset(self):
         for i in self.dataset_categories_list:
             self.dataset_categories = i
             self.image_dir_ = os.path.join(self.image_dir, self.dataset_categories, "SD")
             self.name_list_ = os.path.join(self.name_list, f"{self.dataset_categories}.json")
-            data_infos = json.load(open(self.name_list_, "r"))
+            data = json.load(open(self.name_list_, "r"))
 
-            for data_idx, data_info in data_infos.items():
+            for idx, entry in data.items():
                 self.cot_data = random.choice(self.task_configs[self.dataset_categories])
                 self.annotations.append(
                     {
-                        "question": system_prompt+user_cot_prompt_template.format(A=data_info["Rephrased Question(SD)"]) if self.think_mode else system_prompt+user_prompt_template.format(A=data_info["Rephrased Question(SD)"]),
-                        "image_path": os.path.join(self.image_dir_, f"{data_idx}.jpg"),
+                        "question": system_prompt+user_cot_prompt_template.format(A=entry["Rephrased Question(SD)"]) if self.think_mode else system_prompt+user_prompt_template.format(A=entry["Rephrased Question(SD)"]),
+                        "image_path": os.path.join(self.image_dir_, f"{idx}.jpg"),
                         "label": self.cot_data if self.think_mode else random.choice(rejection_templates)
                     }
                 )
         self.dataset = Dataset.from_dict({
             "question": [item["question"] for item in self.annotations],
             "image_path": [item["image_path"] for item in self.annotations],
-            "label": [item["label"] for item in self.annotations]
-        })
+            "label": [item["label"] for item in self.annotations]})
+        
         self.dataset = self.dataset.train_test_split(test_size=0.1)
         return self.dataset
  
@@ -211,8 +208,8 @@ class MMSafetyBenchDataset(Dataset):
     def __len__(self) -> int:
         return len(self.dataset["train"])  # 或者根据需要返回训练集或测试集的大小
 
-    def get_dataset(self):
-        return self.dataset
+
+
     
 class NSFWDataset():
     dataset_ids: str = "nsfw_dataset"

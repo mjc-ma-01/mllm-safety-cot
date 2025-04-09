@@ -13,7 +13,7 @@ import os, json
 from src.utils import *
 
 model_name="sft_llm_zephyer"
-train_task_names="AdvBench+general_v0"
+train_task_names="HEX_270+DoNotAns_720+ultrachat_1200_v1"
 
 @dataclass
 class ScriptArgument:
@@ -22,8 +22,8 @@ class ScriptArgument:
     # model_path: str = "/mnt/lustrenew/mllm_safety-shared/models/huggingface/google/zephyr-7b-beta"
     num_examples: str = "all"
     save_log_path: str = f"./logs/sft_answer/model:{model_name}/train:{train_task_names}/test:ood/test.json"
-    cot: bool = False
-    test_dataset: str = "ood"
+    cot: bool = True
+    test_dataset: str = "iid"
     rank: int = 0 ## 当前任务块
     world_size: int = 8 ## 总任务数量
     batch_size: int = 4 ## 推理时一个批次的数量
@@ -57,27 +57,28 @@ if __name__ == "__main__":
         ),
     )
     tokenizer = AutoTokenizer.from_pretrained(inference_args.model_path, padding_side="left")
+    # if not tokenizer.pad_token: tokenizer.pad_token = tokenizer.eos_token
     if not tokenizer.pad_token: tokenizer.pad_token = tokenizer.unk_token
-    
-    # inference_args.num_examples = int(inference_args.num_examples) if inference_args.num_examples != "all" else "all"
     
     if inference_args.num_examples == "all":
         # overrefusal test dataset
         if inference_args.test_dataset == "ood":
-            test_dataset = XSTest(think_mode=inference_args.cot)
+            # test_dataset = XSTest(think_mode=inference_args.cot)
+            test_dataset = StrongREJECT(think_mode=inference_args.cot)
+            
         # general test dataset
         elif inference_args.test_dataset == "general":
             test_dataset = GeneralDataset(num_samples=1200,think_mode=inference_args.cot)
         # IID safety test dataset
         elif inference_args.test_dataset == "iid":
-            adv_dataset = AdvBenchDataset(num_samples=1200,think_mode=inference_args.cot)
+            test_dataset = DoNotAnswerDataset(num_samples=1200,think_mode=inference_args.cot)
 
     test_dataset = test_dataset.get_dataset()["test"]
     print(f"{inference_args.test_dataset} Dataset length: {len(test_dataset)}" )
     test_dataset = split_datasets(test_dataset,inference_args.rank, inference_args.world_size)
     print(f"{inference_args.test_dataset} subset length:",len(test_dataset))
     print(f"{inference_args.test_dataset} subset demo:",test_dataset[0])
-            
+    # breakpoint()         
     def llm_collator(row, system_prompt: str="You are a helpful and harmless assistant.") -> dict:
         messages = [
             {"role": "system", "content": system_prompt},
@@ -103,11 +104,8 @@ if __name__ == "__main__":
                 attention_mask=attention_mask,
                 max_new_tokens=500,  # 控制最大生成长度
                 num_return_sequences=1,  # 生成一个答案
-                do_sample=False,  # 采用贪心解码（可以改成True用于采样）
-                temperature=1.0,  # 控制生成的多样性（仅在 do_sample=True 时有效）
-                top_k=50,  # 仅采样 top-k 概率最高的 token（仅在 do_sample=True 时有效）
-                top_p=0.9,  # nucleus sampling（仅在 do_sample=True 时有效）
-                repetition_penalty=1.2  # 惩罚重复生成
+                do_sample=True,  # 采用贪心解码（可以改成True用于采样）
+                temperature=0.7,  # 控制生成的多样性（仅在 do_sample=True 时有效）
             )
         generated_texts = tokenizer.batch_decode(generated_ids[:, input_ids.shape[-1]:], skip_special_tokens=True) 
         for ex, answer in zip(batch, generated_texts):
@@ -115,7 +113,8 @@ if __name__ == "__main__":
                 "question": ex["question"],
                 "answer": answer,
                 "label": ex.get("label", None)})
-        print(f"num_{i}_examples")    
+        print(f"num_{i}_examples")
+        # breakpoint()    
         print(results[i])
 
     # 保存结果

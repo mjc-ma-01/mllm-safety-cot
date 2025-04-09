@@ -1,0 +1,36 @@
+  0%|          | 0/561 [00:00<?, ?it/s]Traceback (most recent call last):
+> /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot.py(146)multimodal_collator()
+-> if isinstance(model, LlavaForConditionalGeneration):
+(Pdb) [<PIL.Image.Image image mode=RGB size=2250x1500 at 0x7F8EA80F4340>, <PIL.Image.Image image mode=RGB size=480x640 at 0x7F8EA80F45E0>, <PIL.Image.Image image mode=RGB size=2250x1500 at 0x7F92303B3730>, <PIL.Image.Image image mode=RGB size=427x640 at 0x7F8EA8149AB0>]
+(Pdb) <class 'list'>
+(Pdb) 4
+(Pdb) <PIL.Image.Image image mode=RGB size=2250x1500 at 0x7F8EA80F4340>
+(Pdb) *** SyntaxError: '(' was never closed
+(Pdb) <class 'PIL.Image.Image'>
+(Pdb) [<PIL.Image.Image image mode=RGB size=2250x1500 at 0x7F8EA80F4730>, <PIL.Image.Image image mode=RGB size=480x640 at 0x7F8EA8149CC0>, <PIL.Image.Image image mode=RGB size=2250x1500 at 0x7F8EA8149C30>, <PIL.Image.Image image mode=RGB size=427x640 at 0x7F8EA8149C00>]
+(Pdb) (Pdb) <class 'list'>
+(Pdb) <PIL.Image.Image image mode=RGB size=2250x1500 at 0x7F8EA80F4730>
+(Pdb)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot.py", line 230, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5180, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 573, in __iter__
+    current_batch = send_to_device(current_batch, self.device, non_blocking=self._non_blocking)
+UnboundLocalError: local variable 'current_batch' referenced before assignment
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot.py", line 230, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5180, in get_batch_samples
+[rank0]:     batch_samples += [next(epoch_iterator)]
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 573, in __iter__
+[rank0]:     current_batch = send_to_device(current_batch, self.device, non_blocking=self._non_blocking)
+[rank0]: UnboundLocalError: local variable 'current_batch' referenced before assignment
