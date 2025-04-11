@@ -1,0 +1,300 @@
+  0%|          | 0/4509 [00:00<?, ?it/s]
+> /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(176)multimodal_collator()
+-> batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+(Pdb) > /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(179)multimodal_collator()
+-> labels = batch['input_ids'].clone()
+(Pdb) {'input_ids': tensor([[    1,   733, 16289,  ..., 28723,     2,   259]]), 'attention_mask': tensor([[1, 1, 1,  ..., 1, 1, 1]]), 'pixel_values': tensor([[[[[-1.5003e+00, -1.5149e+00, -1.5003e+00,  ..., -1.4565e+00,
+            -1.4711e+00, -1.4857e+00],
+           [-1.5295e+00, -1.4857e+00, -1.5149e+00,  ..., -1.4565e+00,
+            -1.4711e+00, -1.4419e+00],
+           [-1.5149e+00, -1.5003e+00, -1.5003e+00,  ..., -1.4419e+00,
+            -1.4419e+00, -1.4419e+00],
+           ...,
+           [-1.4127e+00, -1.3689e+00, -1.3397e+00,  ..., -1.4565e+00,
+            -1.4857e+00, -1.4419e+00],
+           [-1.4419e+00, -1.3689e+00, -1.3543e+00,  ..., -1.4711e+00,
+            -1.4711e+00, -1.4273e+00],
+           [-1.4565e+00, -1.3835e+00, -1.3981e+00,  ..., -1.4565e+00,
+            -1.4857e+00, -1.4711e+00]],
+
+          [[-1.4219e+00, -1.4369e+00, -1.4219e+00,  ..., -1.3469e+00,
+            -1.3469e+00, -1.3619e+00],
+           [-1.4669e+00, -1.4219e+00, -1.4369e+00,  ..., -1.3319e+00,
+            -1.3619e+00, -1.3769e+00],
+           [-1.4519e+00, -1.4369e+00, -1.4069e+00,  ..., -1.3169e+00,
+            -1.3469e+00, -1.3769e+00],
+           ...,
+           [-1.2418e+00, -1.2268e+00, -1.1968e+00,  ..., -1.3469e+00,
+            -1.3319e+00, -1.3319e+00],
+           [-1.2568e+00, -1.2268e+00, -1.2118e+00,  ..., -1.3619e+00,
+            -1.3319e+00, -1.3319e+00],
+           [-1.3019e+00, -1.2268e+00, -1.2268e+00,  ..., -1.3319e+00,
+            -1.3469e+00, -1.3769e+00]],
+
+          [[-1.2100e+00, -1.1674e+00, -1.1247e+00,  ..., -1.1816e+00,
+            -1.1958e+00, -1.1532e+00],
+           [-1.1674e+00, -1.1247e+00, -1.1389e+00,  ..., -1.1532e+00,
+            -1.1816e+00, -1.1532e+00],
+           [-1.1532e+00, -1.1247e+00, -1.0963e+00,  ..., -1.1105e+00,
+            -1.1532e+00, -1.1674e+00],
+           ...,
+           [-9.9674e-01, -9.3986e-01, -9.2564e-01,  ..., -1.1816e+00,
+            -1.1247e+00, -1.0963e+00],
+           [-1.0110e+00, -9.3986e-01, -9.1142e-01,  ..., -1.1816e+00,
+            -1.0963e+00, -1.1105e+00],
+           [-1.0252e+00, -9.5408e-01, -9.3986e-01,  ..., -1.1674e+00,
+            -1.0821e+00, -1.1105e+00]]],
+
+
+         [[[-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           ...,
+           [-1.6609e+00, -1.6755e+00, -1.6755e+00,  ...,  9.8144e-01,
+             9.6684e-01,  8.7925e-01],
+           [-1.6755e+00, -1.6755e+00, -1.6901e+00,  ...,  6.4567e-01,
+             1.2150e+00,  1.1128e+00],
+           [-1.6755e+00, -1.6755e+00, -1.6755e+00,  ...,  8.0626e-01,
+             7.0407e-01,  1.0252e+00]],
+
+          [[-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           ...,
+           [-1.6320e+00, -1.6470e+00, -1.6470e+00,  ...,  1.0694e+00,
+             1.2645e+00,  1.0844e+00],
+           [-1.6470e+00, -1.6470e+00, -1.6470e+00,  ...,  8.1423e-01,
+             1.2945e+00,  1.3695e+00],
+           [-1.6320e+00, -1.6320e+00, -1.6320e+00,  ...,  8.4425e-01,
+             9.3429e-01,  1.2194e+00]],
+
+          [[-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           ...,
+           [-1.2811e+00, -1.2954e+00, -1.3096e+00,  ..., -4.9904e-01,
+            -1.5775e-01, -3.1417e-01],
+           [-1.3096e+00, -1.3096e+00, -1.3522e+00,  ..., -1.4353e-01,
+            -1.0087e-01, -2.8573e-01],
+           [-1.3380e+00, -1.3380e+00, -1.3665e+00,  ..., -5.8213e-02,
+            -8.6653e-02,  9.8208e-02]]],
+
+
+         [[[-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           ...,
+           [ 8.2086e-01,  4.2670e-01,  6.3108e-01,  ..., -1.7047e+00,
+            -1.7047e+00, -1.6755e+00],
+           [ 1.0252e+00,  1.2150e+00,  7.6246e-01,  ..., -1.7047e+00,
+            -1.7047e+00, -1.6755e+00],
+           [ 9.5224e-01,  1.0252e+00,  9.2304e-01,  ..., -1.6901e+00,
+            -1.6901e+00, -1.6755e+00]],
+
+          [[-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           ...,
+           [ 1.0844e+00,  8.7426e-01,  9.1929e-01,  ..., -1.6470e+00,
+            -1.6470e+00, -1.6170e+00],
+           [ 1.4295e+00,  1.3995e+00,  1.2495e+00,  ..., -1.6470e+00,
+            -1.6470e+00, -1.6170e+00],
+           [ 1.2194e+00,  1.2344e+00,  1.1744e+00,  ..., -1.6170e+00,
+            -1.6320e+00, -1.6170e+00]],
+
+          [[-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           ...,
+           [-4.9904e-01, -5.5592e-01, -4.9904e-01,  ..., -1.3522e+00,
+            -1.3522e+00, -1.3238e+00],
+           [-1.0087e-01, -1.8619e-01, -2.2885e-01,  ..., -1.3522e+00,
+            -1.3522e+00, -1.3238e+00],
+           [ 6.9767e-02,  1.1243e-01, -1.8619e-01,  ..., -1.3665e+00,
+            -1.3380e+00, -1.3238e+00]]],
+
+
+         [[[-1.6609e+00, -1.6609e+00, -1.6755e+00,  ...,  8.6465e-01,
+             4.8509e-01,  4.8509e-01],
+           [-1.6755e+00, -1.6755e+00, -1.6755e+00,  ...,  1.2150e+00,
+             1.3464e+00,  5.5808e-01],
+           [-1.6755e+00, -1.6755e+00, -1.6755e+00,  ...,  1.6530e+00,
+             1.6238e+00,  9.0935e-02],
+           ...,
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00]],
+
+          [[-1.6170e+00, -1.6170e+00, -1.6320e+00,  ...,  8.7426e-01,
+             7.2418e-01,  8.7426e-01],
+           [-1.6320e+00, -1.6320e+00, -1.6320e+00,  ...,  1.2495e+00,
+             1.2645e+00,  7.9922e-01],
+           [-1.6320e+00, -1.6320e+00, -1.6320e+00,  ...,  1.5046e+00,
+             1.3095e+00,  3.9401e-01],
+           ...,
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00]],
+
+          [[-1.3238e+00, -1.3522e+00, -1.3665e+00,  ...,  1.2887e-02,
+            -8.6653e-02,  6.9767e-02],
+           [-1.3380e+00, -1.3380e+00, -1.3380e+00,  ...,  4.9637e-01,
+             2.6885e-01, -1.4353e-01],
+           [-1.3380e+00, -1.3380e+00, -1.3380e+00,  ...,  9.7985e-01,
+             5.5325e-01, -5.1326e-01],
+           ...,
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00]]],
+
+
+         [[[ 1.0106e+00,  8.9385e-01,  1.0982e+00,  ..., -1.6755e+00,
+            -1.6755e+00, -1.6901e+00],
+           [ 3.3911e-01,  5.5808e-01,  9.9604e-01,  ..., -1.6609e+00,
+            -1.6901e+00, -1.7047e+00],
+           [-2.1563e-01,  1.9312e-01,  1.0836e+00,  ..., -1.6609e+00,
+            -1.6755e+00, -1.6901e+00],
+           ...,
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00],
+           [-1.7923e+00, -1.7923e+00, -1.7923e+00,  ..., -1.7923e+00,
+            -1.7923e+00, -1.7923e+00]],
+
+          [[ 1.0393e+00,  1.2044e+00,  1.1594e+00,  ..., -1.6320e+00,
+            -1.6020e+00, -1.6170e+00],
+           [ 7.6921e-01,  9.4930e-01,  1.2194e+00,  ..., -1.6170e+00,
+            -1.6170e+00, -1.6320e+00],
+           [ 3.9401e-01,  5.8911e-01,  1.0393e+00,  ..., -1.6170e+00,
+            -1.6320e+00, -1.6470e+00],
+           ...,
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00],
+           [-1.7521e+00, -1.7521e+00, -1.7521e+00,  ..., -1.7521e+00,
+            -1.7521e+00, -1.7521e+00]],
+
+          [[ 1.2887e-02,  1.2887e-02, -1.7197e-01,  ..., -1.3665e+00,
+            -1.3522e+00, -1.3665e+00],
+           [-2.2885e-01, -1.3329e-03, -1.7197e-01,  ..., -1.3522e+00,
+            -1.3665e+00, -1.3807e+00],
+           [-7.1234e-01, -3.7105e-01, -1.5775e-01,  ..., -1.3522e+00,
+            -1.3665e+00, -1.3807e+00],
+           ...,
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00],
+           [-1.4802e+00, -1.4802e+00, -1.4802e+00,  ..., -1.4802e+00,
+            -1.4802e+00, -1.4802e+00]]]]]), 'image_sizes': tensor([[438, 640]])}
+(Pdb) tensor([[    1,   733, 16289,  ..., 28723,     2,   259]])
+(Pdb) torch.Size([1, 2416])
+(Pdb) > /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(190)multimodal_collator()
+-> batch["labels"] = labels
+(Pdb) > /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(176)multimodal_collator()
+-> batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+(Pdb)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 227, in <module>
+    trainer.push_to_hub(dataset_name=script_args.dataset_name)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2548, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3740, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2321, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 266, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2053, in backward
+    self.optimizer.backward(loss, retain_graph=retain_graph)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 2062, in backward
+    self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+    scaled_loss.backward(retain_graph=retain_graph)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 910, in reduce_partition_and_remove_grads
+    self.reduce_ready_partitions_and_remove_grads(param, i)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1421, in reduce_ready_partitions_and_remove_grads
+    self.reduce_independent_p_g_buckets_and_remove_grads(param, i)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 939, in reduce_independent_p_g_buckets_and_remove_grads
+    self.reduce_ipg_grads()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1408, in reduce_ipg_grads
+    self.copy_grads_in_partition(param)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1347, in copy_grads_in_partition
+    self.grads_in_partition = torch.empty(int(total_size),
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.10 GiB. GPU 0 has a total capacity of 79.32 GiB of which 7.73 GiB is free. Including non-PyTorch memory, this process has 71.59 GiB memory in use. Of the allocated memory 61.14 GiB is allocated by PyTorch, and 9.37 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 227, in <module>
+[rank0]:     trainer.push_to_hub(dataset_name=script_args.dataset_name)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2548, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3740, in training_step
+[rank0]:     self.accelerator.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2321, in backward
+[rank0]:     self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 266, in backward
+[rank0]:     self.engine.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2053, in backward
+[rank0]:     self.optimizer.backward(loss, retain_graph=retain_graph)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 2062, in backward
+[rank0]:     self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+[rank0]:     scaled_loss.backward(retain_graph=retain_graph)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+[rank0]:     torch.autograd.backward(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank0]:     _engine_run_backward(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 910, in reduce_partition_and_remove_grads
+[rank0]:     self.reduce_ready_partitions_and_remove_grads(param, i)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1421, in reduce_ready_partitions_and_remove_grads
+[rank0]:     self.reduce_independent_p_g_buckets_and_remove_grads(param, i)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 939, in reduce_independent_p_g_buckets_and_remove_grads
+[rank0]:     self.reduce_ipg_grads()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1408, in reduce_ipg_grads
+[rank0]:     self.copy_grads_in_partition(param)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1347, in copy_grads_in_partition
+[rank0]:     self.grads_in_partition = torch.empty(int(total_size),
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.10 GiB. GPU 0 has a total capacity of 79.32 GiB of which 7.73 GiB is free. Including non-PyTorch memory, this process has 71.59 GiB memory in use. Of the allocated memory 61.14 GiB is allocated by PyTorch, and 9.37 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

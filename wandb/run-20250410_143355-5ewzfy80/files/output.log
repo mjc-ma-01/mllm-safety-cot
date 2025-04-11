@@ -1,0 +1,71 @@
+  0%|          | 0/4509 [00:00<?, ?it/s]Keyword argument `image` is not a valid argument for this processor and will be ignored.
+> /mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py(2462)_inner_training_loop()
+-> epoch_dataloader = train_dataloader
+(Pdb) > /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(166)multimodal_collator()
+-> batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+(Pdb) [<PIL.Image.Image image mode=RGB size=640x480 at 0x7F1CA45E1900>, <PIL.Image.Image image mode=RGB size=2259x1500 at 0x7F1CA45E1780>, <PIL.Image.Image image mode=RGB size=640x480 at 0x7F1CA5F5A260>, <PIL.Image.Image image mode=RGB size=640x471 at 0x7F1CA46395A0>]
+(Pdb) (Pdb) *** NameError: name 'requests' is not defined
+(Pdb) (Pdb) (Pdb) <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=1024x899 at 0x7F1CA463A4D0>
+(Pdb) *** AttributeError: 'Response' object has no attribute 'read'
+(Pdb) '[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: Analyze the image in a comprehensive and detailed manner.\n<image>\n\n [/INST] In the heart of a verdant woodland, a group of six jovial individuals are basking in the joy of camaraderie. Their faces are lit up with smiles, reflecting the mirth of the moment. One of them is proudly holding a frisbee, its surface emblazoned with the words "FINISHER ULTRA CUP", perhaps a memento of a thrilling competition. Another person is clutching an orange cup, possibly filled with a refreshing beverage to quench their thirst amidst the outdoor fun.\n\nThey are positioned in front of a rustic wooden structure, its roof providing a quaint backdrop to their gathering. The ground around them is speckled with red cups, scattered haphazardly, hinting at the spontaneous and carefree nature of their assembly. The scene is a lively tableau of friendship and fun, captured in the midst of laughter and shared stories.</s> '
+(Pdb) (Pdb) <PIL.Image.Image image mode=RGB size=640x480 at 0x7F1CA45E1900>
+(Pdb) (Pdb) (Pdb) (Pdb) {'input_ids': tensor([[    1,   733, 16289, 28793, 28705, 32000, 28705,    13,  1976,   460,
+Keyword argument `pading` is not a valid argument for this processor and will be ignored.
+           264, 10865,   304,  6241,  1503, 13892, 28723,  1976,   460,  2078,
+           396,  3469,   304,   264,  2996, 28725,  4665,  4372,   272,  2996,
+         28723,    13, 24994, 28747,  1094,  8910,  1374,   272,  3469,   297,
+           264, 15313,   304, 10537,  8717, 28723,    13, 32000, 28705,    13,
+            13,   733, 28748, 16289, 28793]]), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1]])}
+(Pdb)
+Traceback (most recent call last):
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 234, in <module>
+    train_dataset=train_dataset[script_args.dataset_train_split],
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2501, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5181, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 564, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 234, in <module>
+[rank0]:     train_dataset=train_dataset[script_args.dataset_train_split],
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2501, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5181, in get_batch_samples
+[rank0]:     batch_samples += [next(epoch_iterator)]
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 564, in __iter__
+[rank0]:     current_batch = next(dataloader_iter)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank0]:     return self.collate_fn(data)
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+[rank0]:
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+[rank0]:
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+[rank0]:     return self.dispatch_line(frame)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 115, in dispatch_line
+[rank0]:     if self.quitting: raise BdbQuit
+[rank0]: bdb.BdbQuit

@@ -193,35 +193,35 @@ if __name__ == "__main__":
             target_modules=["q_proj", "v_proj"],
             task_type="CAUSAL_LM", 
     )
-#     args = SFTConfig(
-#     output_dir=training_args.output_dir, # directory to save and repository id
-#     num_train_epochs=3, 
-#     per_device_train_batch_size=4,          # batch size per device during training
-#     gradient_accumulation_steps=8,          # number of steps before performing a backward/update pass
-#     gradient_checkpointing=True,            # use gradient checkpointing to save memory
-#     optim="adamw_torch_fused",              # use fused adamw optimizer
-#     logging_steps=5,                       # log every 10 steps
-#     save_strategy="epoch",                  # save checkpoint every epoch
-#     learning_rate=2e-4,                     # learning rate, based on QLoRA paper
-#     bf16=True,                              # use bfloat16 precision
-#     tf32=True,                              # use tf32 precision
-#     max_grad_norm=0.3,                      # max gradient norm based on QLoRA paper
-#     warmup_ratio=0.03,                      # warmup ratio based on QLoRA paper
-#     lr_scheduler_type="constant",           # use constant learning rate scheduler
-#     push_to_hub=False,                       # push model to hub
-#     report_to="wandb",                # report metrics to tensorboard
-#     gradient_checkpointing_kwargs = {"use_reentrant": False}, # use reentrant checkpointing
-#     dataset_text_field="", # need a dummy field for collator
-#     dataset_kwargs = {"skip_prepare_dataset": True} # important for collator
-# )
-#     args.remove_unused_columns=False
+    args = SFTConfig(
+    output_dir=training_args.output_dir, # directory to save and repository id
+    num_train_epochs=3, 
+    per_device_train_batch_size=4,          # batch size per device during training
+    gradient_accumulation_steps=8,          # number of steps before performing a backward/update pass
+    gradient_checkpointing=True,            # use gradient checkpointing to save memory
+    optim="adamw_torch_fused",              # use fused adamw optimizer
+    logging_steps=5,                       # log every 10 steps
+    save_strategy="epoch",                  # save checkpoint every epoch
+    learning_rate=2e-4,                     # learning rate, based on QLoRA paper
+    bf16=True,                              # use bfloat16 precision
+    tf32=True,                              # use tf32 precision
+    max_grad_norm=0.3,                      # max gradient norm based on QLoRA paper
+    warmup_ratio=0.03,                      # warmup ratio based on QLoRA paper
+    lr_scheduler_type="constant",           # use constant learning rate scheduler
+    push_to_hub=False,                       # push model to hub
+    report_to="wandb",                # report metrics to tensorboard
+    gradient_checkpointing_kwargs = {"use_reentrant": False}, # use reentrant checkpointing
+    dataset_text_field="", # need a dummy field for collator
+    dataset_kwargs = {"skip_prepare_dataset": True} # important for collator
+)
+    args.remove_unused_columns=False
     
     ################
     # Training
     ################
     trainer = SFTTrainer(
         model=model,
-        args=training_args,
+        args=args,
         data_collator=multimodal_collator,
         train_dataset=train_cot_dataset[script_args.dataset_train_split],
         eval_dataset=train_cot_dataset[script_args.dataset_test_split] if training_args.eval_strategy != "no" else None,

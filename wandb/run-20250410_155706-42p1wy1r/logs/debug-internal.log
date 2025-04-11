@@ -1,0 +1,18 @@
+{"time":"2025-04-10T15:57:07.003590814+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250410_155706-42p1wy1r/logs/debug-core.log"}
+{"time":"2025-04-10T15:57:07.119258852+08:00","level":"INFO","msg":"created new stream","id":"42p1wy1r"}
+{"time":"2025-04-10T15:57:07.119788758+08:00","level":"INFO","msg":"stream: started","id":"42p1wy1r"}
+{"time":"2025-04-10T15:57:07.119808181+08:00","level":"INFO","msg":"sender: started","stream_id":"42p1wy1r"}
+{"time":"2025-04-10T15:57:07.119823839+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"42p1wy1r"}
+{"time":"2025-04-10T15:57:07.120063637+08:00","level":"INFO","msg":"handler: started","stream_id":"42p1wy1r"}
+{"time":"2025-04-10T15:57:20.66731483+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": unexpected EOF"}
+{"time":"2025-04-10T15:57:26.54104713+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T15:59:25.727808051+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/mjc_hndx/llm-cot-safety/42p1wy1r/file_stream\": unexpected EOF"}
+{"time":"2025-04-10T15:59:55.72514413+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/mjc_hndx/llm-cot-safety/42p1wy1r/file_stream\": unexpected EOF"}
+{"time":"2025-04-10T16:02:07.306902595+08:00","level":"INFO","msg":"stream: closing","id":"42p1wy1r"}
+{"time":"2025-04-10T16:02:07.306962052+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T16:02:07.309080127+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-10T16:02:18.580574537+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-10T16:02:22.733781475+08:00","level":"INFO","msg":"handler: closed","stream_id":"42p1wy1r"}
+{"time":"2025-04-10T16:02:22.733809321+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"42p1wy1r"}
+{"time":"2025-04-10T16:02:22.733816801+08:00","level":"INFO","msg":"sender: closed","stream_id":"42p1wy1r"}
+{"time":"2025-04-10T16:02:22.735889862+08:00","level":"INFO","msg":"stream: closed","id":"42p1wy1r"}

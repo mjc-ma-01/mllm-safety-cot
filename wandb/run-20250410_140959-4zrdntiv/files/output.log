@@ -1,0 +1,59 @@
+  0%|          | 0/4509 [00:00<?, ?it/s]Traceback (most recent call last):
+> /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(166)multimodal_collator()
+-> batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+(Pdb) *** NameError: name 'text' is not defined
+(Pdb) ['[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: Analyze the image in a comprehensive and detailed manner.\n\n [/INST] In the center of the image, a person with long, brown hair is peering into an open, white refrigerator. The person is wearing a blue headband, which adds a pop of color to their appearance. The refrigerator, filled with various items, becomes the main focus of the scene. A carton of eggs, a carton of milk, and a bag of bread are clearly visible inside the fridge, suggesting that the person might be contemplating what to eat or cook.\n\nOn top of the refrigerator, there are some papers and a black hat, possibly indicating that this is a space for temporary storage or quick access. The background features a blue wall with a white door, providing a calm and cool atmosphere to the scene. The positioning of the objects and the person suggests a typical domestic setting, perhaps in the midst of meal preparation or a snack break. The image captures an everyday moment in a home setting with attention to detail and color.</s> ', '[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: Can you describe the main features of this image for me?\n<image>\n\n [/INST] This image captures a unique street corner scene. The most prominent feature is a **blue sign** that reads "**Takeaway**", affixed to a **gray pole** on the left side of the image. Just below this, there\'s a smaller **green sign** with the intriguing label "**The Street With No Name**". \n\nThe backdrop of the image is a typical urban setting, featuring a **sidewalk** and a **street** where a few cars are parked. The color palette of the image is dominated by shades of **white**, **gray**, **blue**, and **green**. \n\nThe white wall in the background adds a stark contrast to the colorful signs, making them stand out. The overall composition of the image suggests it might be a quiet corner in a bustling city, where one can grab a quick takeaway meal before venturing into "The Street With No Name".</s> ', '[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: What do you think is going on in this snapshot?\n<image>\n\n [/INST] The image captures the entrance to the New York State Police station on Wards Island. The perspective is from a pedestrian\'s viewpoint on the sidewalk, looking towards the station. A blue and yellow sign, reading "New York State Police" and "SP Wards Island", marks the entrance. This sign is affixed to a wooden post that is topped with a small roof, providing a quaint aesthetic. A black metal fence surrounds the entrance, adding a layer of security to the premises. Beyond the fence, several police cars are parked, ready for duty. The day is cloudy, casting a soft light over the scene, and a tree in the background adds a touch of nature to the urban landscape. The image code "sa_16001" suggests that this is a significant landmark. The overall scene paints a picture of readiness and vigilance, characteristic of a police station.</s> ', "[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: What do you think is going on in this snapshot?\n\n [/INST] In the image, there is a single person engaged in a game of frisbee on a sandy beach. The person is dressed in a white shirt and black shorts, with black shoes on their feet. They are reaching upwards, their arm extended towards the sky, attempting to catch a yellow frisbee that is currently in mid-air. \n\nThe beach itself is sandy, with a line of rocks visible in the background. The sky overhead is clear and blue, suggesting a sunny day perfect for outdoor activities. The person's position and the trajectory of the frisbee indicate an active game, possibly with another player outside the frame of the image. \n\nThe overall scene captures a moment of anticipatio
+(Pdb) '[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: Analyze the image in a comprehensive and detailed manner.\n\n [/INST] In the center of the image, a person with long, brown hair is peering into an open, white refrigerator. The person is wearing a blue headband, which adds a pop of color to their appearance. The refrigerator, filled with various items, becomes the main focus of the scene. A carton of eggs, a carton of milk, and a bag of bread are clearly visible inside the fridge, suggesting that the person might be contemplating what to eat or cook.\n\nOn top of the refrigerator, there are some papers and a black hat, possibly indicating that this is a space for temporary storage or quick access. The background features a blue wall with a white door, providing a calm and cool atmosphere to the scene. The positioning of the objects and the person suggests a typical domestic setting, perhaps in the midst of meal preparation or a snack break. The image captures an everyday moment in a home setting with attention to detail and color.</s> '
+(Pdb) [<PIL.Image.Image image mode=RGB size=640x480 at 0x7F8EF37919C0>]
+(Pdb)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 234, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+    num_batches = args.gradient_accumulation_steps if update_step != (total_updates - 1) else remainder
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5180, in get_batch_samples
+    try:
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 564, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+    batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+    batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 234, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+[rank0]:     num_batches = args.gradient_accumulation_steps if update_step != (total_updates - 1) else remainder
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5180, in get_batch_samples
+[rank0]:     try:
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 564, in __iter__
+[rank0]:     current_batch = next(dataloader_iter)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank0]:     return self.collate_fn(data)
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+[rank0]:     batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 166, in multimodal_collator
+[rank0]:     batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+[rank0]:     return self.dispatch_line(frame)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 115, in dispatch_line
+[rank0]:     if self.quitting: raise BdbQuit
+[rank0]: bdb.BdbQuit

@@ -106,7 +106,6 @@ class ShareGPT4vDataset(Dataset):
             base_path = "/mnt/lustrenew/mllm_safety-shared/datasets/ShareGPT4V/data/"
             filtered_dataset = dataset.filter(lambda example: example['image'].startswith('coco'))
             filtered_dataset = filtered_dataset.map(lambda example: {"image": base_path + example["image"]}).select(range(10000))
-            
             filtered_dataset1 = dataset.filter(lambda example: example['image'].startswith('sam'))
             filtered_dataset1 = filtered_dataset1.map(lambda example: {"image": base_path + example["image"]}).select(range(8000))
             
@@ -126,7 +125,13 @@ class ShareGPT4vDataset(Dataset):
         def convert_to_llama_map(row):
             for entry in row["conversations"]:
                 if entry["from"] == "human":
-                    questions = system_prompt+user_cot_prompt_template.format(A=entry["value"].replace("<image>\n","")) if self.think_mode else system_prompt+user_prompt_template.format(A=entry["value"].replace("<image>\n",""))
+                    questions = system_prompt+user_cot_prompt_template.format(A=entry["value"]
+                                                                              .replace("<image>\n","")
+                                                                              .replace("\n<image>","")
+                                                                              ) if self.think_mode else system_prompt+user_prompt_template.format(A=entry["value"]
+                                                                              .replace("<image>\n","")
+                                                                              .replace("\n<image>","")
+                                                                               )
                 elif entry["from"] == "gpt":
                     answers = entry["value"]
                     

@@ -43,9 +43,14 @@ from huggingface_hub import snapshot_download
 # repo_id = "OpenGVLab/InternVL2_5-8B" 
 
 # repo_id = "llava-hf/llava-v1.6-mistral-7b-hf"
-repo_id = "mistralai/Pixtral-12B-2409"
+# repo_id = "mistralai/Pixtral-12B-2409"
 # repo_id = "allenai/Molmo-7B-D-0924"
 # repo_id = "Qwen/Qwen2-VL-7B-Instruct"
+
+# repo_id = "HuggingFaceTB/SmolVLM-Instruct"
+repo_id = "google/gemma-3-4b-it"
+
+
 
 
 

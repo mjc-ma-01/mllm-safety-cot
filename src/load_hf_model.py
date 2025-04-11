@@ -31,7 +31,10 @@ from huggingface_hub import snapshot_download
 # repo_id = "lmsys/vicuna-7b-v1.5"
 # repo_id = "meta-llama/Llama-Guard-3-8B"
 # repo_id = "sinwang/SIUO"
-repo_id = "kzhou35/mssbench"
+# repo_id = "kzhou35/mssbench"
+
+repo_id = "mistralai/Pixtral-12B-2409"
+
 
 
 # repo_id = "Qwen/Qwen2.5-VL-7B-Instruct"
@@ -47,13 +50,13 @@ repo_id = "kzhou35/mssbench"
 
 
 revision = None
-# local_directory = f"/mnt/lustrenew/mllm_safety-shared/models/huggingface/{repo_id}"
-local_directory = f"/mnt/lustrenew/mllm_safety-shared/datasets/mssbench"
+local_directory = f"/mnt/lustrenew/mllm_safety-shared/models/huggingface/{repo_id}"
+# local_directory = f"/mnt/lustrenew/mllm_safety-shared/datasets/mssbench"
 
 # Download the repository files
 snapshot_download(
     repo_id=repo_id,
-    repo_type="dataset",
+    repo_type="model",
     revision=revision,
     local_dir=local_directory,
     local_dir_use_symlinks=False,  # Avoid symlinks for easier file handling

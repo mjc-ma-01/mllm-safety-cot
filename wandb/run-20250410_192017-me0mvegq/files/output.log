@@ -1,0 +1,54 @@
+  0%|          | 0/18036 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  3%|▎         | 570/18036 [08:39<4:06:22,  1.18it/s]Traceback (most recent call last):
+{'loss': 1.0853, 'grad_norm': 0.9804918169975281, 'learning_rate': 1.9445553337768906e-05, 'mean_token_accuracy': 0.7652690478563309, 'epoch': 0.08}
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_smol.py", line 182, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2480, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5153, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 574, in __iter__
+    next_batch = next(dataloader_iter)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_smol.py", line 139, in multimodal_collator
+    images = [Image.open(example['image_path']).convert("RGB") for example in examples]
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_smol.py", line 139, in <listcomp>
+    images = [Image.open(example['image_path']).convert("RGB") for example in examples]
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/PIL/Image.py", line 993, in convert
+    self.load()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/PIL/ImageFile.py", line 300, in load
+    n, err_code = decoder.decode(b)
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_smol.py", line 182, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2480, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5153, in get_batch_samples
+[rank0]:     batch_samples += [next(epoch_iterator)]
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 574, in __iter__
+[rank0]:     next_batch = next(dataloader_iter)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank0]:     return self.collate_fn(data)
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_smol.py", line 139, in multimodal_collator
+[rank0]:     images = [Image.open(example['image_path']).convert("RGB") for example in examples]
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_smol.py", line 139, in <listcomp>
+[rank0]:     images = [Image.open(example['image_path']).convert("RGB") for example in examples]
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/PIL/Image.py", line 993, in convert
+[rank0]:     self.load()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/PIL/ImageFile.py", line 300, in load
+[rank0]:     n, err_code = decoder.decode(b)
+[rank0]: KeyboardInterrupt

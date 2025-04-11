@@ -1,0 +1,120 @@
+  0%|          | 0/4509 [00:00<?, ?it/s]
+> /mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py(2462)_inner_training_loop()
+-> epoch_dataloader = train_dataloader
+(Pdb) <accelerate.data_loader.DataLoaderShard object at 0x7f3b20705ae0>
+(Pdb) <generator object DataLoaderShard.__iter__ at 0x7f3b41a37a00>
+(Pdb) *** NameError: name 'texts' is not defined
+(Pdb) > /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(166)multimodal_collator()
+-> batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+(Pdb) "[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: Explain the visual content of the image in great detail.\n\n [/INST] The image captures a solemn scene within a religious setting. A person, dressed in a white robe, stands out against the backdrop of a richly decorated altar. The robe, simple yet dignified, is adorned with a gold chain, adding a touch of elegance to the attire. In their hand, they hold a small gold censer, a symbol of ritual and tradition.\n\nThe altar behind them is gold, reflecting a sense of reverence and sanctity. It is adorned with religious icons, each telling a story of faith and devotion. The blue carpet underfoot adds a calming contrast to the gold elements, creating a harmonious balance of colors.\n\nThe person's face is blurred, preserving their privacy while maintaining the focus on the overall scene. The perspective of the image places the viewer as an observer, inviting them to appreciate the tranquility and solemnity of the moment.\n\nAs for the landmark identification 'sa_12133', I'm afraid I couldn't find any relevant information from my search results. It might be helpful to provide more context or details about the landmark.</s> "
+(Pdb) LlamaTokenizerFast(name_or_path='/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf', vocab_size=32000, model_max_length=1000000000000000019884624838656, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'pad_token': '<pad>', 'image_token': '<image>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	32000: AddedToken("<image>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	32001: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+(Pdb) <built-in method __dir__ of LlavaNextProcessor object at 0x7f3c03cfed10>
+(Pdb) LlavaNextProcessor:
+- image_processor: LlavaNextImageProcessor {
+  "aspect_ratio_setting": "anyres",
+  "crop_size": {
+    "height": 336,
+    "width": 336
+  },
+  "do_center_crop": true,
+  "do_convert_rgb": true,
+  "do_normalize": true,
+  "do_pad": true,
+  "do_rescale": true,
+  "do_resize": true,
+  "image_grid_pinpoints": [
+    [
+      336,
+      672
+    ],
+    [
+      672,
+      336
+    ],
+    [
+      672,
+      672
+    ],
+    [
+      1008,
+      336
+    ],
+    [
+      336,
+      1008
+    ]
+  ],
+  "image_mean": [
+    0.48145466,
+    0.4578275,
+    0.40821073
+  ],
+  "image_processor_type": "LlavaNextImageProcessor",
+  "image_std": [
+    0.26862954,
+    0.26130258,
+    0.27577711
+  ],
+  "processor_class": "LlavaNextProcessor",
+  "resample": 3,
+  "rescale_factor": 0.00392156862745098,
+  "size": {
+    "shortest_edge": 336
+  }
+}
+
+- tokenizer: LlamaTokenizerFast(name_or_path='/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf', vocab_size=32000, model_max_length=1000000000000000019884624838656, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'pad_token': '<pad>', 'image_token': '<image>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	32000: AddedToken("<image>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	32001: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+
+{
+  "image_token": "<image>",
+  "num_additional_image_tokens": 1,
+  "patch_size": 14,
+  "processor_class": "LlavaNextProcessor",
+  "vision_feature_select_strategy": "default"
+}
+
+(Pdb) LlamaTokenizerFast(name_or_path='/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf', vocab_size=32000, model_max_length=1000000000000000019884624838656, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'pad_token': '<pad>', 'image_token': '<image>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	32000: AddedToken("<image>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	32001: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+(Pdb) (Pdb) *** NameError: name 'requests' is not defined
+(Pdb) (Pdb) (Pdb) *** NameError: name 'iamge' is not defined
+(Pdb) <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=1024x899 at 0x7F3B19E31840>
+(Pdb)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 234, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2501, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5185, in get_batch_samples
+    if len(batch_samples) > 0 and "labels" in batch_samples[0]:
+TypeError: argument of type 'NoneType' is not iterable
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 234, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2501, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5185, in get_batch_samples
+[rank0]:     if len(batch_samples) > 0 and "labels" in batch_samples[0]:
+[rank0]: TypeError: argument of type 'NoneType' is not iterable

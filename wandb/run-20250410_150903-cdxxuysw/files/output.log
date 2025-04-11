@@ -1,0 +1,26 @@
+  0%|          | 0/4509 [00:00<?, ?it/s]Traceback (most recent call last):
+> /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(172)multimodal_collator()
+-> batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
+(Pdb) (Pdb) "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. USER: <image>You are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: Analyze the image in a comprehensive and detailed manner.\n<image>\n\n ASSISTANT: The image captures the grandeur of a temple's interior, bathed in a golden hue. At the heart of the scene, four large pillars rise majestically, their surfaces adorned with intricate golden designs. These pillars bear the weight of a substantial golden structure suspended from the ceiling. \n\nA large red and gold banner hangs from this structure, adding a splash of color to the otherwise monochromatic palette. The ceiling, too, is a spectacle in itself, covered in complex patterns and designs that reflect the meticulous craftsmanship.\n\nThe walls echo the ceiling's grandeur, embellished with golden designs that extend to multiple levels of balconies. The image, taken from the ground, offers a view that ascends towards the ceiling, providing a sense of scale and symmetry. The overall mood conveyed is one of ornate grandeur, a testament to the architectural prowess and aesthetic sensibilities of its creators.</s>"
+(Pdb) (Pdb) <PIL.Image.Image image mode=RGB size=1500x2250 at 0x7F4D07678F10>
+(Pdb) *** StopIteration
+(Pdb)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 241, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5184, in get_batch_samples
+    if len(batch_samples) > 0 and "labels" in batch_samples[0]:
+TypeError: argument of type 'NoneType' is not iterable
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 241, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5184, in get_batch_samples
+[rank0]:     if len(batch_samples) > 0 and "labels" in batch_samples[0]:
+[rank0]: TypeError: argument of type 'NoneType' is not iterable

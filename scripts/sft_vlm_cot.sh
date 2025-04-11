@@ -5,7 +5,7 @@ config_file=config/deepspeed_zero2.yaml
 
 
 # model_name=sft_mllm_qwenvl_7b
-model_name=sft_mllm_qwenvl_7b
+model_name=sft_mllm_qwenvl_7b_test
 
 version=v1
 train_task_names=mmsafetybench+sharedgpt4v_${version}

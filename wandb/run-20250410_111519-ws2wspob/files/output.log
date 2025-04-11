@@ -1,0 +1,27 @@
+  0%|          | 0/18036 [00:00<?, ?it/s]Traceback (most recent call last):
+> /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py(160)multimodal_collator()
+-> batch = processor(text=text, images=images, return_tensors="pt", padding=True)
+(Pdb) ['[INST] <image>\nYou are a helpful and harmless assistant.You are given an image and a question, please answer the question.\nQuestion: Can you describe the main features of this image for me?\n<image>\n\n [/INST] The image captures a group of people standing on a rocky outcropping, overlooking a stunning blue-green lake. They are dressed in vibrant red jackets and black pants, their attire providing a stark contrast to the natural hues of the landscape. The lake, nestled amidst rocks and patches of snow, adds a serene touch to the scene. The photo is taken from a high angle, offering a bird\'s eye view of the group and the lake. The predominant colors in the image are blue, green, and gray, with the red jackets standing out, adding a pop of color to the otherwise cool-toned palette. The high vantage point of the photo gives it a sense of grandeur, emphasizing the vastness of the landscape compared to the group of people. The image does not provide any specific information about the landmark "sa_1287".</s> ']
+(Pdb) *** NameError: name 'image' is not defined
+(Pdb) *** NameError: name 'imges' is not defined
+(Pdb) *** NameError: name 'imaages' is not defined
+(Pdb) [<PIL.Image.Image image mode=RGB size=2250x1500 at 0x7FF2542CD660>]
+(Pdb)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 227, in <module>
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5184, in get_batch_samples
+    if len(batch_samples) > 0 and "labels" in batch_samples[0]:
+TypeError: argument of type 'NoneType' is not iterable
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm.py", line 227, in <module>
+[rank0]:
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5184, in get_batch_samples
+[rank0]:     if len(batch_samples) > 0 and "labels" in batch_samples[0]:
+[rank0]: TypeError: argument of type 'NoneType' is not iterable
