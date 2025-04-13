@@ -1,0 +1,71 @@
+  0%|          | 35/18036 [00:37<5:11:43,  1.04s/it]Traceback (most recent call last):
+{'loss': 1.8964, 'grad_norm': 21.873472213745117, 'learning_rate': 1.9990019960079843e-05, 'mean_token_accuracy': 0.5458569616079331, 'epoch': 0.0}
+{'loss': 1.6584, 'grad_norm': 7.681055545806885, 'learning_rate': 1.997893102683522e-05, 'mean_token_accuracy': 0.5941465228796006, 'epoch': 0.0}
+{'loss': 1.428, 'grad_norm': 13.544498443603516, 'learning_rate': 1.99678420935906e-05, 'mean_token_accuracy': 0.6170056164264679, 'epoch': 0.0}
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 245, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2514, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5243, in get_batch_samples
+    batch_samples.append(next(epoch_iterator))
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 574, in __iter__
+    next_batch = next(dataloader_iter)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 187, in multimodal_collator
+    prompt_batch = processor(text=prompt_texts, images=images, return_tensors="pt", padding=True)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/processing_idefics3.py", line 286, in __call__
+    image_inputs = self.image_processor(images, **output_kwargs["images_kwargs"])
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/image_processing_utils.py", line 42, in __call__
+    return self.preprocess(images, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 738, in preprocess
+    images_list = [
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 739, in <listcomp>
+    [
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 740, in <listcomp>
+    self.resize(image=image, size=size, resample=resample, input_data_format=input_data_format)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 369, in resize
+    resized_image = image.resize((size[1], size[0]), resample=resample)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/PIL/Image.py", line 2365, in resize
+    return self._new(self.im.resize(size, resample, box))
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 245, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2514, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5243, in get_batch_samples
+[rank0]:     batch_samples.append(next(epoch_iterator))
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 574, in __iter__
+[rank0]:     next_batch = next(dataloader_iter)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank0]:     return self.collate_fn(data)
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 187, in multimodal_collator
+[rank0]:     prompt_batch = processor(text=prompt_texts, images=images, return_tensors="pt", padding=True)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/processing_idefics3.py", line 286, in __call__
+[rank0]:     image_inputs = self.image_processor(images, **output_kwargs["images_kwargs"])
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/image_processing_utils.py", line 42, in __call__
+[rank0]:     return self.preprocess(images, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 738, in preprocess
+[rank0]:     images_list = [
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 739, in <listcomp>
+[rank0]:     [
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 740, in <listcomp>
+[rank0]:     self.resize(image=image, size=size, resample=resample, input_data_format=input_data_format)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/idefics3/image_processing_idefics3.py", line 369, in resize
+[rank0]:     resized_image = image.resize((size[1], size[0]), resample=resample)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/PIL/Image.py", line 2365, in resize
+[rank0]:     return self._new(self.im.resize(size, resample, box))
+[rank0]: KeyboardInterrupt

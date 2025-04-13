@@ -1,0 +1,12 @@
+  0%|          | 0/2256 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  4%|▍         | 101/2256 [13:41<5:39:51,  9.46s/it]
+{'loss': 1.2686, 'grad_norm': 9.940265655517578, 'learning_rate': 1.9920212765957446e-05, 'mean_token_accuracy': 0.667059850692749, 'epoch': 0.01}
+{'loss': 1.1413, 'grad_norm': 13.905070304870605, 'learning_rate': 1.9831560283687945e-05, 'mean_token_accuracy': 0.6626712322235108, 'epoch': 0.03}
+{'loss': 1.1369, 'grad_norm': 7.466297149658203, 'learning_rate': 1.974290780141844e-05, 'mean_token_accuracy': 0.669500607252121, 'epoch': 0.04}
+{'loss': 1.0641, 'grad_norm': 7.209731101989746, 'learning_rate': 1.965425531914894e-05, 'mean_token_accuracy': 0.6815273404121399, 'epoch': 0.05}
+{'loss': 1.0698, 'grad_norm': 8.858796119689941, 'learning_rate': 1.9565602836879435e-05, 'mean_token_accuracy': 0.6718128502368927, 'epoch': 0.07}
+{'loss': 1.0811, 'grad_norm': 10.081859588623047, 'learning_rate': 1.947695035460993e-05, 'mean_token_accuracy': 0.6693446815013886, 'epoch': 0.08}
+{'loss': 0.9943, 'grad_norm': 6.163252830505371, 'learning_rate': 1.9388297872340425e-05, 'mean_token_accuracy': 0.6861687481403351, 'epoch': 0.09}
+{'loss': 1.0798, 'grad_norm': 7.731628894805908, 'learning_rate': 1.9299645390070924e-05, 'mean_token_accuracy': 0.6715251266956329, 'epoch': 0.11}
+{'loss': 0.9995, 'grad_norm': 7.215956211090088, 'learning_rate': 1.921099290780142e-05, 'mean_token_accuracy': 0.6868810057640076, 'epoch': 0.12}
+{'loss': 0.9603, 'grad_norm': 6.577017784118652, 'learning_rate': 1.9122340425531915e-05, 'mean_token_accuracy': 0.6941442251205444, 'epoch': 0.13}

@@ -1,0 +1,5 @@
+  0%|          | 0/2256 [00:00<?, ?it/s]
+> /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py(218)multimodal_collator()
+-> image_tokens = [processor.tokenizer.convert_tokens_to_ids(processor.image_token)]
+(Pdb) --KeyboardInterrupt--
+(Pdb)

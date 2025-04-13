@@ -30,7 +30,7 @@ user_prompt_template: str = (
 
 @dataclass
 class ScriptArgument:
-    model_path: str = "/fs-computility/ai-shen/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
+    model_path: str = "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
     prompt_config_path: str  = './config/cot_prompt.yaml'
     save_log_path: str = "./logs/cot_training_data/cot_data_v1.json"
 

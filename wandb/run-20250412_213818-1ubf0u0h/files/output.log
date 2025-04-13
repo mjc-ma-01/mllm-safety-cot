@@ -1,0 +1,53 @@
+  0%|          | 0/18036 [00:00<?, ?it/s]It is strongly recommended to train Gemma3 models with the `eager` attention implementation instead of `sdpa`. Use `eager` with `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
+  1%|          | 200/18036 [01:52<2:40:17,  1.85it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 2.4872, 'grad_norm': 10.25619125366211, 'learning_rate': 1.9990019960079843e-05, 'mean_token_accuracy': 0.5140869945287705, 'epoch': 0.0}
+{'loss': 2.0281, 'grad_norm': 5.680250644683838, 'learning_rate': 1.997893102683522e-05, 'mean_token_accuracy': 0.5538571119308472, 'epoch': 0.0}
+{'loss': 1.5437, 'grad_norm': 5.452469825744629, 'learning_rate': 1.99678420935906e-05, 'mean_token_accuracy': 0.5969705820083618, 'epoch': 0.0}
+{'loss': 1.5428, 'grad_norm': 6.145603179931641, 'learning_rate': 1.9956753160345976e-05, 'mean_token_accuracy': 0.593188327550888, 'epoch': 0.01}
+{'loss': 1.7549, 'grad_norm': 9.02812671661377, 'learning_rate': 1.9945664227101354e-05, 'mean_token_accuracy': 0.5643146872520447, 'epoch': 0.01}
+{'loss': 1.517, 'grad_norm': 20.135093688964844, 'learning_rate': 1.993457529385673e-05, 'mean_token_accuracy': 0.6100721776485443, 'epoch': 0.01}
+{'loss': 1.5347, 'grad_norm': 4.188518524169922, 'learning_rate': 1.992348636061211e-05, 'mean_token_accuracy': 0.6070542275905609, 'epoch': 0.01}
+{'loss': 1.4015, 'grad_norm': 7.599985599517822, 'learning_rate': 1.991239742736749e-05, 'mean_token_accuracy': 0.6257485747337341, 'epoch': 0.01}
+{'loss': 1.3671, 'grad_norm': 6.991623878479004, 'learning_rate': 1.9901308494122867e-05, 'mean_token_accuracy': 0.6575758814811706, 'epoch': 0.01}
+{'loss': 1.3396, 'grad_norm': 10.561960220336914, 'learning_rate': 1.9890219560878245e-05, 'mean_token_accuracy': 0.6497521877288819, 'epoch': 0.02}
+{'loss': 1.3318, 'grad_norm': 5.509091854095459, 'learning_rate': 1.9879130627633622e-05, 'mean_token_accuracy': 0.6161553084850311, 'epoch': 0.02}
+{'loss': 1.4398, 'grad_norm': 24.693248748779297, 'learning_rate': 1.9868041694389003e-05, 'mean_token_accuracy': 0.6277755439281464, 'epoch': 0.02}
+{'loss': 1.4929, 'grad_norm': 8.204549789428711, 'learning_rate': 1.9856952761144377e-05, 'mean_token_accuracy': 0.6154673397541046, 'epoch': 0.02}
+{'loss': 1.2847, 'grad_norm': 5.083958148956299, 'learning_rate': 1.984586382789976e-05, 'mean_token_accuracy': 0.6727959990501404, 'epoch': 0.02}
+{'loss': 1.3171, 'grad_norm': 5.893978595733643, 'learning_rate': 1.9834774894655136e-05, 'mean_token_accuracy': 0.6615468025207519, 'epoch': 0.02}
+{'loss': 1.1351, 'grad_norm': 4.218615531921387, 'learning_rate': 1.9823685961410513e-05, 'mean_token_accuracy': 0.6855322301387787, 'epoch': 0.03}
+{'loss': 1.4447, 'grad_norm': 5.00189733505249, 'learning_rate': 1.981259702816589e-05, 'mean_token_accuracy': 0.6344682931900024, 'epoch': 0.03}
+{'loss': 1.355, 'grad_norm': 4.424119472503662, 'learning_rate': 1.9801508094921272e-05, 'mean_token_accuracy': 0.6322275996208191, 'epoch': 0.03}
+{'loss': 1.3301, 'grad_norm': 7.200129985809326, 'learning_rate': 1.979041916167665e-05, 'mean_token_accuracy': 0.6629705011844635, 'epoch': 0.03}
+{'loss': 1.2033, 'grad_norm': 7.801379203796387, 'learning_rate': 1.9779330228432027e-05, 'mean_token_accuracy': 0.664506858587265, 'epoch': 0.03}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+  2%|▏         | 360/18036 [03:30<2:34:18,  1.91it/s]Traceback (most recent call last):
+{'loss': 1.218, 'grad_norm': 6.623734474182129, 'learning_rate': 1.9768241295187405e-05, 'mean_token_accuracy': 0.6477471888065338, 'epoch': 0.03}
+{'loss': 1.1899, 'grad_norm': 5.883929252624512, 'learning_rate': 1.9757152361942782e-05, 'mean_token_accuracy': 0.6668771803379059, 'epoch': 0.04}
+{'loss': 1.321, 'grad_norm': 9.820639610290527, 'learning_rate': 1.974606342869816e-05, 'mean_token_accuracy': 0.6572299182415009, 'epoch': 0.04}
+{'loss': 1.2503, 'grad_norm': 4.187214374542236, 'learning_rate': 1.9734974495453537e-05, 'mean_token_accuracy': 0.6557935297489166, 'epoch': 0.04}
+{'loss': 1.2683, 'grad_norm': 4.729215621948242, 'learning_rate': 1.9723885562208918e-05, 'mean_token_accuracy': 0.6515002012252807, 'epoch': 0.04}
+{'loss': 1.2909, 'grad_norm': 6.96975040435791, 'learning_rate': 1.9712796628964296e-05, 'mean_token_accuracy': 0.6523020148277283, 'epoch': 0.04}
+{'loss': 1.0424, 'grad_norm': 5.783121109008789, 'learning_rate': 1.9701707695719673e-05, 'mean_token_accuracy': 0.7058995544910431, 'epoch': 0.04}
+{'loss': 1.2865, 'grad_norm': 5.45728874206543, 'learning_rate': 1.969061876247505e-05, 'mean_token_accuracy': 0.6470139801502228, 'epoch': 0.05}
+{'loss': 1.1291, 'grad_norm': 6.989471912384033, 'learning_rate': 1.9679529829230432e-05, 'mean_token_accuracy': 0.6815224468708039, 'epoch': 0.05}
+{'loss': 1.0244, 'grad_norm': 5.141157627105713, 'learning_rate': 1.9668440895985806e-05, 'mean_token_accuracy': 0.6820042788982391, 'epoch': 0.05}
+{'loss': 1.1159, 'grad_norm': 5.970396995544434, 'learning_rate': 1.9657351962741187e-05, 'mean_token_accuracy': 0.6672980725765228, 'epoch': 0.05}
+{'loss': 1.3219, 'grad_norm': 7.07717227935791, 'learning_rate': 1.9646263029496564e-05, 'mean_token_accuracy': 0.6563531577587127, 'epoch': 0.05}
+{'loss': 1.3117, 'grad_norm': 5.890378475189209, 'learning_rate': 1.9635174096251942e-05, 'mean_token_accuracy': 0.6254108905792236, 'epoch': 0.05}
+{'loss': 1.0917, 'grad_norm': 7.071774005889893, 'learning_rate': 1.962408516300732e-05, 'mean_token_accuracy': 0.6787793934345245, 'epoch': 0.06}
+{'loss': 1.2027, 'grad_norm': 6.0278425216674805, 'learning_rate': 1.9612996229762697e-05, 'mean_token_accuracy': 0.6680123984813691, 'epoch': 0.06}
+{'loss': 1.1301, 'grad_norm': 9.904016494750977, 'learning_rate': 1.9601907296518078e-05, 'mean_token_accuracy': 0.6785914838314057, 'epoch': 0.06}
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 245, in <module>
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 245, in <module>
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]: KeyboardInterrupt

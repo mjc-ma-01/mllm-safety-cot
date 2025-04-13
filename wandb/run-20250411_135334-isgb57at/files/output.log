@@ -1,0 +1,59 @@
+  0%|          | 0/12024 [00:00<?, ?it/s]Traceback (most recent call last):
+> /mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py(164)multimodal_collator()
+-> labels[labels == 262144] = -100
+(Pdb) *** SyntaxError: unmatched ')'
+(Pdb) '<start_of_image>'
+(Pdb) 255999
+(Pdb) '<image_soft_token>'
+(Pdb)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 196, in <module>
+    )
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2514, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5243, in get_batch_samples
+    batch_samples.append(next(epoch_iterator))
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 563, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 164, in multimodal_collator
+    image_tokens = [processor.tokenizer.convert_tokens_to_ids(processor.tokenizer.special_tokens_map["boi_token"])]
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 164, in multimodal_collator
+    image_tokens = [processor.tokenizer.convert_tokens_to_ids(processor.tokenizer.special_tokens_map["boi_token"])]
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 196, in <module>
+[rank0]:     )
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2514, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 5243, in get_batch_samples
+[rank0]:     batch_samples.append(next(epoch_iterator))
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/data_loader.py", line 563, in __iter__
+[rank0]:     current_batch = next(dataloader_iter)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank0]:     return self.collate_fn(data)
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 164, in multimodal_collator
+[rank0]:     image_tokens = [processor.tokenizer.convert_tokens_to_ids(processor.tokenizer.special_tokens_map["boi_token"])]
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 164, in multimodal_collator
+[rank0]:     image_tokens = [processor.tokenizer.convert_tokens_to_ids(processor.tokenizer.special_tokens_map["boi_token"])]
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+[rank0]:     return self.dispatch_line(frame)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/bdb.py", line 115, in dispatch_line
+[rank0]:     if self.quitting: raise BdbQuit
+[rank0]: bdb.BdbQuit

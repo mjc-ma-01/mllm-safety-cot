@@ -1,0 +1,158 @@
+  0%|          | 0/2256 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  7%|▋         | 164/2256 [23:35<5:19:39,  9.17s/it]Traceback (most recent call last):
+{'loss': 1.2879, 'grad_norm': 9.944320678710938, 'learning_rate': 1.9920212765957446e-05, 'mean_token_accuracy': 0.6573354542255402, 'epoch': 0.01}
+{'loss': 1.1275, 'grad_norm': 9.364057540893555, 'learning_rate': 1.9831560283687945e-05, 'mean_token_accuracy': 0.662873774766922, 'epoch': 0.03}
+{'loss': 1.1588, 'grad_norm': 11.520906448364258, 'learning_rate': 1.974290780141844e-05, 'mean_token_accuracy': 0.6543104231357575, 'epoch': 0.04}
+{'loss': 1.051, 'grad_norm': 11.046259880065918, 'learning_rate': 1.965425531914894e-05, 'mean_token_accuracy': 0.6791462898254395, 'epoch': 0.05}
+{'loss': 1.0307, 'grad_norm': 11.150552749633789, 'learning_rate': 1.9565602836879435e-05, 'mean_token_accuracy': 0.6830442667007446, 'epoch': 0.07}
+{'loss': 1.0693, 'grad_norm': 19.149234771728516, 'learning_rate': 1.947695035460993e-05, 'mean_token_accuracy': 0.6798124611377716, 'epoch': 0.08}
+{'loss': 1.0102, 'grad_norm': 10.325971603393555, 'learning_rate': 1.9388297872340425e-05, 'mean_token_accuracy': 0.6904277205467224, 'epoch': 0.09}
+{'loss': 1.0736, 'grad_norm': 7.794936656951904, 'learning_rate': 1.9299645390070924e-05, 'mean_token_accuracy': 0.6753629624843598, 'epoch': 0.11}
+{'loss': 0.9736, 'grad_norm': 6.704097270965576, 'learning_rate': 1.921099290780142e-05, 'mean_token_accuracy': 0.6969447314739228, 'epoch': 0.12}
+{'loss': 1.008, 'grad_norm': 6.896247863769531, 'learning_rate': 1.9122340425531915e-05, 'mean_token_accuracy': 0.6876497328281402, 'epoch': 0.13}
+{'loss': 1.1078, 'grad_norm': 6.582525730133057, 'learning_rate': 1.9033687943262414e-05, 'mean_token_accuracy': 0.6660474121570588, 'epoch': 0.15}
+{'loss': 0.9478, 'grad_norm': 12.903998374938965, 'learning_rate': 1.894503546099291e-05, 'mean_token_accuracy': 0.6986842691898346, 'epoch': 0.16}
+{'loss': 0.9837, 'grad_norm': 6.802140712738037, 'learning_rate': 1.8856382978723408e-05, 'mean_token_accuracy': 0.6902611315250397, 'epoch': 0.17}
+{'loss': 0.9389, 'grad_norm': 8.082964897155762, 'learning_rate': 1.8767730496453903e-05, 'mean_token_accuracy': 0.6986037433147431, 'epoch': 0.19}
+{'loss': 0.9201, 'grad_norm': 6.521419048309326, 'learning_rate': 1.86790780141844e-05, 'mean_token_accuracy': 0.6962566673755646, 'epoch': 0.2}
+{'loss': 0.8748, 'grad_norm': 8.765498161315918, 'learning_rate': 1.8590425531914894e-05, 'mean_token_accuracy': 0.7128642737865448, 'epoch': 0.21}
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/random.py", line 195, in fork_rng
+    yield
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1519, in recompute_fn
+    fn(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 424, in forward
+    hidden_states = hidden_states + self.attn(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 385, in forward
+    attention_mask[..., cu_seqlens[i - 1] : cu_seqlens[i], cu_seqlens[i - 1] : cu_seqlens[i]] = True
+RuntimeError: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 244, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3782, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2238, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 261, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2053, in backward
+    self.optimizer.backward(loss, retain_graph=retain_graph)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 2062, in backward
+    self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+    scaled_loss.backward(retain_graph=retain_graph)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1125, in unpack_hook
+    frame.recompute_fn(*args)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1507, in recompute_fn
+    with torch.random.fork_rng(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/random.py", line 199, in fork_rng
+    device_mod.set_rng_state(device_rng_state, device)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/cuda/random.py", line 77, in set_rng_state
+    _lazy_call(cb)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/cuda/__init__.py", line 249, in _lazy_call
+    callable()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/cuda/random.py", line 75, in cb
+    default_generator.set_state(new_state_copy)
+RuntimeError: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/random.py", line 195, in fork_rng
+[rank0]:     yield
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1519, in recompute_fn
+[rank0]:     fn(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 424, in forward
+[rank0]:     hidden_states = hidden_states + self.attn(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 385, in forward
+[rank0]:     attention_mask[..., cu_seqlens[i - 1] : cu_seqlens[i], cu_seqlens[i - 1] : cu_seqlens[i]] = True
+[rank0]: RuntimeError: CUDA error: an illegal memory access was encountered
+[rank0]: CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[rank0]: For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[rank0]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 244, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3782, in training_step
+[rank0]:     self.accelerator.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2238, in backward
+[rank0]:     self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 261, in backward
+[rank0]:     self.engine.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2053, in backward
+[rank0]:     self.optimizer.backward(loss, retain_graph=retain_graph)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 2062, in backward
+[rank0]:     self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+[rank0]:     scaled_loss.backward(retain_graph=retain_graph)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+[rank0]:     torch.autograd.backward(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank0]:     _engine_run_backward(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1125, in unpack_hook
+[rank0]:     frame.recompute_fn(*args)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1507, in recompute_fn
+[rank0]:     with torch.random.fork_rng(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/contextlib.py", line 153, in __exit__
+[rank0]:     self.gen.throw(typ, value, traceback)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/random.py", line 199, in fork_rng
+[rank0]:     device_mod.set_rng_state(device_rng_state, device)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/cuda/random.py", line 77, in set_rng_state
+[rank0]:     _lazy_call(cb)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/cuda/__init__.py", line 249, in _lazy_call
+[rank0]:     callable()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/cuda/random.py", line 75, in cb
+[rank0]:     default_generator.set_state(new_state_copy)
+[rank0]: RuntimeError: CUDA error: an illegal memory access was encountered
+[rank0]: CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[rank0]: For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[rank0]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.

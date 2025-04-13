@@ -1,0 +1,76 @@
+  0%|          | 0/12024 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+  0%|          | 16/12024 [00:21<4:09:25,  1.25s/it]Traceback (most recent call last):
+{'loss': 11.9331, 'grad_norm': 124.19241333007812, 'learning_rate': 2e-05, 'mean_token_accuracy': 0.25, 'epoch': 0.0}
+{'loss': 12.277, 'grad_norm': 54.70272445678711, 'learning_rate': 1.999833666001331e-05, 'mean_token_accuracy': 0.264598548412323, 'epoch': 0.0}
+{'loss': 12.5811, 'grad_norm': 242.04501342773438, 'learning_rate': 1.9996673320026616e-05, 'mean_token_accuracy': 0.23890063166618347, 'epoch': 0.0}
+{'loss': 13.5394, 'grad_norm': 83.01155853271484, 'learning_rate': 1.999500998003992e-05, 'mean_token_accuracy': 0.19437938928604126, 'epoch': 0.0}
+{'loss': 11.5651, 'grad_norm': 60.81535720825195, 'learning_rate': 1.999334664005323e-05, 'mean_token_accuracy': 0.2666666805744171, 'epoch': 0.0}
+{'loss': 12.0135, 'grad_norm': 48.713871002197266, 'learning_rate': 1.9991683300066535e-05, 'mean_token_accuracy': 0.20132742822170258, 'epoch': 0.0}
+{'loss': 10.146, 'grad_norm': 101.07044219970703, 'learning_rate': 1.9990019960079843e-05, 'mean_token_accuracy': 0.2538759708404541, 'epoch': 0.0}
+{'loss': 9.891, 'grad_norm': 76.0051040649414, 'learning_rate': 1.998835662009315e-05, 'mean_token_accuracy': 0.27099236845970154, 'epoch': 0.0}
+{'loss': 12.2253, 'grad_norm': 119.53321838378906, 'learning_rate': 1.9986693280106454e-05, 'mean_token_accuracy': 0.1135135143995285, 'epoch': 0.0}
+{'loss': 11.2813, 'grad_norm': 327.2913818359375, 'learning_rate': 1.9985029940119763e-05, 'mean_token_accuracy': 0.1340482532978058, 'epoch': 0.0}
+{'loss': 9.0577, 'grad_norm': 27.97481918334961, 'learning_rate': 1.9983366600133068e-05, 'mean_token_accuracy': 0.22839505970478058, 'epoch': 0.0}
+{'loss': 11.0019, 'grad_norm': 264.29766845703125, 'learning_rate': 1.9981703260146373e-05, 'mean_token_accuracy': 0.12432432174682617, 'epoch': 0.0}
+{'loss': 10.2628, 'grad_norm': 119.91665649414062, 'learning_rate': 1.9980039920159682e-05, 'mean_token_accuracy': 0.1372031718492508, 'epoch': 0.0}
+{'loss': 7.8228, 'grad_norm': 32.951473236083984, 'learning_rate': 1.997837658017299e-05, 'mean_token_accuracy': 0.24901185929775238, 'epoch': 0.0}
+{'loss': 7.5716, 'grad_norm': 22.350505828857422, 'learning_rate': 1.9976713240186296e-05, 'mean_token_accuracy': 0.26978418231010437, 'epoch': 0.0}
+{'loss': 8.0381, 'grad_norm': 75.5074234008789, 'learning_rate': 1.9975049900199605e-05, 'mean_token_accuracy': 0.257999986410141, 'epoch': 0.0}
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 194, in <module>
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3782, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2238, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 261, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2079, in backward
+    self.allreduce_gradients()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1980, in allreduce_gradients
+    self.optimizer.overlapping_partition_gradients_reduce_epilogue()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 870, in overlapping_partition_gradients_reduce_epilogue
+    self.independent_gradient_partition_epilogue()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 761, in independent_gradient_partition_epilogue
+    self.reduce_ipg_grads()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1408, in reduce_ipg_grads
+    self.copy_grads_in_partition(param)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1355, in copy_grads_in_partition
+    new_grad_tensor.copy_(grad_reduc.view(-1))
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_gamma.py", line 194, in <module>
+[rank0]:
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3782, in training_step
+[rank0]:     self.accelerator.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2238, in backward
+[rank0]:     self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 261, in backward
+[rank0]:     self.engine.backward(loss, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2079, in backward
+[rank0]:     self.allreduce_gradients()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1980, in allreduce_gradients
+[rank0]:     self.optimizer.overlapping_partition_gradients_reduce_epilogue()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 870, in overlapping_partition_gradients_reduce_epilogue
+[rank0]:     self.independent_gradient_partition_epilogue()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 761, in independent_gradient_partition_epilogue
+[rank0]:     self.reduce_ipg_grads()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1408, in reduce_ipg_grads
+[rank0]:     self.copy_grads_in_partition(param)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1355, in copy_grads_in_partition
+[rank0]:     new_grad_tensor.copy_(grad_reduc.view(-1))
+[rank0]: KeyboardInterrupt

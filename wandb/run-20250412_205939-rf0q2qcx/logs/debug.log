@@ -1,0 +1,11 @@
+2025-04-12 20:59:39,724 INFO    MainThread:41743 [wandb_setup.py:_flush():68] Current SDK version is 0.19.6
+2025-04-12 20:59:39,726 INFO    MainThread:41743 [wandb_setup.py:_flush():68] Configure stats pid to 41743
+2025-04-12 20:59:39,726 INFO    MainThread:41743 [wandb_setup.py:_flush():68] Loading settings from /mnt/petrelfs/majiachen/.config/wandb/settings
+2025-04-12 20:59:39,726 INFO    MainThread:41743 [wandb_setup.py:_flush():68] Loading settings from /mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/settings
+2025-04-12 20:59:39,727 INFO    MainThread:41743 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-04-12 20:59:39,727 INFO    MainThread:41743 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250412_205939-rf0q2qcx/logs/debug.log
+2025-04-12 20:59:39,728 INFO    MainThread:41743 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250412_205939-rf0q2qcx/logs/debug-internal.log
+2025-04-12 20:59:39,728 INFO    MainThread:41743 [wandb_init.py:init():756] calling init triggers
+2025-04-12 20:59:39,728 INFO    MainThread:41743 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-04-12 20:59:39,729 INFO    MainThread:41743 [wandb_init.py:init():789] starting backend

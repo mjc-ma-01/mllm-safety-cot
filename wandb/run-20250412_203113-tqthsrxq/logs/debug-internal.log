@@ -1,0 +1,19 @@
+{"time":"2025-04-12T20:31:14.028123649+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250412_203113-tqthsrxq/logs/debug-core.log"}
+{"time":"2025-04-12T20:31:14.14287809+08:00","level":"INFO","msg":"created new stream","id":"tqthsrxq"}
+{"time":"2025-04-12T20:31:14.143300998+08:00","level":"INFO","msg":"stream: started","id":"tqthsrxq"}
+{"time":"2025-04-12T20:31:14.143311478+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"tqthsrxq"}
+{"time":"2025-04-12T20:31:14.143582308+08:00","level":"INFO","msg":"handler: started","stream_id":"tqthsrxq"}
+{"time":"2025-04-12T20:31:14.143606566+08:00","level":"INFO","msg":"sender: started","stream_id":"tqthsrxq"}
+{"time":"2025-04-12T20:31:14.501966474+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-12T20:34:44.201832192+08:00","level":"INFO","msg":"stream: closing","id":"tqthsrxq"}
+{"time":"2025-04-12T20:34:44.202053997+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-12T20:34:44.203091774+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-12T20:34:45.544988748+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-12T20:34:45.872638788+08:00","level":"INFO","msg":"handler: closed","stream_id":"tqthsrxq"}
+{"time":"2025-04-12T20:34:45.872699903+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tqthsrxq"}
+{"time":"2025-04-12T20:34:45.872705848+08:00","level":"INFO","msg":"sender: closed","stream_id":"tqthsrxq"}
+{"time":"2025-04-12T20:34:45.873942912+08:00","level":"INFO","msg":"stream: closed","id":"tqthsrxq"}
+{"time":"2025-04-12T20:34:45.875276482+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744461284,"nanos":201770000},"line":"    "}},"control":{"connection_id":"127.0.0.1:38114"},"_info":{"stream_id":"tqthsrxq"}}}}
+{"time":"2025-04-12T20:34:45.875748959+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744461284,"nanos":201831000},"line":"self.run()"}},"control":{"connection_id":"127.0.0.1:38114"},"_info":{"stream_id":"tqthsrxq"}}}}
+{"time":"2025-04-12T20:34:45.876175284+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744461284,"nanos":201868000},"line":"\n"}},"control":{"connection_id":"127.0.0.1:38114"},"_info":{"stream_id":"tqthsrxq"}}}}
+{"time":"2025-04-12T20:34:45.87651454+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744461284,"nanos":201907000},"line":"  File \"/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py\", line 244, in run\n"}},"control":{"connection_id":"127.0.0.1:38114"},"_info":{"stream_id":"tqthsrxq"}}}}

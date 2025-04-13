@@ -1,0 +1,120 @@
+  0%|          | 0/2256 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+                                                     
+{'loss': 1.0521, 'grad_norm': 9.515531539916992, 'learning_rate': 1.9920212765957446e-05, 'mean_token_accuracy': 0.7245224714279175, 'epoch': 0.01}
+{'loss': 0.8288, 'grad_norm': 9.817254066467285, 'learning_rate': 1.9831560283687945e-05, 'mean_token_accuracy': 0.7588500499725341, 'epoch': 0.03}
+{'loss': 0.8627, 'grad_norm': 36.38808822631836, 'learning_rate': 1.974290780141844e-05, 'mean_token_accuracy': 0.752174562215805, 'epoch': 0.04}
+{'loss': 0.8608, 'grad_norm': 7.1042962074279785, 'learning_rate': 1.965425531914894e-05, 'mean_token_accuracy': 0.7561513483524323, 'epoch': 0.05}
+{'loss': 0.8178, 'grad_norm': 6.314955711364746, 'learning_rate': 1.9565602836879435e-05, 'mean_token_accuracy': 0.7588218092918396, 'epoch': 0.07}
+{'loss': 0.823, 'grad_norm': 5.94229793548584, 'learning_rate': 1.947695035460993e-05, 'mean_token_accuracy': 0.7571896433830261, 'epoch': 0.08}
+{'loss': 0.7708, 'grad_norm': 6.518427848815918, 'learning_rate': 1.9388297872340425e-05, 'mean_token_accuracy': 0.7662878036499023, 'epoch': 0.09}
+{'loss': 0.809, 'grad_norm': 9.518758773803711, 'learning_rate': 1.9299645390070924e-05, 'mean_token_accuracy': 0.7597480356693268, 'epoch': 0.11}
+{'loss': 0.7777, 'grad_norm': 6.125537395477295, 'learning_rate': 1.921099290780142e-05, 'mean_token_accuracy': 0.7597378611564636, 'epoch': 0.12}
+{'loss': 0.7187, 'grad_norm': 4.737186431884766, 'learning_rate': 1.9122340425531915e-05, 'mean_token_accuracy': 0.7852611005306244, 'epoch': 0.13}
+{'loss': 0.7613, 'grad_norm': 6.634483337402344, 'learning_rate': 1.9033687943262414e-05, 'mean_token_accuracy': 0.7771888136863708, 'epoch': 0.15}
+{'loss': 0.735, 'grad_norm': 6.080820083618164, 'learning_rate': 1.894503546099291e-05, 'mean_token_accuracy': 0.7773037850856781, 'epoch': 0.16}
+{'loss': 0.7422, 'grad_norm': 6.975203990936279, 'learning_rate': 1.8856382978723408e-05, 'mean_token_accuracy': 0.7810879528522492, 'epoch': 0.17}
+{'loss': 0.7088, 'grad_norm': 6.3134541511535645, 'learning_rate': 1.8767730496453903e-05, 'mean_token_accuracy': 0.7770121812820434, 'epoch': 0.19}
+{'loss': 0.7552, 'grad_norm': 4.300457000732422, 'learning_rate': 1.86790780141844e-05, 'mean_token_accuracy': 0.7691630482673645, 'epoch': 0.2}
+{'loss': 0.7664, 'grad_norm': 4.139890670776367, 'learning_rate': 1.8590425531914894e-05, 'mean_token_accuracy': 0.7640439569950104, 'epoch': 0.21}
+{'loss': 0.6882, 'grad_norm': 4.621960639953613, 'learning_rate': 1.850177304964539e-05, 'mean_token_accuracy': 0.7890506386756897, 'epoch': 0.23}
+{'loss': 0.6996, 'grad_norm': 4.965946197509766, 'learning_rate': 1.841312056737589e-05, 'mean_token_accuracy': 0.7791938722133637, 'epoch': 0.24}
+{'loss': 0.71, 'grad_norm': 5.039586544036865, 'learning_rate': 1.8324468085106384e-05, 'mean_token_accuracy': 0.7854953825473785, 'epoch': 0.25}
+{'loss': 0.7326, 'grad_norm': 4.205748081207275, 'learning_rate': 1.8235815602836883e-05, 'mean_token_accuracy': 0.7796849608421326, 'epoch': 0.27}
+{'loss': 0.7498, 'grad_norm': 4.41768741607666, 'learning_rate': 1.8147163120567378e-05, 'mean_token_accuracy': 0.7727134704589844, 'epoch': 0.28}
+{'loss': 0.6627, 'grad_norm': 6.394561767578125, 'learning_rate': 1.8058510638297873e-05, 'mean_token_accuracy': 0.791692852973938, 'epoch': 0.29}
+{'loss': 0.6256, 'grad_norm': 4.713213920593262, 'learning_rate': 1.796985815602837e-05, 'mean_token_accuracy': 0.8036632776260376, 'epoch': 0.31}
+{'loss': 0.6605, 'grad_norm': 5.251668453216553, 'learning_rate': 1.7881205673758864e-05, 'mean_token_accuracy': 0.8021874487400055, 'epoch': 0.32}
+{'loss': 0.6475, 'grad_norm': 9.7659273147583, 'learning_rate': 1.7792553191489363e-05, 'mean_token_accuracy': 0.8025009393692016, 'epoch': 0.33}
+{'loss': 0.7177, 'grad_norm': 5.307217597961426, 'learning_rate': 1.770390070921986e-05, 'mean_token_accuracy': 0.7884941279888154, 'epoch': 0.35}
+{'loss': 0.5211, 'grad_norm': 5.670873641967773, 'learning_rate': 1.7615248226950357e-05, 'mean_token_accuracy': 0.8383953511714936, 'epoch': 0.36}
+{'loss': 0.6555, 'grad_norm': 3.8291993141174316, 'learning_rate': 1.7526595744680853e-05, 'mean_token_accuracy': 0.8013267815113068, 'epoch': 0.37}
+{'loss': 0.6757, 'grad_norm': 4.106573104858398, 'learning_rate': 1.743794326241135e-05, 'mean_token_accuracy': 0.788762366771698, 'epoch': 0.39}
+{'loss': 0.7611, 'grad_norm': 5.327767372131348, 'learning_rate': 1.7349290780141847e-05, 'mean_token_accuracy': 0.7728543639183044, 'epoch': 0.4}
+{'loss': 0.6048, 'grad_norm': 4.61195707321167, 'learning_rate': 1.7260638297872342e-05, 'mean_token_accuracy': 0.8095229744911194, 'epoch': 0.41}
+{'loss': 0.5976, 'grad_norm': 4.008956432342529, 'learning_rate': 1.7171985815602838e-05, 'mean_token_accuracy': 0.8133157908916473, 'epoch': 0.43}
+{'loss': 0.5961, 'grad_norm': 11.752850532531738, 'learning_rate': 1.7083333333333333e-05, 'mean_token_accuracy': 0.8132414400577546, 'epoch': 0.44}
+{'loss': 0.7238, 'grad_norm': 4.925736904144287, 'learning_rate': 1.6994680851063832e-05, 'mean_token_accuracy': 0.7816222608089447, 'epoch': 0.45}
+{'loss': 0.6532, 'grad_norm': 5.90807580947876, 'learning_rate': 1.6906028368794327e-05, 'mean_token_accuracy': 0.8013293027877808, 'epoch': 0.47}
+{'loss': 0.672, 'grad_norm': 4.248152732849121, 'learning_rate': 1.6817375886524826e-05, 'mean_token_accuracy': 0.793865168094635, 'epoch': 0.48}
+{'loss': 0.6002, 'grad_norm': 6.613171577453613, 'learning_rate': 1.672872340425532e-05, 'mean_token_accuracy': 0.8137662470340729, 'epoch': 0.49}
+{'loss': 0.5971, 'grad_norm': 4.070493221282959, 'learning_rate': 1.6640070921985817e-05, 'mean_token_accuracy': 0.8160075306892395, 'epoch': 0.51}
+{'loss': 0.7024, 'grad_norm': 4.968580722808838, 'learning_rate': 1.6551418439716312e-05, 'mean_token_accuracy': 0.780355817079544, 'epoch': 0.52}
+{'loss': 0.5733, 'grad_norm': 4.119760036468506, 'learning_rate': 1.6462765957446808e-05, 'mean_token_accuracy': 0.8197501301765442, 'epoch': 0.53}
+{'loss': 0.5789, 'grad_norm': 4.447337627410889, 'learning_rate': 1.6374113475177306e-05, 'mean_token_accuracy': 0.81884725689888, 'epoch': 0.55}
+{'loss': 0.5634, 'grad_norm': 3.7625463008880615, 'learning_rate': 1.6285460992907802e-05, 'mean_token_accuracy': 0.8278424322605134, 'epoch': 0.56}
+{'loss': 0.5276, 'grad_norm': 3.514667510986328, 'learning_rate': 1.61968085106383e-05, 'mean_token_accuracy': 0.8348357975482941, 'epoch': 0.57}
+{'loss': 0.617, 'grad_norm': 4.4036407470703125, 'learning_rate': 1.6108156028368796e-05, 'mean_token_accuracy': 0.807658314704895, 'epoch': 0.59}
+{'loss': 0.6452, 'grad_norm': 5.368751049041748, 'learning_rate': 1.6019503546099295e-05, 'mean_token_accuracy': 0.8029430568218231, 'epoch': 0.6}
+{'loss': 0.5504, 'grad_norm': 3.8298707008361816, 'learning_rate': 1.593085106382979e-05, 'mean_token_accuracy': 0.8339837849140167, 'epoch': 0.61}
+{'loss': 0.5388, 'grad_norm': 16.322525024414062, 'learning_rate': 1.5842198581560286e-05, 'mean_token_accuracy': 0.82241290807724, 'epoch': 0.62}
+{'loss': 0.6046, 'grad_norm': 3.8727450370788574, 'learning_rate': 1.575354609929078e-05, 'mean_token_accuracy': 0.8124992787837982, 'epoch': 0.64}
+{'loss': 0.5329, 'grad_norm': 9.721023559570312, 'learning_rate': 1.5664893617021276e-05, 'mean_token_accuracy': 0.8367473900318145, 'epoch': 0.65}
+{'loss': 0.5415, 'grad_norm': 4.216642379760742, 'learning_rate': 1.5576241134751775e-05, 'mean_token_accuracy': 0.8326465606689453, 'epoch': 0.66}
+{'loss': 0.5359, 'grad_norm': 4.938211917877197, 'learning_rate': 1.548758865248227e-05, 'mean_token_accuracy': 0.826000702381134, 'epoch': 0.68}
+{'loss': 0.5471, 'grad_norm': 24.19685173034668, 'learning_rate': 1.539893617021277e-05, 'mean_token_accuracy': 0.8332094430923462, 'epoch': 0.69}
+{'loss': 0.5747, 'grad_norm': 4.8327956199646, 'learning_rate': 1.5310283687943265e-05, 'mean_token_accuracy': 0.8246693015098572, 'epoch': 0.7}
+{'loss': 0.5283, 'grad_norm': 2.9066953659057617, 'learning_rate': 1.5221631205673758e-05, 'mean_token_accuracy': 0.8333043098449707, 'epoch': 0.72}
+{'loss': 0.51, 'grad_norm': 3.382256031036377, 'learning_rate': 1.5132978723404257e-05, 'mean_token_accuracy': 0.8372125923633575, 'epoch': 0.73}
+{'loss': 0.5512, 'grad_norm': 4.358402252197266, 'learning_rate': 1.5044326241134753e-05, 'mean_token_accuracy': 0.8333299875259399, 'epoch': 0.74}
+{'loss': 0.5052, 'grad_norm': 3.4996535778045654, 'learning_rate': 1.495567375886525e-05, 'mean_token_accuracy': 0.8443364918231964, 'epoch': 0.76}
+{'loss': 0.5483, 'grad_norm': 3.772006034851074, 'learning_rate': 1.4867021276595745e-05, 'mean_token_accuracy': 0.8276719093322754, 'epoch': 0.77}
+{'loss': 0.5092, 'grad_norm': 6.537253379821777, 'learning_rate': 1.4778368794326244e-05, 'mean_token_accuracy': 0.8453019678592681, 'epoch': 0.78}
+{'loss': 0.5155, 'grad_norm': 5.68269681930542, 'learning_rate': 1.468971631205674e-05, 'mean_token_accuracy': 0.8375496923923492, 'epoch': 0.8}
+{'loss': 0.5254, 'grad_norm': 4.411513805389404, 'learning_rate': 1.4601063829787235e-05, 'mean_token_accuracy': 0.8369925737380981, 'epoch': 0.81}
+{'loss': 0.4708, 'grad_norm': 3.5256168842315674, 'learning_rate': 1.4512411347517732e-05, 'mean_token_accuracy': 0.8470936715602875, 'epoch': 0.82}
+{'loss': 0.5258, 'grad_norm': 4.746825695037842, 'learning_rate': 1.4423758865248227e-05, 'mean_token_accuracy': 0.8332862198352814, 'epoch': 0.84}
+{'loss': 0.4309, 'grad_norm': 3.2024335861206055, 'learning_rate': 1.4335106382978724e-05, 'mean_token_accuracy': 0.8591413259506225, 'epoch': 0.85}
+{'loss': 0.4636, 'grad_norm': 3.7888529300689697, 'learning_rate': 1.424645390070922e-05, 'mean_token_accuracy': 0.8535309791564941, 'epoch': 0.86}
+{'loss': 0.5093, 'grad_norm': 3.08074688911438, 'learning_rate': 1.4157801418439719e-05, 'mean_token_accuracy': 0.8392189383506775, 'epoch': 0.88}
+{'loss': 0.4839, 'grad_norm': 3.443099021911621, 'learning_rate': 1.4069148936170214e-05, 'mean_token_accuracy': 0.8515451610088348, 'epoch': 0.89}
+{'loss': 0.5206, 'grad_norm': 6.018123149871826, 'learning_rate': 1.398049645390071e-05, 'mean_token_accuracy': 0.8348199307918549, 'epoch': 0.9}
+{'loss': 0.5131, 'grad_norm': 3.9757115840911865, 'learning_rate': 1.3891843971631206e-05, 'mean_token_accuracy': 0.8389677107334137, 'epoch': 0.92}
+{'loss': 0.4275, 'grad_norm': 4.343407154083252, 'learning_rate': 1.3803191489361702e-05, 'mean_token_accuracy': 0.8646287322044373, 'epoch': 0.93}
+{'loss': 0.4716, 'grad_norm': 3.761845827102661, 'learning_rate': 1.37145390070922e-05, 'mean_token_accuracy': 0.8517342984676362, 'epoch': 0.94}
+{'loss': 0.5219, 'grad_norm': 5.144115447998047, 'learning_rate': 1.3625886524822696e-05, 'mean_token_accuracy': 0.8354559123516083, 'epoch': 0.96}
+{'loss': 0.5158, 'grad_norm': 3.7199480533599854, 'learning_rate': 1.3537234042553193e-05, 'mean_token_accuracy': 0.834354293346405, 'epoch': 0.97}
+{'loss': 0.5087, 'grad_norm': 9.398573875427246, 'learning_rate': 1.3448581560283689e-05, 'mean_token_accuracy': 0.8411729097366333, 'epoch': 0.98}
+{'loss': 0.4433, 'grad_norm': 2.4949586391448975, 'learning_rate': 1.3359929078014187e-05, 'mean_token_accuracy': 0.8609962522983551, 'epoch': 1.0}
+{'loss': 0.4636, 'grad_norm': 11.554182052612305, 'learning_rate': 1.3271276595744683e-05, 'mean_token_accuracy': 0.8590083301067353, 'epoch': 1.01}
+{'loss': 0.382, 'grad_norm': 3.3218917846679688, 'learning_rate': 1.3182624113475178e-05, 'mean_token_accuracy': 0.8802341282367706, 'epoch': 1.02}
+{'loss': 0.4629, 'grad_norm': 2.7017982006073, 'learning_rate': 1.3093971631205675e-05, 'mean_token_accuracy': 0.8567952573299408, 'epoch': 1.04}
+{'loss': 0.3946, 'grad_norm': 4.103725433349609, 'learning_rate': 1.300531914893617e-05, 'mean_token_accuracy': 0.8779933333396912, 'epoch': 1.05}
+{'loss': 0.4364, 'grad_norm': 2.7564215660095215, 'learning_rate': 1.2916666666666668e-05, 'mean_token_accuracy': 0.8594951868057251, 'epoch': 1.06}
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 246, in <module>
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3103, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3200, in _save_checkpoint
+    self.save_model(output_dir, _internal_call=True)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3889, in save_model
+    self._save(output_dir, state_dict=state_dict)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 4006, in _save
+    self.model.save_pretrained(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3564, in save_pretrained
+    safe_save_file(shard, os.path.join(save_directory, shard_file), metadata={"format": "pt"})
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/safetensors/torch.py", line 286, in save_file
+    serialize_file(_flatten(tensors), filename, metadata=metadata)
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 246, in <module>
+[rank0]:
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+[rank0]:     self._maybe_log_save_evaluate(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3103, in _maybe_log_save_evaluate
+[rank0]:     self._save_checkpoint(model, trial)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3200, in _save_checkpoint
+[rank0]:     self.save_model(output_dir, _internal_call=True)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3889, in save_model
+[rank0]:     self._save(output_dir, state_dict=state_dict)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 4006, in _save
+[rank0]:     self.model.save_pretrained(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3564, in save_pretrained
+[rank0]:     safe_save_file(shard, os.path.join(save_directory, shard_file), metadata={"format": "pt"})
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/safetensors/torch.py", line 286, in save_file
+[rank0]:     serialize_file(_flatten(tensors), filename, metadata=metadata)
+[rank0]: KeyboardInterrupt
