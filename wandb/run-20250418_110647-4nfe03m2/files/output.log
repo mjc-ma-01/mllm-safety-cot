@@ -1,0 +1,138 @@
+  0%|          | 0/492 [00:00<?, ?it/s]`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+ 55%|█████▍    | 270/492 [09:49<07:50,  2.12s/it]Exception in thread Thread-2:
+{'loss': 0.9956, 'grad_norm': 18.895009994506836, 'learning_rate': 1.9634146341463414e-05, 'mean_token_accuracy': 0.7354454755783081, 'epoch': 0.04}
+{'loss': 0.9626, 'grad_norm': 14.34314250946045, 'learning_rate': 1.9227642276422765e-05, 'mean_token_accuracy': 0.7215506136417389, 'epoch': 0.08}
+{'loss': 0.9535, 'grad_norm': 12.825544357299805, 'learning_rate': 1.8821138211382116e-05, 'mean_token_accuracy': 0.7317501127719879, 'epoch': 0.12}
+{'loss': 0.9091, 'grad_norm': 16.9805965423584, 'learning_rate': 1.8414634146341467e-05, 'mean_token_accuracy': 0.7337147414684295, 'epoch': 0.16}
+{'loss': 0.8824, 'grad_norm': 12.572945594787598, 'learning_rate': 1.8008130081300814e-05, 'mean_token_accuracy': 0.7447655439376831, 'epoch': 0.2}
+{'loss': 0.9043, 'grad_norm': 11.51579761505127, 'learning_rate': 1.7601626016260165e-05, 'mean_token_accuracy': 0.733017909526825, 'epoch': 0.24}
+{'loss': 0.8825, 'grad_norm': 13.36128044128418, 'learning_rate': 1.7195121951219512e-05, 'mean_token_accuracy': 0.7432719111442566, 'epoch': 0.28}
+{'loss': 0.9033, 'grad_norm': 15.795546531677246, 'learning_rate': 1.6788617886178863e-05, 'mean_token_accuracy': 0.7339257717132568, 'epoch': 0.33}
+{'loss': 0.8785, 'grad_norm': 26.240697860717773, 'learning_rate': 1.6382113821138214e-05, 'mean_token_accuracy': 0.7387993514537812, 'epoch': 0.37}
+{'loss': 0.7905, 'grad_norm': 7.847451686859131, 'learning_rate': 1.597560975609756e-05, 'mean_token_accuracy': 0.7695327520370483, 'epoch': 0.41}
+{'loss': 0.7573, 'grad_norm': 7.717477798461914, 'learning_rate': 1.5569105691056912e-05, 'mean_token_accuracy': 0.7836785078048706, 'epoch': 0.45}
+{'loss': 0.7516, 'grad_norm': 12.198382377624512, 'learning_rate': 1.5162601626016263e-05, 'mean_token_accuracy': 0.7813515901565552, 'epoch': 0.49}
+{'loss': 0.8223, 'grad_norm': 7.982374668121338, 'learning_rate': 1.475609756097561e-05, 'mean_token_accuracy': 0.7700789630413055, 'epoch': 0.53}
+{'loss': 0.7394, 'grad_norm': 8.422236442565918, 'learning_rate': 1.4349593495934961e-05, 'mean_token_accuracy': 0.7794629275798798, 'epoch': 0.57}
+{'loss': 0.6787, 'grad_norm': 9.863604545593262, 'learning_rate': 1.394308943089431e-05, 'mean_token_accuracy': 0.797583419084549, 'epoch': 0.61}
+{'loss': 0.67, 'grad_norm': 11.787659645080566, 'learning_rate': 1.3536585365853661e-05, 'mean_token_accuracy': 0.7971844553947449, 'epoch': 0.65}
+{'loss': 0.6382, 'grad_norm': 14.314430236816406, 'learning_rate': 1.3130081300813009e-05, 'mean_token_accuracy': 0.7973270177841186, 'epoch': 0.69}
+{'loss': 0.6366, 'grad_norm': 10.151823043823242, 'learning_rate': 1.272357723577236e-05, 'mean_token_accuracy': 0.8019220232963562, 'epoch': 0.73}
+{'loss': 0.7509, 'grad_norm': 10.864750862121582, 'learning_rate': 1.2317073170731709e-05, 'mean_token_accuracy': 0.7818532049655914, 'epoch': 0.77}
+{'loss': 0.6714, 'grad_norm': 14.237380027770996, 'learning_rate': 1.191056910569106e-05, 'mean_token_accuracy': 0.8023574471473693, 'epoch': 0.81}
+{'loss': 0.5713, 'grad_norm': 5.1391520500183105, 'learning_rate': 1.1504065040650407e-05, 'mean_token_accuracy': 0.8148744344711304, 'epoch': 0.85}
+{'loss': 0.552, 'grad_norm': 6.012216091156006, 'learning_rate': 1.1097560975609758e-05, 'mean_token_accuracy': 0.8417931199073792, 'epoch': 0.89}
+{'loss': 0.536, 'grad_norm': 7.248901844024658, 'learning_rate': 1.0691056910569107e-05, 'mean_token_accuracy': 0.8387571394443512, 'epoch': 0.93}
+{'loss': 0.5792, 'grad_norm': 8.715240478515625, 'learning_rate': 1.0284552845528458e-05, 'mean_token_accuracy': 0.8402043521404267, 'epoch': 0.98}
+{'loss': 0.5526, 'grad_norm': 11.46469497680664, 'learning_rate': 9.878048780487805e-06, 'mean_token_accuracy': 0.8208124697208404, 'epoch': 1.02}
+{'loss': 0.4608, 'grad_norm': 6.310114860534668, 'learning_rate': 9.471544715447156e-06, 'mean_token_accuracy': 0.8626068115234375, 'epoch': 1.06}
+Traceback (most recent call last):
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 274, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3092, in _maybe_log_save_evaluate
+    self.log(logs, start_time)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 513, in log
+    super().log(logs, start_time)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3652, in log
+    self.control = self.callback_handler.on_log(self.args, self.state, self.control, logs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer_callback.py", line 549, in on_log
+    return self.call_event("on_log", args, state, control, logs=logs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer_callback.py", line 556, in call_event
+    Traceback (most recent call last):
+result = getattr(callback, event)(
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 274, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 726, in on_log
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3092, in _maybe_log_save_evaluate
+    self.log(logs, start_time)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 513, in log
+    super().log(logs, start_time)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3652, in log
+    self.control = self.callback_handler.on_log(self.args, self.state, self.control, logs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer_callback.py", line 549, in on_log
+    return self.call_event("on_log", args, state, control, logs=logs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer_callback.py", line 556, in call_event
+    result = getattr(callback, event)(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 726, in on_log
+    self.tb_writer.flush()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/tensorboard/writer.py", line 1194, in flush
+    writer.flush()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/tensorboard/writer.py", line 153, in flush
+    self.event_writer.flush()
+    self.tb_writer.flush()  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 125, in flush
+    self._async_writer.flush()
+
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/tensorboard/writer.py", line 1194, in flush
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 194, in flush
+    self._check_worker_status()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 212, in _check_worker_status
+    raise exception
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 244, in run
+    self._run()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 275, in _run
+    self._record_writer.write(data)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/record_writer.py", line 40, in write
+    self._writer.write(header + header_crc + data + footer_crc)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 775, in write
+    self.fs.append(self.filename, file_content, self.binary_mode)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 167, in append
+    self._write(filename, file_content, "ab" if binary_mode else "a")
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 171, in _write
+    with io.open(filename, mode, encoding=encoding) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b'/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_llama_11b/train:mmsafetybench+sharedgpt4v_v2_useful/runs/Apr18_11-05-52_SH-IDCA1404-10-140-54-26/events.out.tfevents.1744945607.SH-IDCA1404-10-140-54-26.63477.0'
+    writer.flush()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/tensorboard/writer.py", line 153, in flush
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 274, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+[rank0]:     self._maybe_log_save_evaluate(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3092, in _maybe_log_save_evaluate
+[rank0]:     self.log(logs, start_time)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 513, in log
+[rank0]:     super().log(logs, start_time)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3652, in log
+[rank0]:     self.control = self.callback_handler.on_log(self.args, self.state, self.control, logs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer_callback.py", line 549, in on_log
+[rank0]:     return self.call_event("on_log", args, state, control, logs=logs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer_callback.py", line 556, in call_event
+[rank0]:     result = getattr(callback, event)(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 726, in on_log
+[rank0]:     self.tb_writer.flush()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/tensorboard/writer.py", line 1194, in flush
+[rank0]:     writer.flush()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/tensorboard/writer.py", line 153, in flush
+[rank0]:     self.event_writer.flush()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 125, in flush
+[rank0]:     self._async_writer.flush()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 194, in flush
+[rank0]:     self._check_worker_status()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 212, in _check_worker_status
+[rank0]:     raise exception
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+[rank0]:     self.run()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 244, in run
+[rank0]:     self._run()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 275, in _run
+[rank0]:     self._record_writer.write(data)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/record_writer.py", line 40, in write
+[rank0]:     self._writer.write(header + header_crc + data + footer_crc)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 775, in write
+[rank0]:     self.fs.append(self.filename, file_content, self.binary_mode)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 167, in append
+[rank0]:     self._write(filename, file_content, "ab" if binary_mode else "a")
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 171, in _write
+[rank0]:     with io.open(filename, mode, encoding=encoding) as f:
+[rank0]: FileNotFoundError: [Errno 2] No such file or directory: b'/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_llama_11b/train:mmsafetybench+sharedgpt4v_v2_useful/runs/Apr18_11-05-52_SH-IDCA1404-10-140-54-26/events.out.tfevents.1744945607.SH-IDCA1404-10-140-54-26.63477.0'

@@ -3,6 +3,7 @@ import torch
 import omegaconf
 from datasets import Dataset
 from torch.utils.data import DataLoader
+# from flash_attn import FlashAttention
 from dataset.base import MMSafetyBenchDataset,MSSBenchDataset,ShareGPT4vDataset
 from transformers import TextStreamer, MllamaForConditionalGeneration, AutoProcessor, HfArgumentParser,AutoModelForVision2Seq,PreTrainedTokenizer,AutoModelForImageTextToText
 from dataclasses import dataclass,field
@@ -42,22 +43,23 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     base_model_path = model_map[src_args.model_identifier]
     
-    if src_args.use_peft and src_args.model_identifier != "gamma3_4b":
+    if src_args.use_peft:
         adapter_model = src_args.model_path
-        base_model = AutoModelForVision2Seq.from_pretrained(base_model_path)
+        if src_args.model_identifier == "gamma3_4b":
+            base_model = AutoModelForImageTextToText.from_pretrained(base_model_path)
+        else:
+            base_model = AutoModelForVision2Seq.from_pretrained(base_model_path)
         model = PeftModel.from_pretrained(base_model, adapter_model)
-        
+     
     elif src_args.model_identifier == "gamma3_4b":
-        adapter_model = src_args.model_path
-        base_model = AutoModelForImageTextToText.from_pretrained(src_args.model_path)
-        model = PeftModel.from_pretrained(base_model, adapter_model)
-        
+        model = AutoModelForImageTextToText.from_pretrained(src_args.model_path)   
     else:
         model = AutoModelForVision2Seq.from_pretrained(src_args.model_path)
-        
+
+            
     processor = AutoProcessor.from_pretrained(base_model_path,trust_remote_code=True)
-    if src_args.model_identifier == "qwenvl_7b":
-        processor = AutoProcessor.from_pretrained(base_model_path, trust_remote_code=True, min_pixels=400*28*28, max_pixels=600*28*28)
+    if src_args.model_identifier == "qwen_7b_vl":
+        processor = AutoProcessor.from_pretrained(base_model_path, trust_remote_code=True, min_pixels=300*28*28, max_pixels=500*28*28)
         processor.tokenizer = AutoTokenizer.from_pretrained(base_model_path)
     processor.tokenizer.padding_side = "left"
     
@@ -108,7 +110,7 @@ if __name__ == "__main__":
             inputs = multimodel_collator(batch)
             outputs = model.module.generate(  
             **inputs,
-            max_new_tokens=500,
+            max_new_tokens=300,
             do_sample=True,
             temperature=0.7)
             
@@ -121,6 +123,8 @@ if __name__ == "__main__":
                     "label": ex.get("label", None)})
             print(f"num_{i}_examples")    
             print(results[i])
+            print(results[i+1])
+            
 
     save_path = src_args.save_log_path
     os.makedirs(os.path.dirname(save_path), exist_ok=True)

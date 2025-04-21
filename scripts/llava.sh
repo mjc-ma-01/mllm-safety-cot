@@ -6,7 +6,7 @@ config_file=config/deepspeed_zero2.yaml
 
 model_name=llava1.5_7b
 
-version=v2
+version=v2_useful
 think_mode=True
 train_task_names=mmsafetybench+sharedgpt4v_${version}
 base_dir=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}
@@ -23,6 +23,7 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --model_identifier ${model_name} \
     --output_dir ${base_dir} \
     --save_steps 200 \
+    --num_train_epochs 2 \
     --per_device_train_batch_size 1 \
     --gradient_accumulation_steps 1 \
     --bf16 \

@@ -4,14 +4,7 @@ ncpu=16
 WANDB_PROJECT=llm-cot-safety
 config_file=config/deepspeed_zero2.yaml
 
-model_map={
-    "pixtral_12b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/mistralai/Pixtral-12B-2409",
-    "gamma3_4b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/google/gemma-3-4b-it",
-    "SmolVLM": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/HuggingFaceTB/SmolVLM-Instruct",
-    "llava1.5_7b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf",
-    "qwen_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2-VL-7B-Instruct",
-    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
-}
+
 model_name=llava1.5_7b
 
 version=v1
@@ -29,6 +22,7 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --dataset_name aa \
     --model_identifier ${model_name} \
     --output_dir ${base_dir} \
+    --version ${version} \
     --save_steps 200 \
     --per_device_train_batch_size 1 \
     --gradient_accumulation_steps 1 \

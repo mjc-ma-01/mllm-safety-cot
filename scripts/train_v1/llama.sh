@@ -23,6 +23,7 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --dataset_name aa \
     --think_mode ${think_mode} \
     --model_identifier ${model_name} \
+    --version ${version} \
     --output_dir ${base_dir} \
     --per_device_train_batch_size=1 \
     --gradient_accumulation_steps=1 \

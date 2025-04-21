@@ -1,0 +1,121 @@
+  0%|          | 0/2256 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  0%|          | 2/2256 [00:20<6:11:08,  9.88s/it]Traceback (most recent call last):
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 255, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2531, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3675, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 473, in compute_loss
+    (loss, outputs) = super().compute_loss(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3731, in compute_loss
+    outputs = model(**inputs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+    loss = self.module(*inputs, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/peft_model.py", line 1719, in forward
+    return self.base_model(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 197, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1644, in forward
+    image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1009, in forward
+    hidden_states = self._gradient_checkpointing_func(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_compile.py", line 32, in inner
+    return disable_fn(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+    return fn(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 496, in checkpoint
+    ret = function(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 426, in forward
+    hidden_states = hidden_states + self.attn(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 399, in forward
+    attn_output = F.scaled_dot_product_attention(q, k, v, attention_mask, dropout_p=0.0)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.16 GiB. GPU 0 has a total capacity of 79.32 GiB of which 15.74 GiB is free. Including non-PyTorch memory, this process has 63.58 GiB memory in use. Of the allocated memory 60.43 GiB is allocated by PyTorch, and 807.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 255, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2531, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3675, in training_step
+[rank0]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 473, in compute_loss
+[rank0]:     (loss, outputs) = super().compute_loss(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3731, in compute_loss
+[rank0]:     outputs = model(**inputs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank0]:     loss = self.module(*inputs, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/peft_model.py", line 1719, in forward
+[rank0]:     return self.base_model(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 197, in forward
+[rank0]:     return self.model.forward(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1644, in forward
+[rank0]:     image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1009, in forward
+[rank0]:     hidden_states = self._gradient_checkpointing_func(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_compile.py", line 32, in inner
+[rank0]:     return disable_fn(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 496, in checkpoint
+[rank0]:     ret = function(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 426, in forward
+[rank0]:     hidden_states = hidden_states + self.attn(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 399, in forward
+[rank0]:     attn_output = F.scaled_dot_product_attention(q, k, v, attention_mask, dropout_p=0.0)
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.16 GiB. GPU 0 has a total capacity of 79.32 GiB of which 15.74 GiB is free. Including non-PyTorch memory, this process has 63.58 GiB memory in use. Of the allocated memory 60.43 GiB is allocated by PyTorch, and 807.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

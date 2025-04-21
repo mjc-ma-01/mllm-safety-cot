@@ -1,0 +1,21 @@
+{"time":"2025-04-18T11:15:13.304602131+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250418_111513-z6gg188p/logs/debug-core.log"}
+{"time":"2025-04-18T11:15:13.418472489+08:00","level":"INFO","msg":"created new stream","id":"z6gg188p"}
+{"time":"2025-04-18T11:15:13.418937708+08:00","level":"INFO","msg":"stream: started","id":"z6gg188p"}
+{"time":"2025-04-18T11:15:13.418948021+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"z6gg188p"}
+{"time":"2025-04-18T11:15:13.419132397+08:00","level":"INFO","msg":"handler: started","stream_id":"z6gg188p"}
+{"time":"2025-04-18T11:15:13.419141224+08:00","level":"INFO","msg":"sender: started","stream_id":"z6gg188p"}
+{"time":"2025-04-18T11:15:13.790169951+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-18T11:16:02.537447165+08:00","level":"INFO","msg":"stream: closing","id":"z6gg188p"}
+{"time":"2025-04-18T11:16:02.537843754+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-18T11:16:02.53890552+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-18T11:16:03.852462996+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-18T11:16:04.595679146+08:00","level":"INFO","msg":"handler: closed","stream_id":"z6gg188p"}
+{"time":"2025-04-18T11:16:04.595711423+08:00","level":"INFO","msg":"sender: closed","stream_id":"z6gg188p"}
+{"time":"2025-04-18T11:16:04.595706568+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"z6gg188p"}
+{"time":"2025-04-18T11:16:04.596832171+08:00","level":"INFO","msg":"stream: closed","id":"z6gg188p"}
+{"time":"2025-04-18T11:16:04.598205317+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744946162,"nanos":536676000},"line":"    "}},"control":{"connection_id":"127.0.0.1:57986"},"_info":{"stream_id":"z6gg188p"}}}}
+{"time":"2025-04-18T11:16:04.598695077+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744946162,"nanos":536725000},"line":"self._check_worker_status()"}},"control":{"connection_id":"127.0.0.1:57986"},"_info":{"stream_id":"z6gg188p"}}}}
+{"time":"2025-04-18T11:16:04.599048295+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744946162,"nanos":536761000},"line":"\n"}},"control":{"connection_id":"127.0.0.1:57986"},"_info":{"stream_id":"z6gg188p"}}}}
+{"time":"2025-04-18T11:16:04.599428244+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744946162,"nanos":536798000},"line":"  File \"/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py\", line 212, in _check_worker_status\n"}},"control":{"connection_id":"127.0.0.1:57986"},"_info":{"stream_id":"z6gg188p"}}}}
+{"time":"2025-04-18T11:16:04.599749924+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744946162,"nanos":537552000},"line":"    "}},"control":{"connection_id":"127.0.0.1:57986"},"_info":{"stream_id":"z6gg188p"}}}}
+{"time":"2025-04-18T11:16:04.600025716+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"timestamp":{"seconds":1744946162,"nanos":537599000},"line":"raise exception"}},"control":{"connection_id":"127.0.0.1:57986"},"_info":{"stream_id":"z6gg188p"}}}}

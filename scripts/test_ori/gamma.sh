@@ -4,12 +4,22 @@ world_size=2  # 任务总数量/数据集切分块总数
 batch_size=4
 
 model_name=gamma3_4b # 选模型
-use_peft=True
-version=v1 # 选版本
+use_peft=False
 think_mode=True 
 
-train_task_names=mmsafetybench+sharedgpt4v_${version}
-path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-2200
+# 声明一个关联数组来模拟字典
+declare -A model_map
+# 给关联数组赋值
+model_map["pixtral_12b"]="/mnt/lustrenew/mllm_safety-shared/models/huggingface/mistralai/Pixtral-12B-2409"
+model_map["gamma3_4b"]="/mnt/lustrenew/mllm_safety-shared/models/huggingface/google/gemma-3-4b-it"
+model_map["SmolVLM"]="/mnt/lustrenew/mllm_safety-shared/models/huggingface/HuggingFaceTB/SmolVLM-Instruct"
+model_map["llava1.5_7b"]="/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf"
+model_map["qwen_7b_vl"]="/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2-VL-7B-Instruct"
+model_map["llama_11b"]="/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
+
+version=origin
+train_task_names=${version}
+path=${model_map["$model_name"]}
 
 for rank in $(seq 0 $((world_size - 1))); do
     

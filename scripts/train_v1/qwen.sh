@@ -5,7 +5,7 @@ config_file=config/deepspeed_zero2.yaml
 
 model_name=qwen_7b_vl
 
-version=v1_1
+version=v1
 think_mode=True
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
@@ -22,11 +22,14 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --dataset_name aa \
     --model_identifier ${model_name} \
     --output_dir ${base_dir} \
+    --version ${version} \
+    --think_mode True \
     --per_device_train_batch_size=1 \
-    --gradient_accumulation_steps=2 \
+    --gradient_accumulation_steps=1 \
     --save_steps 200 \
     --gradient_checkpointing \
     --bf16 \
+    --learning_rate 1e-4 \
     --torch_dtype bfloat16 \
     --logging_steps 10 \
     --logging_strategy "steps" \

@@ -48,7 +48,8 @@ from huggingface_hub import snapshot_download
 # repo_id = "Qwen/Qwen2-VL-7B-Instruct"
 
 # repo_id = "HuggingFaceTB/SmolVLM-Instruct"
-repo_id = "google/gemma-3-4b-it"
+# repo_id = "google/gemma-3-4b-it"
+repo_id = "Qwen/Qwen-VL-Chat"
 
 
 

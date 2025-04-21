@@ -1,0 +1,254 @@
+  0%|          | 0/2256 [00:00<?, ?it/s]It is strongly recommended to train Gemma3 models with the `eager` attention implementation instead of `sdpa`. Use `eager` with `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
+  9%|▉         | 200/2256 [02:05<20:36,  1.66it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 2.4982, 'grad_norm': 7.463958740234375, 'learning_rate': 1.9920212765957446e-05, 'mean_token_accuracy': 0.5384357154369355, 'epoch': 0.01}
+{'loss': 1.8397, 'grad_norm': 5.011118412017822, 'learning_rate': 1.9831560283687945e-05, 'mean_token_accuracy': 0.571254986524582, 'epoch': 0.03}
+{'loss': 1.6866, 'grad_norm': 4.380269527435303, 'learning_rate': 1.974290780141844e-05, 'mean_token_accuracy': 0.5946209847927093, 'epoch': 0.04}
+{'loss': 1.5192, 'grad_norm': 8.38603687286377, 'learning_rate': 1.965425531914894e-05, 'mean_token_accuracy': 0.6123713374137878, 'epoch': 0.05}
+{'loss': 1.4671, 'grad_norm': 2.31522536277771, 'learning_rate': 1.9565602836879435e-05, 'mean_token_accuracy': 0.6204238533973694, 'epoch': 0.07}
+{'loss': 1.3724, 'grad_norm': 2.7507758140563965, 'learning_rate': 1.947695035460993e-05, 'mean_token_accuracy': 0.6403686702251434, 'epoch': 0.08}
+{'loss': 1.3158, 'grad_norm': 1.982733964920044, 'learning_rate': 1.9388297872340425e-05, 'mean_token_accuracy': 0.6386676728725433, 'epoch': 0.09}
+{'loss': 1.233, 'grad_norm': 1.8528579473495483, 'learning_rate': 1.9299645390070924e-05, 'mean_token_accuracy': 0.6480725944042206, 'epoch': 0.11}
+{'loss': 1.2461, 'grad_norm': 2.340369701385498, 'learning_rate': 1.921099290780142e-05, 'mean_token_accuracy': 0.6457486033439637, 'epoch': 0.12}
+{'loss': 1.2269, 'grad_norm': 3.2514941692352295, 'learning_rate': 1.9122340425531915e-05, 'mean_token_accuracy': 0.6514793753623962, 'epoch': 0.13}
+{'loss': 1.1698, 'grad_norm': 3.3571419715881348, 'learning_rate': 1.9033687943262414e-05, 'mean_token_accuracy': 0.6593721747398377, 'epoch': 0.15}
+{'loss': 1.178, 'grad_norm': 2.413095235824585, 'learning_rate': 1.894503546099291e-05, 'mean_token_accuracy': 0.6591994106769562, 'epoch': 0.16}
+{'loss': 1.1075, 'grad_norm': 2.3567581176757812, 'learning_rate': 1.8856382978723408e-05, 'mean_token_accuracy': 0.6677655458450318, 'epoch': 0.17}
+{'loss': 1.1823, 'grad_norm': 2.139888286590576, 'learning_rate': 1.8767730496453903e-05, 'mean_token_accuracy': 0.6581824660301209, 'epoch': 0.19}
+{'loss': 1.1624, 'grad_norm': 2.5665667057037354, 'learning_rate': 1.86790780141844e-05, 'mean_token_accuracy': 0.6600237786769867, 'epoch': 0.2}
+{'loss': 1.139, 'grad_norm': 2.7102551460266113, 'learning_rate': 1.8590425531914894e-05, 'mean_token_accuracy': 0.6623583316802979, 'epoch': 0.21}
+{'loss': 1.1292, 'grad_norm': 2.4263927936553955, 'learning_rate': 1.850177304964539e-05, 'mean_token_accuracy': 0.6669102311134338, 'epoch': 0.23}
+{'loss': 1.0639, 'grad_norm': 3.1087701320648193, 'learning_rate': 1.841312056737589e-05, 'mean_token_accuracy': 0.6657324254512786, 'epoch': 0.24}
+{'loss': 1.0882, 'grad_norm': 2.7509419918060303, 'learning_rate': 1.8324468085106384e-05, 'mean_token_accuracy': 0.6746276259422302, 'epoch': 0.25}
+{'loss': 0.994, 'grad_norm': 4.772961139678955, 'learning_rate': 1.8235815602836883e-05, 'mean_token_accuracy': 0.6800413489341736, 'epoch': 0.27}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 18%|█▊        | 400/2256 [04:16<18:36,  1.66it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 1.0977, 'grad_norm': 3.2946245670318604, 'learning_rate': 1.8147163120567378e-05, 'mean_token_accuracy': 0.6672866106033325, 'epoch': 0.28}
+{'loss': 1.0693, 'grad_norm': 6.0960516929626465, 'learning_rate': 1.8058510638297873e-05, 'mean_token_accuracy': 0.6720331311225891, 'epoch': 0.29}
+{'loss': 1.0633, 'grad_norm': 2.7524781227111816, 'learning_rate': 1.796985815602837e-05, 'mean_token_accuracy': 0.6738925993442535, 'epoch': 0.31}
+{'loss': 1.0122, 'grad_norm': 5.088498115539551, 'learning_rate': 1.7881205673758864e-05, 'mean_token_accuracy': 0.6835190415382385, 'epoch': 0.32}
+{'loss': 1.1023, 'grad_norm': 2.489555835723877, 'learning_rate': 1.7792553191489363e-05, 'mean_token_accuracy': 0.6706600189208984, 'epoch': 0.33}
+{'loss': 1.0773, 'grad_norm': 2.9262561798095703, 'learning_rate': 1.770390070921986e-05, 'mean_token_accuracy': 0.6727022111415863, 'epoch': 0.35}
+{'loss': 1.0647, 'grad_norm': 2.955552577972412, 'learning_rate': 1.7615248226950357e-05, 'mean_token_accuracy': 0.6699532985687255, 'epoch': 0.36}
+{'loss': 1.0743, 'grad_norm': 2.8118162155151367, 'learning_rate': 1.7526595744680853e-05, 'mean_token_accuracy': 0.6779635667800903, 'epoch': 0.37}
+{'loss': 1.033, 'grad_norm': 3.283670425415039, 'learning_rate': 1.743794326241135e-05, 'mean_token_accuracy': 0.6756833076477051, 'epoch': 0.39}
+{'loss': 1.0465, 'grad_norm': 2.4159703254699707, 'learning_rate': 1.7349290780141847e-05, 'mean_token_accuracy': 0.6773303270339965, 'epoch': 0.4}
+{'loss': 1.0645, 'grad_norm': 2.983342409133911, 'learning_rate': 1.7260638297872342e-05, 'mean_token_accuracy': 0.66894411444664, 'epoch': 0.41}
+{'loss': 1.0328, 'grad_norm': 3.5425424575805664, 'learning_rate': 1.7171985815602838e-05, 'mean_token_accuracy': 0.676717859506607, 'epoch': 0.43}
+{'loss': 0.983, 'grad_norm': 2.0731441974639893, 'learning_rate': 1.7083333333333333e-05, 'mean_token_accuracy': 0.6834260761737824, 'epoch': 0.44}
+{'loss': 0.9936, 'grad_norm': 2.5043890476226807, 'learning_rate': 1.6994680851063832e-05, 'mean_token_accuracy': 0.6824623823165894, 'epoch': 0.45}
+{'loss': 1.0083, 'grad_norm': 5.402851104736328, 'learning_rate': 1.6906028368794327e-05, 'mean_token_accuracy': 0.6759005010128021, 'epoch': 0.47}
+{'loss': 0.9873, 'grad_norm': 5.678700923919678, 'learning_rate': 1.6817375886524826e-05, 'mean_token_accuracy': 0.6821256399154663, 'epoch': 0.48}
+{'loss': 0.9905, 'grad_norm': 3.2159314155578613, 'learning_rate': 1.672872340425532e-05, 'mean_token_accuracy': 0.6861070930957794, 'epoch': 0.49}
+{'loss': 1.0002, 'grad_norm': 2.737985610961914, 'learning_rate': 1.6640070921985817e-05, 'mean_token_accuracy': 0.6852774858474732, 'epoch': 0.51}
+{'loss': 0.8882, 'grad_norm': 3.41145396232605, 'learning_rate': 1.6551418439716312e-05, 'mean_token_accuracy': 0.7013342261314393, 'epoch': 0.52}
+{'loss': 0.9391, 'grad_norm': 4.413787841796875, 'learning_rate': 1.6462765957446808e-05, 'mean_token_accuracy': 0.697197538614273, 'epoch': 0.53}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 27%|██▋       | 600/2256 [06:27<17:51,  1.55it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 1.0422, 'grad_norm': 2.555955410003662, 'learning_rate': 1.6374113475177306e-05, 'mean_token_accuracy': 0.6792027473449707, 'epoch': 0.55}
+{'loss': 0.9207, 'grad_norm': 5.3191399574279785, 'learning_rate': 1.6285460992907802e-05, 'mean_token_accuracy': 0.6938185870647431, 'epoch': 0.56}
+{'loss': 0.9129, 'grad_norm': 3.2192318439483643, 'learning_rate': 1.61968085106383e-05, 'mean_token_accuracy': 0.7013049066066742, 'epoch': 0.57}
+{'loss': 0.9458, 'grad_norm': 6.745787143707275, 'learning_rate': 1.6108156028368796e-05, 'mean_token_accuracy': 0.6963071823120117, 'epoch': 0.59}
+{'loss': 0.926, 'grad_norm': 2.445978879928589, 'learning_rate': 1.6019503546099295e-05, 'mean_token_accuracy': 0.6964256405830384, 'epoch': 0.6}
+{'loss': 0.9596, 'grad_norm': 3.748847723007202, 'learning_rate': 1.593085106382979e-05, 'mean_token_accuracy': 0.6894840478897095, 'epoch': 0.61}
+{'loss': 0.8502, 'grad_norm': 3.002765417098999, 'learning_rate': 1.5842198581560286e-05, 'mean_token_accuracy': 0.7016211986541748, 'epoch': 0.62}
+{'loss': 0.9182, 'grad_norm': 7.352783203125, 'learning_rate': 1.575354609929078e-05, 'mean_token_accuracy': 0.6970755994319916, 'epoch': 0.64}
+{'loss': 0.9813, 'grad_norm': 2.3377950191497803, 'learning_rate': 1.5664893617021276e-05, 'mean_token_accuracy': 0.6902617931365966, 'epoch': 0.65}
+{'loss': 0.9908, 'grad_norm': 3.2210564613342285, 'learning_rate': 1.5576241134751775e-05, 'mean_token_accuracy': 0.6917817652225494, 'epoch': 0.66}
+{'loss': 0.9361, 'grad_norm': 3.572190523147583, 'learning_rate': 1.548758865248227e-05, 'mean_token_accuracy': 0.6935116529464722, 'epoch': 0.68}
+{'loss': 0.9268, 'grad_norm': 3.3901829719543457, 'learning_rate': 1.539893617021277e-05, 'mean_token_accuracy': 0.696285343170166, 'epoch': 0.69}
+{'loss': 0.9741, 'grad_norm': 2.945204973220825, 'learning_rate': 1.5310283687943265e-05, 'mean_token_accuracy': 0.6934872448444367, 'epoch': 0.7}
+{'loss': 0.9583, 'grad_norm': 3.5701465606689453, 'learning_rate': 1.5221631205673758e-05, 'mean_token_accuracy': 0.6971629440784455, 'epoch': 0.72}
+{'loss': 0.8943, 'grad_norm': 3.1464920043945312, 'learning_rate': 1.5132978723404257e-05, 'mean_token_accuracy': 0.6960711658000946, 'epoch': 0.73}
+{'loss': 0.9112, 'grad_norm': 2.847599506378174, 'learning_rate': 1.5044326241134753e-05, 'mean_token_accuracy': 0.6991662800312042, 'epoch': 0.74}
+{'loss': 0.9015, 'grad_norm': 3.064450979232788, 'learning_rate': 1.495567375886525e-05, 'mean_token_accuracy': 0.6993699371814728, 'epoch': 0.76}
+{'loss': 0.9505, 'grad_norm': 5.415087699890137, 'learning_rate': 1.4867021276595745e-05, 'mean_token_accuracy': 0.6915489256381988, 'epoch': 0.77}
+{'loss': 0.9138, 'grad_norm': 2.9558568000793457, 'learning_rate': 1.4778368794326244e-05, 'mean_token_accuracy': 0.6975519776344299, 'epoch': 0.78}
+{'loss': 0.8547, 'grad_norm': 2.919926881790161, 'learning_rate': 1.468971631205674e-05, 'mean_token_accuracy': 0.7097780704498291, 'epoch': 0.8}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 35%|███▌      | 800/2256 [08:37<14:04,  1.72it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.9435, 'grad_norm': 3.0886917114257812, 'learning_rate': 1.4601063829787235e-05, 'mean_token_accuracy': 0.693954998254776, 'epoch': 0.81}
+{'loss': 0.9019, 'grad_norm': 3.0961222648620605, 'learning_rate': 1.4512411347517732e-05, 'mean_token_accuracy': 0.6997231841087341, 'epoch': 0.82}
+{'loss': 0.8336, 'grad_norm': 4.72021484375, 'learning_rate': 1.4423758865248227e-05, 'mean_token_accuracy': 0.7114266812801361, 'epoch': 0.84}
+{'loss': 0.8456, 'grad_norm': 3.0974032878875732, 'learning_rate': 1.4335106382978724e-05, 'mean_token_accuracy': 0.7048522174358368, 'epoch': 0.85}
+{'loss': 0.8919, 'grad_norm': 4.3802361488342285, 'learning_rate': 1.424645390070922e-05, 'mean_token_accuracy': 0.7051743686199188, 'epoch': 0.86}
+{'loss': 0.8739, 'grad_norm': 3.1907105445861816, 'learning_rate': 1.4157801418439719e-05, 'mean_token_accuracy': 0.7056494235992432, 'epoch': 0.88}
+{'loss': 0.9662, 'grad_norm': 4.351585388183594, 'learning_rate': 1.4069148936170214e-05, 'mean_token_accuracy': 0.6908339023590088, 'epoch': 0.89}
+{'loss': 0.9187, 'grad_norm': 3.3408663272857666, 'learning_rate': 1.398049645390071e-05, 'mean_token_accuracy': 0.7002231538295746, 'epoch': 0.9}
+{'loss': 0.873, 'grad_norm': 3.738685131072998, 'learning_rate': 1.3891843971631206e-05, 'mean_token_accuracy': 0.7065708100795746, 'epoch': 0.92}
+{'loss': 0.8155, 'grad_norm': 3.5188188552856445, 'learning_rate': 1.3803191489361702e-05, 'mean_token_accuracy': 0.7056981921195984, 'epoch': 0.93}
+{'loss': 0.8064, 'grad_norm': 4.672430992126465, 'learning_rate': 1.37145390070922e-05, 'mean_token_accuracy': 0.7078954935073852, 'epoch': 0.94}
+{'loss': 0.8037, 'grad_norm': 2.7994630336761475, 'learning_rate': 1.3625886524822696e-05, 'mean_token_accuracy': 0.715859717130661, 'epoch': 0.96}
+{'loss': 0.8273, 'grad_norm': 11.156649589538574, 'learning_rate': 1.3537234042553193e-05, 'mean_token_accuracy': 0.7082086801528931, 'epoch': 0.97}
+{'loss': 0.8298, 'grad_norm': 4.4590044021606445, 'learning_rate': 1.3448581560283689e-05, 'mean_token_accuracy': 0.7063744068145752, 'epoch': 0.98}
+{'loss': 0.7752, 'grad_norm': 2.606248617172241, 'learning_rate': 1.3359929078014187e-05, 'mean_token_accuracy': 0.7233682036399841, 'epoch': 1.0}
+{'loss': 0.8711, 'grad_norm': 2.6097207069396973, 'learning_rate': 1.3271276595744683e-05, 'mean_token_accuracy': 0.7065154731273651, 'epoch': 1.01}
+{'loss': 0.863, 'grad_norm': 2.963212490081787, 'learning_rate': 1.3182624113475178e-05, 'mean_token_accuracy': 0.7031869649887085, 'epoch': 1.02}
+{'loss': 0.8231, 'grad_norm': 3.2176568508148193, 'learning_rate': 1.3093971631205675e-05, 'mean_token_accuracy': 0.7109278321266175, 'epoch': 1.04}
+{'loss': 0.8485, 'grad_norm': 7.528769493103027, 'learning_rate': 1.300531914893617e-05, 'mean_token_accuracy': 0.7048351109027863, 'epoch': 1.05}
+{'loss': 0.8782, 'grad_norm': 2.9420886039733887, 'learning_rate': 1.2916666666666668e-05, 'mean_token_accuracy': 0.7033566236495972, 'epoch': 1.06}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 44%|████▍     | 1000/2256 [10:46<12:19,  1.70it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.7278, 'grad_norm': 2.9545466899871826, 'learning_rate': 1.2828014184397163e-05, 'mean_token_accuracy': 0.722057843208313, 'epoch': 1.08}
+{'loss': 0.8124, 'grad_norm': 2.595564126968384, 'learning_rate': 1.2739361702127662e-05, 'mean_token_accuracy': 0.7195101201534271, 'epoch': 1.09}
+{'loss': 0.9301, 'grad_norm': 2.834266185760498, 'learning_rate': 1.2650709219858157e-05, 'mean_token_accuracy': 0.6971082866191864, 'epoch': 1.1}
+{'loss': 0.8531, 'grad_norm': 2.962606191635132, 'learning_rate': 1.2562056737588653e-05, 'mean_token_accuracy': 0.7124933719635009, 'epoch': 1.12}
+{'loss': 0.9194, 'grad_norm': 3.125516414642334, 'learning_rate': 1.247340425531915e-05, 'mean_token_accuracy': 0.7033397734165192, 'epoch': 1.13}
+{'loss': 0.8795, 'grad_norm': 3.229119062423706, 'learning_rate': 1.2384751773049645e-05, 'mean_token_accuracy': 0.7049791216850281, 'epoch': 1.14}
+{'loss': 0.8254, 'grad_norm': 3.4934263229370117, 'learning_rate': 1.2296099290780144e-05, 'mean_token_accuracy': 0.713142603635788, 'epoch': 1.16}
+{'loss': 0.817, 'grad_norm': 3.6657509803771973, 'learning_rate': 1.220744680851064e-05, 'mean_token_accuracy': 0.7106535136699677, 'epoch': 1.17}
+{'loss': 0.936, 'grad_norm': 2.950549602508545, 'learning_rate': 1.2118794326241137e-05, 'mean_token_accuracy': 0.6947929561138153, 'epoch': 1.18}
+{'loss': 0.8449, 'grad_norm': 3.0267293453216553, 'learning_rate': 1.2030141843971632e-05, 'mean_token_accuracy': 0.7095007121562957, 'epoch': 1.2}
+{'loss': 0.8577, 'grad_norm': 2.432102680206299, 'learning_rate': 1.1941489361702127e-05, 'mean_token_accuracy': 0.7007488071918487, 'epoch': 1.21}
+{'loss': 0.9394, 'grad_norm': 3.414855718612671, 'learning_rate': 1.1852836879432626e-05, 'mean_token_accuracy': 0.7014692485332489, 'epoch': 1.22}
+{'loss': 0.8317, 'grad_norm': 3.685999870300293, 'learning_rate': 1.1764184397163122e-05, 'mean_token_accuracy': 0.7191392540931701, 'epoch': 1.24}
+{'loss': 0.787, 'grad_norm': 3.3486320972442627, 'learning_rate': 1.1675531914893619e-05, 'mean_token_accuracy': 0.7130156040191651, 'epoch': 1.25}
+{'loss': 0.9175, 'grad_norm': 3.013484477996826, 'learning_rate': 1.1586879432624114e-05, 'mean_token_accuracy': 0.6993513762950897, 'epoch': 1.26}
+{'loss': 0.7952, 'grad_norm': 2.919476270675659, 'learning_rate': 1.1498226950354611e-05, 'mean_token_accuracy': 0.7202251732349396, 'epoch': 1.28}
+{'loss': 0.9104, 'grad_norm': 2.757117509841919, 'learning_rate': 1.1409574468085107e-05, 'mean_token_accuracy': 0.6977820456027984, 'epoch': 1.29}
+{'loss': 0.7986, 'grad_norm': 2.65356707572937, 'learning_rate': 1.1320921985815602e-05, 'mean_token_accuracy': 0.7222407519817352, 'epoch': 1.3}
+{'loss': 0.828, 'grad_norm': 2.893876552581787, 'learning_rate': 1.12322695035461e-05, 'mean_token_accuracy': 0.7163597941398621, 'epoch': 1.32}
+{'loss': 0.9632, 'grad_norm': 3.1503255367279053, 'learning_rate': 1.1143617021276596e-05, 'mean_token_accuracy': 0.6937109589576721, 'epoch': 1.33}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 53%|█████▎    | 1200/2256 [12:55<10:29,  1.68it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.8224, 'grad_norm': 3.310055732727051, 'learning_rate': 1.1054964539007093e-05, 'mean_token_accuracy': 0.7116772115230561, 'epoch': 1.34}
+{'loss': 0.8477, 'grad_norm': 3.211852550506592, 'learning_rate': 1.0966312056737589e-05, 'mean_token_accuracy': 0.7131491124629974, 'epoch': 1.36}
+{'loss': 0.7794, 'grad_norm': 3.3585855960845947, 'learning_rate': 1.0877659574468088e-05, 'mean_token_accuracy': 0.7224305808544159, 'epoch': 1.37}
+{'loss': 0.8276, 'grad_norm': 2.5350418090820312, 'learning_rate': 1.0789007092198583e-05, 'mean_token_accuracy': 0.713653165102005, 'epoch': 1.38}
+{'loss': 0.8531, 'grad_norm': 2.9020986557006836, 'learning_rate': 1.0700354609929078e-05, 'mean_token_accuracy': 0.7149816215038299, 'epoch': 1.4}
+{'loss': 0.7706, 'grad_norm': 3.009490489959717, 'learning_rate': 1.0611702127659575e-05, 'mean_token_accuracy': 0.7181808352470398, 'epoch': 1.41}
+{'loss': 0.8279, 'grad_norm': 2.8236188888549805, 'learning_rate': 1.052304964539007e-05, 'mean_token_accuracy': 0.7189830839633942, 'epoch': 1.42}
+{'loss': 0.8583, 'grad_norm': 4.561112880706787, 'learning_rate': 1.0434397163120568e-05, 'mean_token_accuracy': 0.7124683678150177, 'epoch': 1.44}
+{'loss': 0.8848, 'grad_norm': 2.426283359527588, 'learning_rate': 1.0345744680851065e-05, 'mean_token_accuracy': 0.7056924700737, 'epoch': 1.45}
+{'loss': 0.8171, 'grad_norm': 2.732266902923584, 'learning_rate': 1.0257092198581562e-05, 'mean_token_accuracy': 0.717300420999527, 'epoch': 1.46}
+{'loss': 0.7321, 'grad_norm': 3.7500226497650146, 'learning_rate': 1.0168439716312058e-05, 'mean_token_accuracy': 0.7291440010070801, 'epoch': 1.48}
+{'loss': 0.8135, 'grad_norm': 2.5684421062469482, 'learning_rate': 1.0079787234042555e-05, 'mean_token_accuracy': 0.7157979488372803, 'epoch': 1.49}
+{'loss': 0.7559, 'grad_norm': 3.128948926925659, 'learning_rate': 9.99113475177305e-06, 'mean_token_accuracy': 0.7202307105064392, 'epoch': 1.5}
+{'loss': 0.7863, 'grad_norm': 3.0200183391571045, 'learning_rate': 9.902482269503547e-06, 'mean_token_accuracy': 0.7193982839584351, 'epoch': 1.52}
+{'loss': 0.9435, 'grad_norm': 3.032844305038452, 'learning_rate': 9.813829787234044e-06, 'mean_token_accuracy': 0.7040465533733368, 'epoch': 1.53}
+{'loss': 0.87, 'grad_norm': 3.0880610942840576, 'learning_rate': 9.72517730496454e-06, 'mean_token_accuracy': 0.7088258028030395, 'epoch': 1.54}
+{'loss': 0.826, 'grad_norm': 2.4410154819488525, 'learning_rate': 9.636524822695035e-06, 'mean_token_accuracy': 0.7170190751552582, 'epoch': 1.56}
+{'loss': 0.8427, 'grad_norm': 3.4882850646972656, 'learning_rate': 9.547872340425532e-06, 'mean_token_accuracy': 0.7167037308216095, 'epoch': 1.57}
+{'loss': 0.877, 'grad_norm': 2.7265753746032715, 'learning_rate': 9.45921985815603e-06, 'mean_token_accuracy': 0.7106037139892578, 'epoch': 1.58}
+{'loss': 0.847, 'grad_norm': 2.23663067817688, 'learning_rate': 9.370567375886526e-06, 'mean_token_accuracy': 0.7181115806102752, 'epoch': 1.6}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 62%|██████▏   | 1400/2256 [15:05<08:27,  1.69it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.7761, 'grad_norm': 2.6859958171844482, 'learning_rate': 9.281914893617022e-06, 'mean_token_accuracy': 0.7239280819892884, 'epoch': 1.61}
+{'loss': 0.7995, 'grad_norm': 3.16182541847229, 'learning_rate': 9.193262411347519e-06, 'mean_token_accuracy': 0.7106646955013275, 'epoch': 1.62}
+{'loss': 0.8086, 'grad_norm': 2.444803476333618, 'learning_rate': 9.104609929078016e-06, 'mean_token_accuracy': 0.7153099417686463, 'epoch': 1.64}
+{'loss': 0.7698, 'grad_norm': 3.1125295162200928, 'learning_rate': 9.015957446808511e-06, 'mean_token_accuracy': 0.7259454429149628, 'epoch': 1.65}
+{'loss': 0.8923, 'grad_norm': 2.802119493484497, 'learning_rate': 8.927304964539007e-06, 'mean_token_accuracy': 0.706946212053299, 'epoch': 1.66}
+{'loss': 0.8344, 'grad_norm': 2.72944974899292, 'learning_rate': 8.838652482269504e-06, 'mean_token_accuracy': 0.7158621251583099, 'epoch': 1.68}
+{'loss': 0.8259, 'grad_norm': 4.2824859619140625, 'learning_rate': 8.750000000000001e-06, 'mean_token_accuracy': 0.7120341122150421, 'epoch': 1.69}
+{'loss': 0.8455, 'grad_norm': 3.1311964988708496, 'learning_rate': 8.661347517730498e-06, 'mean_token_accuracy': 0.7081700682640075, 'epoch': 1.7}
+{'loss': 0.7762, 'grad_norm': 3.35837721824646, 'learning_rate': 8.572695035460993e-06, 'mean_token_accuracy': 0.7224789440631867, 'epoch': 1.72}
+{'loss': 0.7585, 'grad_norm': 2.2699947357177734, 'learning_rate': 8.48404255319149e-06, 'mean_token_accuracy': 0.7308098316192627, 'epoch': 1.73}
+{'loss': 0.8198, 'grad_norm': 2.7618956565856934, 'learning_rate': 8.395390070921986e-06, 'mean_token_accuracy': 0.7181249678134918, 'epoch': 1.74}
+{'loss': 0.7649, 'grad_norm': 2.7058753967285156, 'learning_rate': 8.306737588652483e-06, 'mean_token_accuracy': 0.7290188848972321, 'epoch': 1.76}
+{'loss': 0.6952, 'grad_norm': 2.941138744354248, 'learning_rate': 8.218085106382978e-06, 'mean_token_accuracy': 0.7515395760536194, 'epoch': 1.77}
+{'loss': 0.8134, 'grad_norm': 2.5436062812805176, 'learning_rate': 8.129432624113476e-06, 'mean_token_accuracy': 0.7144571423530579, 'epoch': 1.78}
+{'loss': 0.7959, 'grad_norm': 2.458752393722534, 'learning_rate': 8.040780141843973e-06, 'mean_token_accuracy': 0.7202098727226257, 'epoch': 1.8}
+{'loss': 0.8417, 'grad_norm': 2.720571756362915, 'learning_rate': 7.95212765957447e-06, 'mean_token_accuracy': 0.712825745344162, 'epoch': 1.81}
+{'loss': 0.733, 'grad_norm': 2.4130241870880127, 'learning_rate': 7.863475177304965e-06, 'mean_token_accuracy': 0.7302226543426513, 'epoch': 1.82}
+{'loss': 0.8083, 'grad_norm': 4.355865478515625, 'learning_rate': 7.774822695035462e-06, 'mean_token_accuracy': 0.719501507282257, 'epoch': 1.84}
+{'loss': 0.8174, 'grad_norm': 2.595412492752075, 'learning_rate': 7.686170212765958e-06, 'mean_token_accuracy': 0.723435789346695, 'epoch': 1.85}
+{'loss': 0.8194, 'grad_norm': 2.733670711517334, 'learning_rate': 7.597517730496454e-06, 'mean_token_accuracy': 0.7212280809879303, 'epoch': 1.86}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 71%|███████   | 1600/2256 [17:15<06:27,  1.69it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.7942, 'grad_norm': 3.512568235397339, 'learning_rate': 7.508865248226951e-06, 'mean_token_accuracy': 0.7288374662399292, 'epoch': 1.88}
+{'loss': 0.7329, 'grad_norm': 2.495842218399048, 'learning_rate': 7.420212765957447e-06, 'mean_token_accuracy': 0.72265145778656, 'epoch': 1.89}
+{'loss': 0.8043, 'grad_norm': 3.4768693447113037, 'learning_rate': 7.331560283687944e-06, 'mean_token_accuracy': 0.7265133023262024, 'epoch': 1.9}
+{'loss': 0.7782, 'grad_norm': 3.223466634750366, 'learning_rate': 7.242907801418441e-06, 'mean_token_accuracy': 0.7236921668052674, 'epoch': 1.91}
+{'loss': 0.8567, 'grad_norm': 2.543020725250244, 'learning_rate': 7.154255319148937e-06, 'mean_token_accuracy': 0.7115702033042908, 'epoch': 1.93}
+{'loss': 0.7564, 'grad_norm': 2.7794337272644043, 'learning_rate': 7.065602836879433e-06, 'mean_token_accuracy': 0.722107994556427, 'epoch': 1.94}
+{'loss': 0.7547, 'grad_norm': 3.7840194702148438, 'learning_rate': 6.976950354609929e-06, 'mean_token_accuracy': 0.727598124742508, 'epoch': 1.95}
+{'loss': 0.8235, 'grad_norm': 5.011871814727783, 'learning_rate': 6.888297872340426e-06, 'mean_token_accuracy': 0.7207307279109955, 'epoch': 1.97}
+{'loss': 0.7003, 'grad_norm': 3.3338162899017334, 'learning_rate': 6.799645390070923e-06, 'mean_token_accuracy': 0.7352214694023133, 'epoch': 1.98}
+{'loss': 0.7756, 'grad_norm': 3.2501699924468994, 'learning_rate': 6.710992907801419e-06, 'mean_token_accuracy': 0.7247133135795594, 'epoch': 1.99}
+{'loss': 0.6774, 'grad_norm': 2.9056692123413086, 'learning_rate': 6.622340425531916e-06, 'mean_token_accuracy': 0.733504694700241, 'epoch': 2.01}
+{'loss': 0.832, 'grad_norm': 3.0702579021453857, 'learning_rate': 6.533687943262412e-06, 'mean_token_accuracy': 0.7147874772548676, 'epoch': 2.02}
+{'loss': 0.7681, 'grad_norm': 3.128265857696533, 'learning_rate': 6.445035460992908e-06, 'mean_token_accuracy': 0.7225669324398041, 'epoch': 2.03}
+{'loss': 0.8936, 'grad_norm': 3.0930724143981934, 'learning_rate': 6.356382978723404e-06, 'mean_token_accuracy': 0.7066518604755402, 'epoch': 2.05}
+{'loss': 0.734, 'grad_norm': 2.5609655380249023, 'learning_rate': 6.267730496453901e-06, 'mean_token_accuracy': 0.7303011298179627, 'epoch': 2.06}
+{'loss': 0.7649, 'grad_norm': 3.099677324295044, 'learning_rate': 6.179078014184397e-06, 'mean_token_accuracy': 0.7253268837928772, 'epoch': 2.07}
+{'loss': 0.7696, 'grad_norm': 2.9147660732269287, 'learning_rate': 6.090425531914894e-06, 'mean_token_accuracy': 0.7197329103946686, 'epoch': 2.09}
+{'loss': 0.6881, 'grad_norm': 3.520068883895874, 'learning_rate': 6.001773049645391e-06, 'mean_token_accuracy': 0.742556494474411, 'epoch': 2.1}
+{'loss': 0.7211, 'grad_norm': 2.5563204288482666, 'learning_rate': 5.913120567375888e-06, 'mean_token_accuracy': 0.7360736787319183, 'epoch': 2.11}
+{'loss': 0.8126, 'grad_norm': 3.4004955291748047, 'learning_rate': 5.824468085106384e-06, 'mean_token_accuracy': 0.7220329761505127, 'epoch': 2.13}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 80%|███████▉  | 1800/2256 [19:24<04:30,  1.69it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.8401, 'grad_norm': 6.214231967926025, 'learning_rate': 5.735815602836879e-06, 'mean_token_accuracy': 0.7169229507446289, 'epoch': 2.14}
+{'loss': 0.7567, 'grad_norm': 3.516493558883667, 'learning_rate': 5.647163120567376e-06, 'mean_token_accuracy': 0.7293857991695404, 'epoch': 2.15}
+{'loss': 0.7203, 'grad_norm': 3.926999807357788, 'learning_rate': 5.558510638297873e-06, 'mean_token_accuracy': 0.7360578298568725, 'epoch': 2.17}
+{'loss': 0.7433, 'grad_norm': 3.1373627185821533, 'learning_rate': 5.469858156028369e-06, 'mean_token_accuracy': 0.7218173503875732, 'epoch': 2.18}
+{'loss': 0.7983, 'grad_norm': 3.6090996265411377, 'learning_rate': 5.381205673758866e-06, 'mean_token_accuracy': 0.7224144577980042, 'epoch': 2.19}
+{'loss': 0.8397, 'grad_norm': 3.163558006286621, 'learning_rate': 5.292553191489362e-06, 'mean_token_accuracy': 0.7188653469085693, 'epoch': 2.21}
+{'loss': 0.7828, 'grad_norm': 2.8868188858032227, 'learning_rate': 5.203900709219859e-06, 'mean_token_accuracy': 0.7307920455932617, 'epoch': 2.22}
+{'loss': 0.7381, 'grad_norm': 2.918105125427246, 'learning_rate': 5.115248226950355e-06, 'mean_token_accuracy': 0.7356441140174865, 'epoch': 2.23}
+{'loss': 0.6962, 'grad_norm': 2.2775800228118896, 'learning_rate': 5.026595744680851e-06, 'mean_token_accuracy': 0.7318403422832489, 'epoch': 2.25}
+{'loss': 0.8124, 'grad_norm': 4.773436546325684, 'learning_rate': 4.937943262411347e-06, 'mean_token_accuracy': 0.7255265653133393, 'epoch': 2.26}
+{'loss': 0.7238, 'grad_norm': 2.688739061355591, 'learning_rate': 4.8492907801418445e-06, 'mean_token_accuracy': 0.7316292762756348, 'epoch': 2.27}
+{'loss': 0.8135, 'grad_norm': 2.713798999786377, 'learning_rate': 4.760638297872341e-06, 'mean_token_accuracy': 0.7231424391269684, 'epoch': 2.29}
+{'loss': 0.7636, 'grad_norm': 2.6618988513946533, 'learning_rate': 4.671985815602838e-06, 'mean_token_accuracy': 0.7288204848766326, 'epoch': 2.3}
+{'loss': 0.7018, 'grad_norm': 2.6168644428253174, 'learning_rate': 4.583333333333333e-06, 'mean_token_accuracy': 0.7450390100479126, 'epoch': 2.31}
+{'loss': 0.6662, 'grad_norm': 2.6309473514556885, 'learning_rate': 4.49468085106383e-06, 'mean_token_accuracy': 0.7463601410388947, 'epoch': 2.33}
+{'loss': 0.7729, 'grad_norm': 3.019531726837158, 'learning_rate': 4.4060283687943266e-06, 'mean_token_accuracy': 0.7222548663616181, 'epoch': 2.34}
+{'loss': 0.8234, 'grad_norm': 3.063748836517334, 'learning_rate': 4.317375886524824e-06, 'mean_token_accuracy': 0.7212752342224121, 'epoch': 2.35}
+{'loss': 0.782, 'grad_norm': 2.8214190006256104, 'learning_rate': 4.228723404255319e-06, 'mean_token_accuracy': 0.7239187836647034, 'epoch': 2.37}
+{'loss': 0.7305, 'grad_norm': 2.8476040363311768, 'learning_rate': 4.140070921985816e-06, 'mean_token_accuracy': 0.7311643421649933, 'epoch': 2.38}
+{'loss': 0.7931, 'grad_norm': 2.9692389965057373, 'learning_rate': 4.051418439716312e-06, 'mean_token_accuracy': 0.720295387506485, 'epoch': 2.39}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 89%|████████▊ | 2000/2256 [21:36<02:32,  1.68it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.8183, 'grad_norm': 2.821141481399536, 'learning_rate': 3.962765957446809e-06, 'mean_token_accuracy': 0.7215206027030945, 'epoch': 2.41}
+{'loss': 0.6945, 'grad_norm': 2.658043146133423, 'learning_rate': 3.874113475177305e-06, 'mean_token_accuracy': 0.7420073747634888, 'epoch': 2.42}
+{'loss': 0.7649, 'grad_norm': 2.822673797607422, 'learning_rate': 3.7854609929078016e-06, 'mean_token_accuracy': 0.7256305396556855, 'epoch': 2.43}
+{'loss': 0.7339, 'grad_norm': 4.572000980377197, 'learning_rate': 3.6968085106382983e-06, 'mean_token_accuracy': 0.7367156147956848, 'epoch': 2.45}
+{'loss': 0.8052, 'grad_norm': 4.83797550201416, 'learning_rate': 3.6081560283687945e-06, 'mean_token_accuracy': 0.7240750312805175, 'epoch': 2.46}
+{'loss': 0.8061, 'grad_norm': 3.1140995025634766, 'learning_rate': 3.519503546099291e-06, 'mean_token_accuracy': 0.7272068142890931, 'epoch': 2.47}
+{'loss': 0.7479, 'grad_norm': 3.045673131942749, 'learning_rate': 3.4308510638297874e-06, 'mean_token_accuracy': 0.734868836402893, 'epoch': 2.49}
+{'loss': 0.8072, 'grad_norm': 3.3204708099365234, 'learning_rate': 3.342198581560284e-06, 'mean_token_accuracy': 0.7193942308425904, 'epoch': 2.5}
+{'loss': 0.7795, 'grad_norm': 2.524465560913086, 'learning_rate': 3.2535460992907804e-06, 'mean_token_accuracy': 0.7229941546916961, 'epoch': 2.51}
+{'loss': 0.7416, 'grad_norm': 2.867645025253296, 'learning_rate': 3.164893617021277e-06, 'mean_token_accuracy': 0.7262684047222138, 'epoch': 2.53}
+{'loss': 0.8162, 'grad_norm': 2.7232425212860107, 'learning_rate': 3.0762411347517733e-06, 'mean_token_accuracy': 0.7230846166610718, 'epoch': 2.54}
+{'loss': 0.7631, 'grad_norm': 3.562795877456665, 'learning_rate': 2.9875886524822696e-06, 'mean_token_accuracy': 0.7226252317428589, 'epoch': 2.55}
+{'loss': 0.7639, 'grad_norm': 3.1406075954437256, 'learning_rate': 2.8989361702127662e-06, 'mean_token_accuracy': 0.7299813747406005, 'epoch': 2.57}
+{'loss': 0.6889, 'grad_norm': 2.950094223022461, 'learning_rate': 2.8102836879432625e-06, 'mean_token_accuracy': 0.741049200296402, 'epoch': 2.58}
+{'loss': 0.7202, 'grad_norm': 2.2758071422576904, 'learning_rate': 2.721631205673759e-06, 'mean_token_accuracy': 0.7342004179954529, 'epoch': 2.59}
+{'loss': 0.7858, 'grad_norm': 3.452943801879883, 'learning_rate': 2.6329787234042554e-06, 'mean_token_accuracy': 0.7299139678478241, 'epoch': 2.61}
+{'loss': 0.7872, 'grad_norm': 4.470207214355469, 'learning_rate': 2.544326241134752e-06, 'mean_token_accuracy': 0.730087685585022, 'epoch': 2.62}
+{'loss': 0.7245, 'grad_norm': 3.652036666870117, 'learning_rate': 2.4556737588652483e-06, 'mean_token_accuracy': 0.732166987657547, 'epoch': 2.63}
+{'loss': 0.848, 'grad_norm': 2.915607452392578, 'learning_rate': 2.367021276595745e-06, 'mean_token_accuracy': 0.7170324802398682, 'epoch': 2.65}
+{'loss': 0.7622, 'grad_norm': 2.9690401554107666, 'learning_rate': 2.2783687943262413e-06, 'mean_token_accuracy': 0.7276370406150818, 'epoch': 2.66}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+ 98%|█████████▊| 2200/2256 [23:47<00:32,  1.70it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.7101, 'grad_norm': 2.5944526195526123, 'learning_rate': 2.189716312056738e-06, 'mean_token_accuracy': 0.7387612760066986, 'epoch': 2.67}
+{'loss': 0.8132, 'grad_norm': 3.292091131210327, 'learning_rate': 2.101063829787234e-06, 'mean_token_accuracy': 0.7202434599399566, 'epoch': 2.69}
+{'loss': 0.7535, 'grad_norm': 3.8119399547576904, 'learning_rate': 2.012411347517731e-06, 'mean_token_accuracy': 0.7308827400207519, 'epoch': 2.7}
+{'loss': 0.7666, 'grad_norm': 2.955415964126587, 'learning_rate': 1.923758865248227e-06, 'mean_token_accuracy': 0.7253292202949524, 'epoch': 2.71}
+{'loss': 0.8551, 'grad_norm': 3.2002851963043213, 'learning_rate': 1.8351063829787236e-06, 'mean_token_accuracy': 0.7227482855319977, 'epoch': 2.73}
+{'loss': 0.7436, 'grad_norm': 5.128124713897705, 'learning_rate': 1.7464539007092198e-06, 'mean_token_accuracy': 0.7314862251281739, 'epoch': 2.74}
+{'loss': 0.845, 'grad_norm': 3.659562826156616, 'learning_rate': 1.6578014184397165e-06, 'mean_token_accuracy': 0.7183297872543335, 'epoch': 2.75}
+{'loss': 0.7432, 'grad_norm': 2.934717893600464, 'learning_rate': 1.5691489361702128e-06, 'mean_token_accuracy': 0.7362841010093689, 'epoch': 2.77}
+{'loss': 0.8054, 'grad_norm': 3.023894786834717, 'learning_rate': 1.4804964539007094e-06, 'mean_token_accuracy': 0.7245246112346649, 'epoch': 2.78}
+{'loss': 0.7804, 'grad_norm': 2.9809839725494385, 'learning_rate': 1.3918439716312057e-06, 'mean_token_accuracy': 0.7287879228591919, 'epoch': 2.79}
+{'loss': 0.8439, 'grad_norm': 3.354273796081543, 'learning_rate': 1.3031914893617024e-06, 'mean_token_accuracy': 0.7187212586402894, 'epoch': 2.81}
+{'loss': 0.7579, 'grad_norm': 2.9149975776672363, 'learning_rate': 1.2145390070921986e-06, 'mean_token_accuracy': 0.7345289349555969, 'epoch': 2.82}
+{'loss': 0.6536, 'grad_norm': 2.7524867057800293, 'learning_rate': 1.125886524822695e-06, 'mean_token_accuracy': 0.7458237528800964, 'epoch': 2.83}
+{'loss': 0.7374, 'grad_norm': 3.0833640098571777, 'learning_rate': 1.0372340425531915e-06, 'mean_token_accuracy': 0.7400850236415863, 'epoch': 2.85}
+{'loss': 0.776, 'grad_norm': 2.9144814014434814, 'learning_rate': 9.48581560283688e-07, 'mean_token_accuracy': 0.7214105129241943, 'epoch': 2.86}
+{'loss': 0.819, 'grad_norm': 3.8503098487854004, 'learning_rate': 8.599290780141845e-07, 'mean_token_accuracy': 0.725715309381485, 'epoch': 2.87}
+{'loss': 0.7777, 'grad_norm': 3.0414767265319824, 'learning_rate': 7.712765957446809e-07, 'mean_token_accuracy': 0.725288724899292, 'epoch': 2.89}
+{'loss': 0.7472, 'grad_norm': 3.191443920135498, 'learning_rate': 6.826241134751774e-07, 'mean_token_accuracy': 0.733812689781189, 'epoch': 2.9}
+{'loss': 0.7605, 'grad_norm': 2.727219820022583, 'learning_rate': 5.939716312056738e-07, 'mean_token_accuracy': 0.740283876657486, 'epoch': 2.91}
+{'loss': 0.7226, 'grad_norm': 3.9723966121673584, 'learning_rate': 5.053191489361702e-07, 'mean_token_accuracy': 0.7356525301933289, 'epoch': 2.93}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+100%|██████████| 2256/2256 [24:31<00:00,  1.78it/s]/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+{'loss': 0.8262, 'grad_norm': 2.6307878494262695, 'learning_rate': 4.1666666666666667e-07, 'mean_token_accuracy': 0.7173286199569702, 'epoch': 2.94}
+{'loss': 0.7725, 'grad_norm': 5.906628608703613, 'learning_rate': 3.2801418439716313e-07, 'mean_token_accuracy': 0.7309015214443206, 'epoch': 2.95}
+{'loss': 0.7346, 'grad_norm': 4.161241054534912, 'learning_rate': 2.393617021276596e-07, 'mean_token_accuracy': 0.7295671284198761, 'epoch': 2.97}
+{'loss': 0.7449, 'grad_norm': 4.5039520263671875, 'learning_rate': 1.5070921985815603e-07, 'mean_token_accuracy': 0.7293393850326538, 'epoch': 2.98}
+{'loss': 0.7326, 'grad_norm': 3.0453484058380127, 'learning_rate': 6.205673758865249e-08, 'mean_token_accuracy': 0.7368428945541382, 'epoch': 2.99}
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+100%|██████████| 2256/2256 [24:41<00:00,  1.52it/s]
+{'train_runtime': 1483.3476, 'train_samples_per_second': 12.159, 'train_steps_per_second': 1.521, 'train_loss': 0.8807868670064507, 'mean_token_accuracy': 0.7380981544653574, 'epoch': 3.0}
+/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/peft/utils/save_and_load.py:230: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")

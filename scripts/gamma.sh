@@ -8,7 +8,7 @@ config_file=config/deepspeed_zero2.yaml
 model_name=gamma3_4b
 think_mode=True
 
-version=v2
+version=v2_useful
 train_task_names=mmsafetybench+sharedgpt4v_${version}
 base_dir=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}
 
@@ -26,6 +26,7 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --per_device_train_batch_size=1 \
     --gradient_accumulation_steps=1 \
     --save_steps 200 \
+    --num_train_epochs 2 \
     --bf16 \
     --torch_dtype bfloat16 \
     --logging_steps 10 \

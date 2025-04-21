@@ -105,7 +105,7 @@ if __name__ == "__main__":
                 max_new_tokens=500,  # 控制最大生成长度
                 num_return_sequences=1,  # 生成一个答案
                 do_sample=True,  # 采用贪心解码（可以改成True用于采样）
-                temperature=0.7,  # 控制生成的多样性（仅在 do_sample=True 时有效）
+                temperature=0.3,  # 控制生成的多样性（仅在 do_sample=True 时有效）
             )
         generated_texts = tokenizer.batch_decode(generated_ids[:, input_ids.shape[-1]:], skip_special_tokens=True) 
         for ex, answer in zip(batch, generated_texts):

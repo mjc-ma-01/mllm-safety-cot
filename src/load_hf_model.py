@@ -33,8 +33,9 @@ from huggingface_hub import snapshot_download
 # repo_id = "sinwang/SIUO"
 # repo_id = "kzhou35/mssbench"
 
-repo_id = "mistralai/Pixtral-12B-2409"
+# repo_id = "mistralai/Pixtral-12B-2409"
 
+repo_id = "AIML-TUDA/LlavaGuard-7B-hf"
 
 
 # repo_id = "Qwen/Qwen2.5-VL-7B-Instruct"

@@ -1,0 +1,15 @@
+{"time":"2025-04-18T14:57:04.909289449+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250418_145704-4mkvoxcj/logs/debug-core.log"}
+{"time":"2025-04-18T14:57:05.024224353+08:00","level":"INFO","msg":"created new stream","id":"4mkvoxcj"}
+{"time":"2025-04-18T14:57:05.024647001+08:00","level":"INFO","msg":"stream: started","id":"4mkvoxcj"}
+{"time":"2025-04-18T14:57:05.024654594+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"4mkvoxcj"}
+{"time":"2025-04-18T14:57:05.024886753+08:00","level":"INFO","msg":"sender: started","stream_id":"4mkvoxcj"}
+{"time":"2025-04-18T14:57:05.024888983+08:00","level":"INFO","msg":"handler: started","stream_id":"4mkvoxcj"}
+{"time":"2025-04-18T14:57:35.028081604+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-04-18T14:58:07.382826753+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-04-18T14:58:34.961671041+08:00","level":"INFO","msg":"stream: closing","id":"4mkvoxcj"}
+{"time":"2025-04-18T14:58:34.962136183+08:00","level":"INFO","msg":"handler: closed","stream_id":"4mkvoxcj"}
+{"time":"2025-04-18T14:58:34.962162345+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"4mkvoxcj"}
+{"time":"2025-04-18T14:58:34.9626671+08:00","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: api: failed sending: POST https://api.wandb.ai/graphql giving up after 3 attempt(s): context canceled"}
+{"time":"2025-04-18T14:58:34.963365874+08:00","level":"INFO","msg":"sender: closed","stream_id":"4mkvoxcj"}
+{"time":"2025-04-18T14:58:34.963721355+08:00","level":"INFO","msg":"stream: closed","id":"4mkvoxcj"}
+{"time":"2025-04-18T14:58:34.963426696+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{}}
