@@ -5,7 +5,7 @@ config_file=config/deepspeed_zero2.yaml
 
 model_name=qwen_7b_vl
 
-version=v2_useful
+version=v2
 think_mode=True
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
@@ -31,7 +31,6 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --torch_dtype bfloat16 \
     --logging_steps 10 \
     --learning_rate 1e-4 \
-    --num_train_epochs 2 \
     --logging_strategy "steps" \
     --use_peft \
     --lora_alpha 16 \
