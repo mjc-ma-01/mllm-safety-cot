@@ -20,7 +20,12 @@ model_map={
     "SmolVLM": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/HuggingFaceTB/SmolVLM-Instruct",
     "llava1.5_7b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf",
     "qwen_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2-VL-7B-Instruct",
-    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
+    "qwen2.5_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-7B-Instruct",
+    "qwen2.5_32b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-32B-Instruct",
+    "qwen2.5_3b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-3B-Instruct",
+    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-90B-Vision-Instruct",
+    "llama_guard": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-Guard-3-11B-Vision",
+    "llama_90b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
 }
 
 
@@ -58,7 +63,7 @@ if __name__ == "__main__":
 
             
     processor = AutoProcessor.from_pretrained(base_model_path,trust_remote_code=True)
-    if src_args.model_identifier == "qwen_7b_vl":
+    if src_args.model_identifier == "qwen_7b_vl" or src_args.model_identifier == "qwen2.5_32b_vl" or src_args.model_identifier == "qwen2.5_7b_vl" or src_args.model_identifier == "qwen2.5_3b_vl":
         processor = AutoProcessor.from_pretrained(base_model_path, trust_remote_code=True, min_pixels=300*28*28, max_pixels=500*28*28)
         processor.tokenizer = AutoTokenizer.from_pretrained(base_model_path)
     processor.tokenizer.padding_side = "left"

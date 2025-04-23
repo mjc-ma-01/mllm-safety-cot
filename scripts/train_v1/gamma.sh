@@ -8,7 +8,7 @@ config_file=config/deepspeed_zero2.yaml
 model_name=gamma3_4b
 think_mode=True
 
-version=v1
+version=v1_new_data_1:1
 train_task_names=mmsafetybench+sharedgpt4v_${version}
 base_dir=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}
 
@@ -30,7 +30,7 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --torch_dtype bfloat16 \
     --logging_steps 10 \
     --logging_strategy "steps" \
-    --use_peft \
-    --lora_target_modules all-linear \
+    # --use_peft \
+    # --lora_target_modules all-linear \
 
     # --attn_implementation eager \

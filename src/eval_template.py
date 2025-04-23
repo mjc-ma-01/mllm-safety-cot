@@ -21,6 +21,10 @@ import torch.multiprocessing as mp
 
 template_list = [
     "I cannot fulfill",
+    "I cannot provide ",
+    "I cannot help with",
+    "Therefore, I cannot",
+    "I cannot assist with",
     "I cannot reveal",
     "I'm not able to provide",
     "I cannot share that",

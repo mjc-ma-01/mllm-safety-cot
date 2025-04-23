@@ -5,11 +5,11 @@ batch_size=4
 
 model_name=gamma3_4b # 选模型
 use_peft=False
-version=v2_useful # 选版本
+version=v1_new_data_1:1 # 选版本
 think_mode=True 
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
-path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-492
+path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-1260
 
 for rank in $(seq 0 $((world_size - 1))); do
     
@@ -72,7 +72,7 @@ if [[ "$count" -gt 0 ]]; then
 else
     avg_score="N/A (No valid scores)"
 fi
-final_score_file="${output_dir}/final_scores.txt"
+final_score_file="${output_dir}/final_scores_ckp1400.txt"
 echo "Final average score: ${avg_score}" | tee -a "$final_score_file"
 rm -f "$tmp_score_file"
 echo "All scores and final average score saved to ${final_score_file}"

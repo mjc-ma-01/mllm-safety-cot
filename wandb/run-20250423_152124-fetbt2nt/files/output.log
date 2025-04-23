@@ -1,0 +1,7 @@
+  0%|          | 0/1227 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  4%|▍         | 54/1227 [07:46<2:31:22,  7.74s/it]
+{'loss': 1.9628, 'grad_norm': 0.1705375611782074, 'learning_rate': 9.926650366748167e-05, 'mean_token_accuracy': 0.5815077900886536, 'epoch': 0.02}
+{'loss': 1.7522, 'grad_norm': 0.2553118169307709, 'learning_rate': 9.845150774246129e-05, 'mean_token_accuracy': 0.6203810513019562, 'epoch': 0.05}
+{'loss': 1.6508, 'grad_norm': 0.2721516191959381, 'learning_rate': 9.763651181744091e-05, 'mean_token_accuracy': 0.643011850118637, 'epoch': 0.07}
+{'loss': 1.5056, 'grad_norm': 0.31936413049697876, 'learning_rate': 9.682151589242054e-05, 'mean_token_accuracy': 0.6491437971591949, 'epoch': 0.1}
+{'loss': 1.4256, 'grad_norm': 0.30465009808540344, 'learning_rate': 9.600651996740017e-05, 'mean_token_accuracy': 0.6455253660678864, 'epoch': 0.12}

@@ -3,13 +3,13 @@ num_gpus=4 # 使用的 GPU 数量
 world_size=4  # 任务总数量/数据集切分块总数
 batch_size=4
 
-model_name=qwen_7b_vl # 选模型
+model_name=qwen2.5_7b_vl # 选模型
 use_peft=True
-version=v1 # 选版本
+version=v1_new_data_1:1 # 选版本
 think_mode=True 
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
-path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-2256
+path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-1260
 
 for rank in $(seq 0 $((world_size - 1))); do
     

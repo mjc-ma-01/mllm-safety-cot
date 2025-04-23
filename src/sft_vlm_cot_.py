@@ -103,7 +103,12 @@ model_map={
     "SmolVLM": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/HuggingFaceTB/SmolVLM-Instruct",
     "llava1.5_7b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf",
     "qwen_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2-VL-7B-Instruct",
-    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
+    "qwen2.5_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-7B-Instruct",
+    "qwen2.5_32b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-32B-Instruct",
+    "qwen2.5_3b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-3B-Instruct",
+    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-90B-Vision-Instruct",
+    "llama_guard": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-Guard-3-11B-Vision",
+    "llama_90b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
 }
 
 @dataclass
@@ -137,9 +142,9 @@ if __name__ == "__main__":
         device_map=get_kbit_device_map() if quantization_config is not None else None,
         quantization_config=quantization_config,
         )
-    processor = AutoProcessor.from_pretrained(model_args.model_name_or_path, trust_remote_code=model_args.trust_remote_code)
+    processor = AutoProcessor.from_pretrained(model_args.model_name_or_path, trust_remote_code=True)
     
-    if args.model_identifier == "qwenvl_7b":
+    if args.model_identifier == "qwenvl_7b" or args.model_identifier == "qwen2.5_32b_vl" or args.model_identifier == "qwen2.5_7b_vl" or args.model_identifier == "qwen2.5_3b_vl":
         processor = AutoProcessor.from_pretrained(
         model_args.model_name_or_path, trust_remote_code=model_args.trust_remote_code, min_pixels=300*28*28, max_pixels=500*28*28)
     if args.model_identifier == "llava1.5_7b":
@@ -155,15 +160,53 @@ if __name__ == "__main__":
     
 ############  loading different version training data    
 ## load v1 data (template cot)
-    if args.version == "v1":
+    if args.version == "v1_new_data":
         dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)
         ds = dataset_mm.get_dataset()
+        dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=args.think_mode)
+        ds_nsfw = dataset_nsfw.get_nsfw_dataset()
+        sharegpt4v = ShareGPT4vDataset(num_samples=1700,think_mode=args.think_mode)
+        general_ds = sharegpt4v.get_dataset()
+        train_cot_dataset = concatenate_datasets([ds,ds_nsfw,general_ds]).shuffle(seed=42)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+        print(train_cot_dataset)
+        
+    if args.version == "v1_new_data_1:3":
+        dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)
+        ds = dataset_mm.get_dataset()
+        dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=args.think_mode)
+        ds_nsfw = dataset_nsfw.get_nsfw_dataset()
         sharegpt4v = ShareGPT4vDataset(num_samples=5000,think_mode=args.think_mode)
         general_ds = sharegpt4v.get_dataset()
-        train_cot_dataset = concatenate_datasets([ds,general_ds]).shuffle(seed=42)
+        train_cot_dataset = concatenate_datasets([ds,ds_nsfw,general_ds]).shuffle(seed=42)
         train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
-             
+        print(train_cot_dataset)
         
+    if args.version == "v1_new_data_1:3":
+        dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)
+        ds = dataset_mm.get_dataset()
+        dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=args.think_mode)
+        ds_nsfw = dataset_nsfw.get_nsfw_dataset()
+        sharegpt4v = ShareGPT4vDataset(num_samples=5000,think_mode=args.think_mode)
+        general_ds = sharegpt4v.get_dataset()
+        train_cot_dataset = concatenate_datasets([ds,ds_nsfw,general_ds]).shuffle(seed=42)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+        print(train_cot_dataset)        
+        
+    if args.version == "v1_new_data_1:1":
+        dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)
+        ds = dataset_mm.get_dataset()
+        dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=args.think_mode)
+        ds_nsfw = dataset_nsfw.get_nsfw_dataset()
+        ds_risk = dataset_nsfw.get_risk_dataset()
+        print(len(ds_nsfw))
+        print(len(ds_risk))
+        sharegpt4v = ShareGPT4vDataset(num_samples=1700,think_mode=args.think_mode)
+        general_ds = sharegpt4v.get_dataset()
+        train_cot_dataset = concatenate_datasets([ds,ds_nsfw,ds_risk,general_ds]).shuffle(seed=42)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+        print(train_cot_dataset)    
+            
 ## load v2 data (high quaility cot)
     elif args.version == "v2":
         ds = load_from_disk("./dataset/cot_data_v2_llama")
@@ -196,7 +239,6 @@ if __name__ == "__main__":
         print(ds[100])
         train_cot_dataset = ds.train_test_split(test_size=0.1)
         
-
 
     def multimodal_collator(examples, label_pad_token_id=-100): 
         messages = []

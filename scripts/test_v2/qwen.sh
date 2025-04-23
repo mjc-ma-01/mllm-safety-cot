@@ -5,35 +5,35 @@ batch_size=4
 
 model_name=qwen_7b_vl # 选模型
 use_peft=True
-version=v2 # 选版本
+version=v1_new_data_1:1 # 选版本
 think_mode=True 
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
-path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-2256
+path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-1260
 
-# for rank in $(seq 0 $((world_size - 1))); do
+for rank in $(seq 0 $((world_size - 1))); do
     
-#     save_path=./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json
+    save_path=./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json
     
-#     PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
-#      python src/inference_mllm.py \
-#     --model_identifier ${model_name} \
-#     --use_peft ${use_peft} \
-#     --model_path ${path} \
-#     --save_log_path  ${save_path} \
-#     --test_dataset ${test_dataset} \
-#     --cot ${think_mode} \
-#     --world_size ${world_size} \
-#     --rank ${rank} \
-#     --batch_size ${batch_size} &
-# done
-# wait  
+    PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
+     python src/inference_mllm.py \
+    --model_identifier ${model_name} \
+    --use_peft ${use_peft} \
+    --model_path ${path} \
+    --save_log_path  ${save_path} \
+    --test_dataset ${test_dataset} \
+    --cot ${think_mode} \
+    --world_size ${world_size} \
+    --rank ${rank} \
+    --batch_size ${batch_size} &
+done
+wait  
 
 
 
 ############################## 用score模型给判断是否安全（危险问题拒答、非危险问题做出回答） ##############################
 scores=()  # 存放所有得分的数组
-output_dir="./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}_qwen_eval/test:${test_dataset}"  # 结果存放目录
+output_dir="./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}/test:${test_dataset}"  # 结果存放目录
 mkdir -p "${output_dir}"
 tmp_score_file="${output_dir}/tmp_scores.txt"
 > "$tmp_score_file"
@@ -44,7 +44,7 @@ for rank in $(seq 0 $((world_size - 1))); do
     (
         score=$(PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
         python src/eval_mllm.py \
-            --model_path "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-7B-Instruct" \
+            --model_path "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-7B-Instruct" \
             --input_path ${file} \
             --save_score_path ${file} \
             --batch_size ${batch_size} | tail -n 1)

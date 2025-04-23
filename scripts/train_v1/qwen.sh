@@ -1,11 +1,11 @@
 ngpu=8
-ncpu=1
+ncpu=16
 WANDB_PROJECT=llm-cot-safety
 config_file=config/deepspeed_zero2.yaml
 
 model_name=qwen_7b_vl
 
-version=v1_useful
+version=v1_new_data_1:1
 think_mode=True
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
@@ -26,7 +26,6 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --think_mode True \
     --per_device_train_batch_size=1 \
     --gradient_accumulation_steps=1 \
-    --num_train_epochs 2 \
     --save_steps 200 \
     --gradient_checkpointing \
     --bf16 \

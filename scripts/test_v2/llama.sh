@@ -5,12 +5,11 @@ batch_size=4
 
 model_name=llama_11b # 选模型
 use_peft=False
-version=v2_useful # 选版本
+version=v1_new_data_1:1 # 选版本
 think_mode=True 
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
-path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-492
-
+path=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}/checkpoint-1260
 for rank in $(seq 0 $((world_size - 1))); do
     
     save_path=./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json

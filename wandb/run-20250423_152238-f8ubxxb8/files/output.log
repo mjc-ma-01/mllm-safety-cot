@@ -1,0 +1,67 @@
+  0%|          | 0/1260 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+Traceback (most recent call last):
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 308, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3736, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 494, in compute_loss
+    correct_tokens = self.accelerator.gather_for_metrics(correct_tokens)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2500, in gather_for_metrics
+    data = self.gather(input_data)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2456, in gather
+    return gather(tensor)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 372, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 433, in gather
+    return _gpu_gather(tensor)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 352, in _gpu_gather
+    return recursively_apply(_gpu_gather_one, tensor, error_on_other_type=True)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 126, in recursively_apply
+    return func(data, *args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 342, in _gpu_gather_one
+    gather_op(output_tensors, tensor)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 83, in wrapper
+    return func(*args, **kwargs)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3435, in all_gather_into_tensor
+    work = group._allgather_base(output_tensor, input_tensor, opts)
+torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:317, unhandled cuda error (run with NCCL_DEBUG=INFO for details), NCCL version 2.21.5
+ncclUnhandledCudaError: Call to CUDA function failed.
+Last error:
+Cuda failure 1 'invalid argument'
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 308, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2560, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3736, in training_step
+[rank0]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/trl/trainer/sft_trainer.py", line 494, in compute_loss
+[rank0]:     correct_tokens = self.accelerator.gather_for_metrics(correct_tokens)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2500, in gather_for_metrics
+[rank0]:     data = self.gather(input_data)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/accelerator.py", line 2456, in gather
+[rank0]:     return gather(tensor)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 372, in wrapper
+[rank0]:     return function(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 433, in gather
+[rank0]:     return _gpu_gather(tensor)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 352, in _gpu_gather
+[rank0]:     return recursively_apply(_gpu_gather_one, tensor, error_on_other_type=True)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 126, in recursively_apply
+[rank0]:     return func(data, *args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/accelerate/utils/operations.py", line 342, in _gpu_gather_one
+[rank0]:     gather_op(output_tensors, tensor)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 83, in wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3435, in all_gather_into_tensor
+[rank0]:     work = group._allgather_base(output_tensor, input_tensor, opts)
+[rank0]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:317, unhandled cuda error (run with NCCL_DEBUG=INFO for details), NCCL version 2.21.5
+[rank0]: ncclUnhandledCudaError: Call to CUDA function failed.
+[rank0]: Last error:
+[rank0]: Cuda failure 1 'invalid argument'

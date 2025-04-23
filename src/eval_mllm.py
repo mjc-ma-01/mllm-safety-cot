@@ -103,7 +103,7 @@ def llama_evaluate(model, tokenizer, eval_dataset, bs):
 
 @dataclass
 class ScriptArgument:
-    # "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-7B-Instruct"
+    # "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-7B-Instruct"
     model_path: str = "/fs-computility/ai-shen/mllm_safety-shared/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct"
     input_path: str = "/fs-computility/ai-shen/majiachen/project/MLLM_CoT/logs/sft_answer/model:sft_cot_llama+sharegpt4v01_2200/test:ood_samples:all/00000-00004.json"
     save_score_path: str = "/fs-computility/ai-shen/majiachen/project/MLLM_CoT/logs/sft_answer/model:sft_cot_llama+sharegpt4v01_2200/test:ood_samples:all/00000-00004.json"
