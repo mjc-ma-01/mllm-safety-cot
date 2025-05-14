@@ -1,0 +1,15 @@
+{"time":"2025-05-12T16:30:15.485059884+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250512_163015-icgi5mje/logs/debug-core.log"}
+{"time":"2025-05-12T16:30:15.599168131+08:00","level":"INFO","msg":"created new stream","id":"icgi5mje"}
+{"time":"2025-05-12T16:30:15.599571725+08:00","level":"INFO","msg":"stream: started","id":"icgi5mje"}
+{"time":"2025-05-12T16:30:15.599583152+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"icgi5mje"}
+{"time":"2025-05-12T16:30:15.599720811+08:00","level":"INFO","msg":"sender: started","stream_id":"icgi5mje"}
+{"time":"2025-05-12T16:30:15.599801996+08:00","level":"INFO","msg":"handler: started","stream_id":"icgi5mje"}
+{"time":"2025-05-12T16:30:45.603082758+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-05-12T16:31:18.095771434+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-05-12T16:31:45.536096276+08:00","level":"INFO","msg":"stream: closing","id":"icgi5mje"}
+{"time":"2025-05-12T16:31:45.536500982+08:00","level":"INFO","msg":"handler: closed","stream_id":"icgi5mje"}
+{"time":"2025-05-12T16:31:45.536566671+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"icgi5mje"}
+{"time":"2025-05-12T16:31:45.53702157+08:00","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: api: failed sending: POST https://api.wandb.ai/graphql giving up after 3 attempt(s): context canceled"}
+{"time":"2025-05-12T16:31:45.537565277+08:00","level":"INFO","msg":"sender: closed","stream_id":"icgi5mje"}
+{"time":"2025-05-12T16:31:45.53759096+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{}}
+{"time":"2025-05-12T16:31:45.538096486+08:00","level":"INFO","msg":"stream: closed","id":"icgi5mje"}

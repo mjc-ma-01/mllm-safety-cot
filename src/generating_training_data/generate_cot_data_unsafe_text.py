@@ -36,7 +36,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 class ScriptArgument:
     model_path: str = "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
     prompt_config_path: str  = './config/cot_prompt_llm.yaml'
-    save_name: str = "cot_data_useful"
+    save_name: str = "cot_data_v2_risk"
     batch_size: int = 4
 
 if __name__ == "__main__":
@@ -47,36 +47,52 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
     tokenizer.padding_side = "left"
     # if not tokenizer.pad_token: tokenizer.pad_token = tokenizer.eos_token
+    processor = AutoProcessor.from_pretrained(args.model_path)
     
     model.to(device)
-    
     task_configs = omegaconf.OmegaConf.load(args.prompt_config_path)
-    dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench, think_mode=True)
-    ds = dataset_mm.get_cot_training_dataset_qwen()
+    
+    dataset_ = NSFWDataset(task_configs=task_configs.mm_safetybench, think_mode=True)
+    ds = dataset_.get_nsfw_cot_training_dataset()
+    # ds = dataset_.get_nsfw_cot_training_dataset()
     
     print(ds[0])
-    
     def multimodel_collator(examples): 
         messages = [[
-            {'image': ex['image_path']},
-            {'text': ex["prompt_question"]}]
-            for ex in examples
+                {"role":"user",
+                 "content":[
+                    {"type": "image", "text": None, "index": 0},
+                    { "type":"text", "text": ex["prompt_question"], "index": None}
+                    ] 
+                 }] 
+                    for ex in examples
             ]
-        qureies = [tokenizer.from_list_format(ex) for ex in messages]
-        return qureies
-    
-    
-    inputs = multimodel_collator(ds)
+        texts = [processor.apply_chat_template(message, tokenize = False, add_generation_prompt=True) for message in messages]
+        images = [[Image.open(ex['image_path']).convert("RGB")] for ex in examples]
+        inputs = processor(text=texts, images=images, return_tensors="pt", padding=True)
+        return {k: v.to(device) for k, v in inputs.items() if isinstance(v, torch.Tensor)}
+     
     results = []
     from tqdm import tqdm
+    bs = args.batch_size
 
     with torch.no_grad():
-        for i in tqdm(range(0, len(ds)), desc="Generating answers in batch"):
+        for i in tqdm(range(0, len(ds), bs), desc="Generating answers in batch"):
+            batch = ds.select(range(i, min(i + bs, len(ds))))
+            inputs = multimodel_collator(batch)
+            outputs = model.generate(
+                **inputs,
+                max_new_tokens=500,
+                do_sample=True,
+                temperature=0.8
+                )
+            result = processor.batch_decode(outputs[:, inputs["input_ids"].shape[-1]:], skip_special_tokens=True)
+            for r in result:
+                results.append(r)
+                print(r)
+                print("\n\n")
 
-            result, history = model.chat(tokenizer, inputs[i], history=None)
-            results.append(result)
-            print(result)
-
+    
     save_log_path = f"./logs/cot_training_data/{args.save_name}.json"
     
     with open(save_log_path, "w") as file:
@@ -85,8 +101,8 @@ if __name__ == "__main__":
                 "prompt_question": example["prompt_question"],
                 "question": example["question"],
                 "image_path": example["image_path"],
-                "label": result,
-                "catagory":example["catagory"]
+                "label": result + random.choice(rejection_templates),
+                "category":example["category"]
             }
             for example, result in zip(ds, results)  
         ]

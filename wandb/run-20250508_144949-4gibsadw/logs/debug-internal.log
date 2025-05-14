@@ -1,0 +1,16 @@
+{"time":"2025-05-08T14:49:49.304223588+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250508_144949-4gibsadw/logs/debug-core.log"}
+{"time":"2025-05-08T14:49:49.419188642+08:00","level":"INFO","msg":"created new stream","id":"4gibsadw"}
+{"time":"2025-05-08T14:49:49.419748069+08:00","level":"INFO","msg":"stream: started","id":"4gibsadw"}
+{"time":"2025-05-08T14:49:49.419794175+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"4gibsadw"}
+{"time":"2025-05-08T14:49:49.419883654+08:00","level":"INFO","msg":"sender: started","stream_id":"4gibsadw"}
+{"time":"2025-05-08T14:49:49.419954805+08:00","level":"INFO","msg":"handler: started","stream_id":"4gibsadw"}
+{"time":"2025-05-08T14:49:49.765649339+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-08T14:54:36.117262397+08:00","level":"INFO","msg":"stream: closing","id":"4gibsadw"}
+{"time":"2025-05-08T14:54:36.117348739+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-08T14:54:36.118834117+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-08T14:54:37.479442462+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-08T14:54:37.796121984+08:00","level":"INFO","msg":"handler: closed","stream_id":"4gibsadw"}
+{"time":"2025-05-08T14:54:37.796129804+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"4gibsadw"}
+{"time":"2025-05-08T14:54:37.796186012+08:00","level":"INFO","msg":"sender: closed","stream_id":"4gibsadw"}
+{"time":"2025-05-08T14:54:37.797360927+08:00","level":"INFO","msg":"stream: closed","id":"4gibsadw"}
+{"time":"2025-05-08T14:54:37.798950026+08:00","level":"WARN","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"Request":{"RequestType":{"InternalMessages":{}}}},"control":{"local":true,"mailbox_slot":"bpv0vlfjdtan","connection_id":"127.0.0.1:53398"},"_info":{"stream_id":"4gibsadw"}}}}

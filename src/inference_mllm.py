@@ -4,7 +4,7 @@ import omegaconf
 from datasets import Dataset
 from torch.utils.data import DataLoader
 # from flash_attn import FlashAttention
-from dataset.base import MMSafetyBenchDataset,MSSBenchDataset,ShareGPT4vDataset
+from dataset.base import MMSafetyBenchDataset,MSSBenchDataset,ShareGPT4vDataset,SIUO
 from transformers import TextStreamer, MllamaForConditionalGeneration, AutoProcessor, HfArgumentParser,AutoModelForVision2Seq,PreTrainedTokenizer,AutoModelForImageTextToText
 from dataclasses import dataclass,field
 from PIL import Image
@@ -83,7 +83,8 @@ if __name__ == "__main__":
         test_dataset = ds_share.get_dataset()["test"]
     elif src_args.test_dataset == "iid":
         test_dataset = ds_mm.get_dataset()["test"]
-            
+    elif src_args.test_dataset == "siuo":
+        test_dataset = SIUO(think_mode=True).get_dataset()
             
     print(f"Dataset length: {len(test_dataset)}" if hasattr(test_dataset, "__len__") else "No length attribute")
     test_dataset = split_datasets(test_dataset,src_args.rank, src_args.world_size)
@@ -115,7 +116,7 @@ if __name__ == "__main__":
             inputs = multimodel_collator(batch)
             outputs = model.module.generate(  
             **inputs,
-            max_new_tokens=300,
+            max_new_tokens=500,
             do_sample=True,
             temperature=0.7)
             
@@ -128,7 +129,7 @@ if __name__ == "__main__":
                     "label": ex.get("label", None)})
             print(f"num_{i}_examples")    
             print(results[i])
-            print(results[i+1])
+            # print(results[i+1])
             
 
     save_path = src_args.save_log_path

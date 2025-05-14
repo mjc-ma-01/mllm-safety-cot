@@ -1,0 +1,89 @@
+  0%|          | 0/226 [00:00<?, ?it/s]`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+100%|██████████| 226/226 [08:05<00:00,  2.11s/it]Traceback (most recent call last):
+{'loss': 1.8103, 'grad_norm': 15.861271858215332, 'learning_rate': 1.9203539823008853e-05, 'mean_token_accuracy': 0.5808481931686401, 'epoch': 0.09}
+{'loss': 1.4577, 'grad_norm': 12.56923770904541, 'learning_rate': 1.831858407079646e-05, 'mean_token_accuracy': 0.6213592886924744, 'epoch': 0.18}
+{'loss': 1.4385, 'grad_norm': 15.848013877868652, 'learning_rate': 1.7433628318584072e-05, 'mean_token_accuracy': 0.639899480342865, 'epoch': 0.27}
+{'loss': 1.2236, 'grad_norm': 9.190695762634277, 'learning_rate': 1.6548672566371683e-05, 'mean_token_accuracy': 0.6629888594150544, 'epoch': 0.35}
+{'loss': 1.155, 'grad_norm': 10.630461692810059, 'learning_rate': 1.5663716814159295e-05, 'mean_token_accuracy': 0.6753862798213959, 'epoch': 0.44}
+{'loss': 0.8428, 'grad_norm': 8.393779754638672, 'learning_rate': 1.4778761061946904e-05, 'mean_token_accuracy': 0.747120487689972, 'epoch': 0.53}
+{'loss': 0.8314, 'grad_norm': 7.303584575653076, 'learning_rate': 1.3893805309734513e-05, 'mean_token_accuracy': 0.7448623716831207, 'epoch': 0.62}
+{'loss': 0.9064, 'grad_norm': 8.248783111572266, 'learning_rate': 1.3008849557522125e-05, 'mean_token_accuracy': 0.7486311554908752, 'epoch': 0.71}
+{'loss': 0.7339, 'grad_norm': 8.136150360107422, 'learning_rate': 1.2123893805309736e-05, 'mean_token_accuracy': 0.7935053527355194, 'epoch': 0.8}
+{'loss': 0.5819, 'grad_norm': 10.24703311920166, 'learning_rate': 1.1238938053097345e-05, 'mean_token_accuracy': 0.8220234155654907, 'epoch': 0.88}
+{'loss': 0.6921, 'grad_norm': 8.441903114318848, 'learning_rate': 1.0353982300884956e-05, 'mean_token_accuracy': 0.7772500455379486, 'epoch': 0.97}
+{'loss': 0.6348, 'grad_norm': 6.646394729614258, 'learning_rate': 9.469026548672568e-06, 'mean_token_accuracy': 0.7895083606243134, 'epoch': 1.06}
+{'loss': 0.5404, 'grad_norm': 6.976367473602295, 'learning_rate': 8.584070796460177e-06, 'mean_token_accuracy': 0.8287870705127716, 'epoch': 1.15}
+{'loss': 0.456, 'grad_norm': 7.512650489807129, 'learning_rate': 7.699115044247788e-06, 'mean_token_accuracy': 0.8492546081542969, 'epoch': 1.24}
+{'loss': 0.3516, 'grad_norm': 3.889282703399658, 'learning_rate': 6.814159292035398e-06, 'mean_token_accuracy': 0.875664210319519, 'epoch': 1.33}
+{'loss': 0.3309, 'grad_norm': 4.75368070602417, 'learning_rate': 5.9292035398230096e-06, 'mean_token_accuracy': 0.8917561650276185, 'epoch': 1.42}
+{'loss': 0.3755, 'grad_norm': 3.6168510913848877, 'learning_rate': 5.04424778761062e-06, 'mean_token_accuracy': 0.8701426088809967, 'epoch': 1.5}
+{'loss': 0.2582, 'grad_norm': 6.051184177398682, 'learning_rate': 4.15929203539823e-06, 'mean_token_accuracy': 0.9162974536418915, 'epoch': 1.59}
+{'loss': 0.4218, 'grad_norm': 7.620365142822266, 'learning_rate': 3.274336283185841e-06, 'mean_token_accuracy': 0.864417564868927, 'epoch': 1.68}
+{'loss': 0.289, 'grad_norm': 3.958834648132324, 'learning_rate': 2.3893805309734516e-06, 'mean_token_accuracy': 0.8959599792957306, 'epoch': 1.77}
+{'loss': 0.2708, 'grad_norm': 4.527149200439453, 'learning_rate': 1.5044247787610621e-06, 'mean_token_accuracy': 0.8983503758907319, 'epoch': 1.86}
+{'loss': 0.3492, 'grad_norm': 8.202022552490234, 'learning_rate': 6.194690265486726e-07, 'mean_token_accuracy': 0.8826119303703308, 'epoch': 1.95}
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 850, in save
+    _save(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 1114, in _save
+    zip_file.write_record(name, storage, num_bytes)
+RuntimeError: [enforce fail at inline_container.cc:778] . PytorchStreamWriter failed writing file data/6: file write failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 317, in <module>
+    trainer.train()
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3103, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3211, in _save_checkpoint
+    self._save_optimizer_and_scheduler(output_dir)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3328, in _save_optimizer_and_scheduler
+    self.model_wrapped.save_checkpoint(output_dir)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 3206, in save_checkpoint
+    self._save_zero_checkpoint(save_dir, tag)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 3567, in _save_zero_checkpoint
+    self.checkpoint_engine.save(zero_sd, zero_checkpoint_name)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/checkpoint_engine/torch_checkpoint_engine.py", line 22, in save
+    torch.save(state_dict, path)
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 849, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 690, in __exit__
+    self.file_like.write_end_of_file()
+RuntimeError: [enforce fail at inline_container.cc:603] . unexpected pos 10670254528 vs 10670254360
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 850, in save
+[rank0]:     _save(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 1114, in _save
+[rank0]:     zip_file.write_record(name, storage, num_bytes)
+[rank0]: RuntimeError: [enforce fail at inline_container.cc:778] . PytorchStreamWriter failed writing file data/6: file write failed
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/petrelfs/majiachen/project/mllm-safety-cot/src/sft_vlm_cot_.py", line 317, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 2627, in _inner_training_loop
+[rank0]:     self._maybe_log_save_evaluate(
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3103, in _maybe_log_save_evaluate
+[rank0]:     self._save_checkpoint(model, trial)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3211, in _save_checkpoint
+[rank0]:     self._save_optimizer_and_scheduler(output_dir)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/transformers/trainer.py", line 3328, in _save_optimizer_and_scheduler
+[rank0]:     self.model_wrapped.save_checkpoint(output_dir)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 3206, in save_checkpoint
+[rank0]:     self._save_zero_checkpoint(save_dir, tag)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 3567, in _save_zero_checkpoint
+[rank0]:     self.checkpoint_engine.save(zero_sd, zero_checkpoint_name)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/deepspeed/runtime/checkpoint_engine/torch_checkpoint_engine.py", line 22, in save
+[rank0]:     torch.save(state_dict, path)
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 849, in save
+[rank0]:     with _open_zipfile_writer(f) as opened_zipfile:
+[rank0]:   File "/mnt/petrelfs/majiachen/miniconda3/envs/v-oocr/lib/python3.10/site-packages/torch/serialization.py", line 690, in __exit__
+[rank0]:     self.file_like.write_end_of_file()
+[rank0]: RuntimeError: [enforce fail at inline_container.cc:603] . unexpected pos 10670254528 vs 10670254360

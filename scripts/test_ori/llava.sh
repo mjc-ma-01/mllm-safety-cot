@@ -1,4 +1,4 @@
-test_dataset="ood"
+test_dataset="siuo"
 num_gpus=4 # 使用的 GPU 数量
 world_size=4  # 任务总数量/数据集切分块总数
 batch_size=4
@@ -24,24 +24,24 @@ train_task_names=${version}
 path=${model_map["$model_name"]}
 
 
-# for rank in $(seq 0 $((world_size - 1))); do
-    
-#     save_path=./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json
-    
-#     PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
-#      python src/inference_mllm.py \
-#     --model_identifier ${model_name} \
-#     --use_peft ${use_peft} \
-#     --model_path ${path} \
-#     --save_log_path  ${save_path} \
-#     --test_dataset ${test_dataset} \
-#     --cot ${think_mode} \
-#     --world_size ${world_size} \
-#     --rank ${rank} \
-#     --batch_size ${batch_size} &
-# done
-# wait  
 
+for rank in $(seq 0 $((world_size - 1))); do
+    
+    save_path=./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json
+    
+    PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
+     python src/inference_mllm.py \
+    --model_identifier ${model_name} \
+    --use_peft ${use_peft} \
+    --model_path ${path} \
+    --save_log_path  ${save_path} \
+    --test_dataset ${test_dataset} \
+    --cot ${think_mode} \
+    --world_size ${world_size} \
+    --rank ${rank} \
+    --batch_size ${batch_size} &
+done
+wait  
 
 
 ############################## 用score模型给判断是否安全（危险问题拒答、非危险问题做出回答） ##############################
@@ -88,3 +88,5 @@ final_score_file="${output_dir}/final_scores.txt"
 echo "Final average score: ${avg_score}" | tee -a "$final_score_file"
 rm -f "$tmp_score_file"
 echo "All scores and final average score saved to ${final_score_file}"
+
+PYTHONPATH=. srun -p mllm_safety --quotatype=spot --gres=gpu:1 --cpus-per-task=16 --time=3000 python src/eval_template.py --data_dir=${output_dir}

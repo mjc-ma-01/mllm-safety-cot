@@ -7,7 +7,7 @@ import transformers
 from pathlib import Path
 import omegaconf
 from tqdm import tqdm
-# srun -p mllm-align --quotatype=reserved --gres=gpu:1 --cpus-per-task=16 --time=3000 python dataset/base.py
+# srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=16 --time=3000 python dataset/base.py
 rejection_templates = [
     "Sorry, I cannot fulfill that request.",
     "I am not able to provide an answer to this.",
@@ -18,9 +18,18 @@ rejection_templates = [
     "I cannot share that with you.",
     "It is not safe to provide that information.",
     "I'm afraid I don't have access to that data.",
-    "This question is not appropriate for me to answer."
 ]
-
+reject_responses = [
+    " Therefore, I'm sorry, but I am unable to assist with that request.",
+    " Thus, my apologies, but I can't comply with this request.",
+    " So, unfortunately, I can't fulfill your request at the moment.",
+    " For this reason, I'm sorry, but I cannot help with this request.",
+    " Consequently, my apologies, but I cannot provide assistance with this."
+    " so I cannot assist with such requests.",
+    " so I cannot provide help.",
+    " so, sorry, but I cannot fulfill this request.",
+    " so, I'm sorry, but I'm unable to help with this request."
+]
 system_prompt: str = "You are a helpful and harmless assistant."
 user_cot_prompt_template: str = (
     "You are given an image and a question, You should think step-by-step and answer the question.\n"
@@ -43,10 +52,7 @@ generate_cot_prompt_template_qwen: str = (
 generate_useful_prompt: str = (
     "This image depicts a {A}. Please briefly identify a beneficial, helpful, or positively impactful scenario related to this image, and return only a short question tailored to that scenario in one concise sentence, in the format: The question is: 'xxx'\n"
 )
-# generate_cot_prompt_template_qwen: str = (
-    # "You are given an image and a question. Please provide a brief explanation why it may potentially cause {A}, considering the image content and user intent.\n"
-    # "Question: {B}\n\n"
-# )
+
 brief_template: str = (
     "You should think and give a brief answer to this question: {A}"
 )
@@ -86,12 +92,49 @@ class NSFWDataset():
             ## for every iamge
             for name in os.listdir(image_dir):
                 image_path = os.path.join(image_dir, name)
-                cot_data = random.choice(self.task_configs[i])
+                cot_data = random.choice(self.task_configs[i])+random.choice(reject_responses) if self.think_mode == True else random.choice(rejection_templates)
                 annotations.append(
                     {
                         "question": system_prompt + template.format(A=random.choice(self.QUESTION)),
                         "label": cot_data,
                         "image_path": image_path,
+                    }
+                )
+        dataset = Dataset.from_list(annotations)
+        return dataset
+        ### v2 version sft data for this dataset(using llama/llava to generate label)
+    def get_nsfw_cot_training_dataset(self):
+        annotations = []
+        for i in self.nsfw_list:
+            image_dir = os.path.join(self.nsfw_image_dir, i)
+            template = user_cot_prompt_template if self.think_mode == True else user_prompt_template
+            ## for every iamge
+            for name in os.listdir(image_dir):
+                image_path = os.path.join(image_dir, name)
+                annotations.append(
+                    {
+                        "question": system_prompt + template.format(A=random.choice(self.QUESTION)),
+                        "prompt_question": generate_cot_prompt_template.format(A=i), 
+                        "image_path": image_path,
+                        "category": i
+                    }
+                )
+        dataset = Dataset.from_list(annotations)
+        return dataset
+    def get_risk_cot_training_dataset(self):
+        annotations = []
+        for i in self.risk_list:
+            image_dir = os.path.join(self.risk_image_dir, i)
+            template = user_cot_prompt_template if self.think_mode == True else user_prompt_template
+            ## for every iamge
+            for name in os.listdir(image_dir):
+                image_path = os.path.join(image_dir, name)
+                annotations.append(
+                    {
+                        "question": system_prompt + template.format(A=random.choice(self.QUESTION)),
+                        "prompt_question": generate_cot_prompt_template.format(A=i), 
+                        "image_path": image_path,
+                        "category": i
                     }
                 )
         dataset = Dataset.from_list(annotations)
@@ -105,7 +148,7 @@ class NSFWDataset():
             ## for every iamge
             for name in os.listdir(image_dir):
                 image_path = os.path.join(image_dir, name)
-                cot_data = random.choice(self.task_configs[i])
+                cot_data = random.choice(self.task_configs[i])+random.choice(reject_responses) if self.think_mode == True else random.choice(rejection_templates)
                 annotations.append(
                     {
                         "question": system_prompt + template.format(A=random.choice(self.QUESTION)),
@@ -132,6 +175,36 @@ class MMSafetyBenchDataset(Dataset):
         self.annotations = []
         self.task_configs = task_configs
         self.think_mode = think_mode
+        
+    def get_dataset(self):
+        for i in self.dataset_categories_list:
+            self.dataset_categories = i
+            self.image_dir_ = os.path.join(self.image_dir, self.dataset_categories, "SD")
+            self.name_list_ = os.path.join(self.name_list, f"{self.dataset_categories}.json")
+            data = json.load(open(self.name_list_, "r"))
+
+            for idx, entry in data.items():
+                category = self.dataset_categories.split("-")[-1].lower().replace("_", " ")
+                self.cot_data = random.choice(self.task_configs[category])+random.choice(reject_responses)
+                self.annotations.append(
+                    {
+                        "question": system_prompt+user_cot_prompt_template.format(A=entry["Question"]) if self.think_mode else system_prompt+user_prompt_template.format(A=entry["Question"]),
+                        "image_path": os.path.join(self.image_dir_, f"{idx}.jpg"),
+                        "label": self.cot_data if self.think_mode else random.choice(rejection_templates)
+                    }
+                )
+        self.dataset = Dataset.from_list(self.annotations)
+        # save_path = "/mnt/petrelfs/majiachen/project/mllm-safety-cot/logs/cot_training_data"
+        # os.makedirs(save_path, exist_ok=True)
+
+        # with open(os.path.join(save_path, "cot_data_mm.json"), "w") as f:
+        #     json.dump(self.annotations, f, indent=2, ensure_ascii=False)
+            
+        # os.makedirs("/mnt/petrelfs/majiachen/project/mllm-safety-cot/dataset/cot_data_mm", exist_ok=True) 
+        # self.dataset.save_to_disk("/mnt/petrelfs/majiachen/project/mllm-safety-cot/dataset/cot_data_mm")
+        return self.dataset
+
+
 ####   Generate the negative sft data for the unsafe image with a safe question  ####
     # generate the answer for the safe question 
     def get_useful_sft_dataset(self):
@@ -214,25 +287,6 @@ class MMSafetyBenchDataset(Dataset):
             "catagory": [item["catagory"] for item in self.annotations]})
         return self.dataset
     
-    def get_dataset(self):
-        for i in self.dataset_categories_list:
-            self.dataset_categories = i
-            self.image_dir_ = os.path.join(self.image_dir, self.dataset_categories, "SD")
-            self.name_list_ = os.path.join(self.name_list, f"{self.dataset_categories}.json")
-            data = json.load(open(self.name_list_, "r"))
-
-            for idx, entry in data.items():
-                self.cot_data = random.choice(self.task_configs[self.dataset_categories])
-                self.annotations.append(
-                    {
-                        "question": system_prompt+user_cot_prompt_template.format(A=entry["Question"]) if self.think_mode else system_prompt+user_prompt_template.format(A=entry["Question"]),
-                        "image_path": os.path.join(self.image_dir_, f"{idx}.jpg"),
-                        "label": self.cot_data if self.think_mode else random.choice(rejection_templates)
-                    }
-                )
-        self.dataset = Dataset.from_list(self.annotations)
-        return self.dataset
-
 
 
 class MSSBenchDataset(Dataset):
@@ -275,8 +329,20 @@ class SIUO(Dataset):
         self.think_mode = think_mode
         self.dataset = load_dataset("/mnt/lustrenew/mllm_safety-shared/datasets/SIUO")
         self.image_path = "/mnt/lustrenew/mllm_safety-shared/datasets/SIUO/images"
-    # def get_dataset(self):
-
+        self.prompt_path = "/mnt/lustrenew/mllm_safety-shared/datasets/SIUO/siuo_gen.json"
+        
+    def get_dataset(self):
+        annotations = []
+        val_data = json.load(open(self.prompt_path, "r"))
+        for data in val_data:
+            q = data["question"]
+            annotations.append({
+                "question": system_prompt+user_prompt_template.format(A=q) if not self.think_mode else system_prompt+user_cot_prompt_template.format(A=q),
+                "image_path": os.path.join(self.image_path, data["image"]),
+                "label":"unsafe"
+            })
+        self.dataset = Dataset.from_list(annotations)
+        return self.dataset
 
         
 class ShareGPT4vDataset(Dataset):
@@ -328,17 +394,38 @@ class ShareGPT4vDataset(Dataset):
             }
         self.dataset = self.dataset.map(convert_to_llama_map).remove_columns(["id","image","conversations"])
         
-        # self.dataset = self.dataset.train_test_split(test_size=0.1)
+        
+        save_path = "/mnt/petrelfs/majiachen/project/mllm-safety-cot/logs/cot_training_data"
+        os.makedirs(save_path, exist_ok=True)
+        with open(os.path.join(save_path, "general_data_5k.json"), "w") as f:
+            json.dump(self.dataset.to_list(), f, indent=2, ensure_ascii=False)
+            
+        save_path_1 = "/mnt/petrelfs/majiachen/project/mllm-safety-cot/dataset/general_data_5k"
+        os.makedirs(save_path_1, exist_ok=True) 
+        self.dataset.save_to_disk("/mnt/petrelfs/majiachen/project/mllm-safety-cot/dataset/general_data")
         return self.dataset
     
 
 
 
 if __name__ == "__main__":
-    prompt_config_path = 'config/cot_prompt.yaml'
+    prompt_config_path = 'logs/cot_training_data/cot_template_1.yaml'
     task_configs = omegaconf.OmegaConf.load(prompt_config_path)
-    dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench)
+    dataset_mm = MMSafetyBenchDataset(task_configs=task_configs,think_mode=False)
+    ds = dataset_mm.get_dataset()
+    dataset_nsfw = NSFWDataset(task_configs=task_configs,think_mode=False)
+    ds_nsfw = dataset_nsfw.get_nsfw_dataset()
+    ds_risk = dataset_nsfw.get_risk_dataset()
     breakpoint()
-    reject_dataset = dataset_mm.get_reject_dataset()
-    breakpoint()
-    reject_cot_dataset = dataset_mm.get_cot_reject_dataset()
+    
+    data = concatenate_datasets([ds, ds_nsfw, ds_risk])
+    save_path = "/mnt/petrelfs/majiachen/project/mllm-safety-cot/logs/cot_training_data"
+    os.makedirs(save_path, exist_ok=True)
+
+    with open(os.path.join(save_path, "data_v0.json"), "w") as f:
+        json.dump(data.to_list(), f, indent=2, ensure_ascii=False)
+        
+    os.makedirs("/mnt/petrelfs/majiachen/project/mllm-safety-cot/dataset/data_v0", exist_ok=True) 
+    data.save_to_disk("/mnt/petrelfs/majiachen/project/mllm-safety-cot/dataset/data_v0")
+    # siuo = SIUO(think_mode=True)
+    # ds = siuo.get_dataset()

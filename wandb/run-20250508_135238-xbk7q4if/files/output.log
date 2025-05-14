@@ -1,0 +1,12 @@
+  0%|          | 0/90 [00:00<?, ?it/s]`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+100%|██████████| 90/90 [05:26<00:00,  3.62s/it]
+{'loss': 1.7221, 'grad_norm': 13.631007194519043, 'learning_rate': 1.8e-05, 'mean_token_accuracy': 0.608304750919342, 'epoch': 0.22}
+{'loss': 1.2921, 'grad_norm': 13.055305480957031, 'learning_rate': 1.577777777777778e-05, 'mean_token_accuracy': 0.6761679291725159, 'epoch': 0.44}
+{'loss': 1.0882, 'grad_norm': 16.787105560302734, 'learning_rate': 1.3555555555555557e-05, 'mean_token_accuracy': 0.7148208737373352, 'epoch': 0.67}
+{'loss': 0.9939, 'grad_norm': 11.368266105651855, 'learning_rate': 1.1333333333333334e-05, 'mean_token_accuracy': 0.7272073030471802, 'epoch': 0.89}
+{'loss': 0.7665, 'grad_norm': 14.11896800994873, 'learning_rate': 9.111111111111112e-06, 'mean_token_accuracy': 0.79087153673172, 'epoch': 1.11}
+{'loss': 0.6361, 'grad_norm': 6.949630260467529, 'learning_rate': 6.88888888888889e-06, 'mean_token_accuracy': 0.831982409954071, 'epoch': 1.33}
+{'loss': 0.459, 'grad_norm': 7.5299601554870605, 'learning_rate': 4.666666666666667e-06, 'mean_token_accuracy': 0.8512580633163452, 'epoch': 1.56}
+{'loss': 0.5033, 'grad_norm': 9.457680702209473, 'learning_rate': 2.4444444444444447e-06, 'mean_token_accuracy': 0.8740579009056091, 'epoch': 1.78}
+{'loss': 0.3779, 'grad_norm': 5.621589183807373, 'learning_rate': 2.2222222222222224e-07, 'mean_token_accuracy': 0.9063941419124604, 'epoch': 2.0}
+{'train_runtime': 327.8908, 'train_samples_per_second': 2.196, 'train_steps_per_second': 0.274, 'train_loss': 0.8710151010089451, 'epoch': 2.0}

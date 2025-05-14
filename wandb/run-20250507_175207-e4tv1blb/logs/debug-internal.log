@@ -1,0 +1,23 @@
+{"time":"2025-05-07T17:52:07.685611476+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/petrelfs/majiachen/project/mllm-safety-cot/wandb/run-20250507_175207-e4tv1blb/logs/debug-core.log"}
+{"time":"2025-05-07T17:52:07.801988135+08:00","level":"INFO","msg":"created new stream","id":"e4tv1blb"}
+{"time":"2025-05-07T17:52:07.802432822+08:00","level":"INFO","msg":"stream: started","id":"e4tv1blb"}
+{"time":"2025-05-07T17:52:07.802440788+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"e4tv1blb"}
+{"time":"2025-05-07T17:52:07.802634631+08:00","level":"INFO","msg":"sender: started","stream_id":"e4tv1blb"}
+{"time":"2025-05-07T17:52:07.802659579+08:00","level":"INFO","msg":"handler: started","stream_id":"e4tv1blb"}
+{"time":"2025-05-07T17:52:37.805057643+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T17:53:09.853464238+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T17:53:16.881933603+08:00","level":"INFO","msg":"stream: closing","id":"e4tv1blb"}
+{"time":"2025-05-07T17:53:44.069560184+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T17:54:23.266753212+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T17:55:13.213324727+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T17:56:17.418716952+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T17:57:47.420260689+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-05-07T17:59:17.4218936+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T18:00:47.423455966+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T18:02:07.80571029+08:00","level":"WARN","msg":"sender: taking a long time","seconds":600.000870118,"work":"WorkRecord(*service_go_proto.Record_Run); Control(mailbox_slot:\"3kk6sbe3pp8l\"  always_send:true  connection_id:\"127.0.0.1:36590\")"}
+{"time":"2025-05-07T18:02:17.424801325+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T18:03:47.426219448+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T18:05:17.427186683+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-05-07T18:06:47.429585868+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-05-07T18:08:17.431374927+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-05-07T18:09:47.432971675+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}

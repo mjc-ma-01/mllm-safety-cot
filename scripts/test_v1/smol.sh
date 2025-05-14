@@ -15,7 +15,7 @@ for rank in $(seq 0 $((world_size - 1))); do
     
     save_path=./logs/sft_answer/model:sft_mllm_${model_name}/train:${train_task_names}/test:${test_dataset}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json
     
-    PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
+    PYTHONPATH=. srun -p mllm_safety --quotatype=spot --gres=gpu:1 --cpus-per-task=4 --time=30000 \
      python src/inference_mllm.py \
     --model_identifier ${model_name} \
     --use_peft ${use_peft} \
@@ -42,7 +42,7 @@ for rank in $(seq 0 $((world_size - 1))); do
     gpu_id=$((rank % num_gpus))  # 根据 rank 分配 GPU
     file="${output_dir}/$(printf "%05d" ${rank})-$(printf "%05d" ${world_size}).json"
     (
-        score=$(PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:1 --cpus-per-task=4 --time=30000 \
+        score=$(PYTHONPATH=. srun -p mllm_safety --quotatype=spot --gres=gpu:1 --cpus-per-task=4 --time=30000 \
         python src/eval_mllm.py \
             --model_path "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct" \
             --input_path ${file} \

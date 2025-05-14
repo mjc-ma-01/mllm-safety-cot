@@ -5,7 +5,7 @@ config_file=config/deepspeed_zero2.yaml
 
 model_name=qwen_7b_vl
 
-version=v1_new_data_1:1
+version=v1_llama
 think_mode=True
 
 train_task_names=mmsafetybench+sharedgpt4v_${version}
@@ -16,7 +16,7 @@ echo "training..."
 echo "run_name: $base_dir"
 mkdir -p $base_dir
 
-WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:${ngpu} --cpus-per-task=${ncpu} --time=30000 \
+WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=spot --gres=gpu:${ngpu} --cpus-per-task=${ncpu} --time=30000 \
     accelerate launch --config_file ${config_file} --num_processes ${ngpu} --main_process_port $(( RANDOM % 1000 + 30000 )) \
     src/sft_vlm_cot_.py \
     --dataset_name aa \
@@ -24,12 +24,13 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --output_dir ${base_dir} \
     --version ${version} \
     --think_mode True \
+    --num_train_epochs=2 \
     --per_device_train_batch_size=1 \
     --gradient_accumulation_steps=1 \
     --save_steps 200 \
     --gradient_checkpointing \
     --bf16 \
-    --learning_rate 1e-4 \
+    --learning_rate 2e-5 \
     --torch_dtype bfloat16 \
     --logging_steps 10 \
     --logging_strategy "steps" \

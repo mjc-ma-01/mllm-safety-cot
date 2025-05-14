@@ -1,4 +1,4 @@
-test_dataset="ood"
+test_dataset="siuo"
 num_gpus=2 # 使用的 GPU 数量
 world_size=2  # 任务总数量/数据集切分块总数
 batch_size=4

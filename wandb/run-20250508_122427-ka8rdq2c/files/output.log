@@ -1,0 +1,5 @@
+  0%|          | 0/24 [00:00<?, ?it/s]`loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+100%|██████████| 24/24 [03:14<00:00,  8.12s/it]
+{'loss': 1.4841, 'grad_norm': 19.721084594726562, 'learning_rate': 1.25e-05, 'mean_token_accuracy': 0.6514005661010742, 'epoch': 0.83}
+{'loss': 0.7459, 'grad_norm': 8.275178909301758, 'learning_rate': 4.166666666666667e-06, 'mean_token_accuracy': 0.8185785174369812, 'epoch': 1.67}
+{'train_runtime': 196.6177, 'train_samples_per_second': 0.915, 'train_steps_per_second': 0.122, 'train_loss': 0.9658714557687441, 'mean_token_accuracy': 0.9244215935468674, 'epoch': 2.0}

@@ -8,7 +8,7 @@ config_file=config/deepspeed_zero2.yaml
 model_name=llama_11b
 think_mode=True
 
-version=v1_new_data_1:1
+version=v1_llama
 train_task_names=mmsafetybench+sharedgpt4v_${version}
 base_dir=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}
 
@@ -17,7 +17,7 @@ echo "run_name: $base_dir"
 mkdir -p $base_dir
 
 
-WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=reserved --gres=gpu:${ngpu} --cpus-per-task=${ncpu} --time=30000 \
+WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=spot --gres=gpu:${ngpu} --cpus-per-task=${ncpu} --time=30000 \
     accelerate launch --config_file ${config_file} --num_processes ${ngpu} --main_process_port $(( RANDOM % 1000 + 30000 )) \
     src/sft_vlm_cot_.py \
     --dataset_name aa \
@@ -31,6 +31,9 @@ WANDB_PROJECT=${WANDB_PROJECT} PYTHONPATH=. srun -p mllm_safety --quotatype=rese
     --torch_dtype bfloat16 \
     --logging_steps 10 \
     --logging_strategy "steps" \
+    --num_train_epochs 2 \
+
+
     # --use_peft \
     # --lora_target_modules  down_proj, o_proj, k_proj, q_proj, gate_proj, up_proj, v_proj 
 

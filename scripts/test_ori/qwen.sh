@@ -1,4 +1,4 @@
-test_dataset="ood"
+test_dataset="siuo"
 num_gpus=4 # 使用的 GPU 数量
 world_size=4  # 任务总数量/数据集切分块总数
 batch_size=1
@@ -86,3 +86,5 @@ final_score_file="${output_dir}/final_scores.txt"
 echo "Final average score: ${avg_score}" | tee -a "$final_score_file"
 rm -f "$tmp_score_file"
 echo "All scores and final average score saved to ${final_score_file}"
+
+PYTHONPATH=. srun -p mllm_safety --quotatype=spot --gres=gpu:1 --cpus-per-task=16 --time=3000 python src/eval_template.py --data_dir=${output_dir}

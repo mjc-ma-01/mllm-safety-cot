@@ -8,7 +8,7 @@ config_file=config/deepspeed_zero2.yaml
 model_name=gamma3_4b
 think_mode=True
 
-version=v1_new_data_1:1
+version=v1_llama
 train_task_names=mmsafetybench+sharedgpt4v_${version}
 base_dir=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}
 

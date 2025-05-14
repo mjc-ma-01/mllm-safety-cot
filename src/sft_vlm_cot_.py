@@ -106,9 +106,9 @@ model_map={
     "qwen2.5_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-7B-Instruct",
     "qwen2.5_32b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-32B-Instruct",
     "qwen2.5_3b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-3B-Instruct",
-    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-90B-Vision-Instruct",
+    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct",
     "llama_guard": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-Guard-3-11B-Vision",
-    "llama_90b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
+    "llama_90b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-90B-Vision-Instruct"
 }
 
 @dataclass
@@ -160,28 +160,61 @@ if __name__ == "__main__":
     
 ############  loading different version training data    
 ## load v1 data (template cot)
-    if args.version == "v1_new_data":
-        dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)
-        ds = dataset_mm.get_dataset()
-        dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=args.think_mode)
-        ds_nsfw = dataset_nsfw.get_nsfw_dataset()
-        sharegpt4v = ShareGPT4vDataset(num_samples=1700,think_mode=args.think_mode)
-        general_ds = sharegpt4v.get_dataset()
-        train_cot_dataset = concatenate_datasets([ds,ds_nsfw,general_ds]).shuffle(seed=42)
+    if args.version == "v0":
+        ds = load_from_disk("./dataset/data_v0").shuffle(seed=42)
+        # dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=False)
+        # ds = dataset_mm.get_dataset()
+        # dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=False)
+        # ds_nsfw = dataset_nsfw.get_nsfw_dataset()
+        # ds_risk = dataset_nsfw.get_risk_dataset()
+        general_ds = load_from_disk("./dataset/general_data_5k").shuffle(seed=42).select(range(5000))
+        train_cot_dataset = concatenate_datasets([ds,general_ds]).shuffle(seed=42)
         train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
         print(train_cot_dataset)
         
-    if args.version == "v1_new_data_1:3":
-        dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)
-        ds = dataset_mm.get_dataset()
-        dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=args.think_mode)
-        ds_nsfw = dataset_nsfw.get_nsfw_dataset()
-        sharegpt4v = ShareGPT4vDataset(num_samples=5000,think_mode=args.think_mode)
-        general_ds = sharegpt4v.get_dataset()
-        train_cot_dataset = concatenate_datasets([ds,ds_nsfw,general_ds]).shuffle(seed=42)
+    if args.version == "v1_llama":
+        ds = load_from_disk("./dataset/cot_data_v1").shuffle(seed=42)
+        # dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=False)
+        # ds = dataset_mm.get_dataset()
+        # dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=False)
+        # ds_nsfw = dataset_nsfw.get_nsfw_dataset()
+        # ds_risk = dataset_nsfw.get_risk_dataset()
+        general_ds = load_from_disk("./dataset/general_data_5k").shuffle(seed=42).select(range(2030))
+        train_cot_dataset = concatenate_datasets([ds,general_ds]).shuffle(seed=42)
         train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
         print(train_cot_dataset)
         
+    if args.version == "v1_new_data_1k":
+        ds = load_from_disk("./dataset/cot_data_v1").shuffle(seed=1042).select(range(1000))
+        general_ds = load_from_disk("./dataset/general_data_5k").shuffle(seed=1042).select(range(1000))
+        train_cot_dataset = concatenate_datasets([ds, general_ds]).shuffle(seed=1042)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+## load v1 data (template cot)
+    if args.version == "v1_new_data_0.5k":
+        ds = load_from_disk("./dataset/cot_data_v1").shuffle(seed=1042).select(range(500))
+        general_ds = load_from_disk("./dataset/general_data_5k").shuffle(seed=1042).select(range(500))
+        train_cot_dataset = concatenate_datasets([ds, general_ds]).shuffle(seed=1042)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+        
+## load v1 data (template cot)
+    if args.version == "v1_new_data_0.1k":
+        ds = load_from_disk("./dataset/cot_data_v1").shuffle(seed=1042).select(range(100))
+        general_ds = load_from_disk("./dataset/general_data_5k").shuffle(seed=1042).select(range(100))
+        train_cot_dataset = concatenate_datasets([ds, general_ds]).shuffle(seed=1042)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+    ## load v1 data (template cot)
+    if args.version == "v1_new_data_0.2k":
+        ds = load_from_disk("./dataset/cot_data_v1").shuffle(seed=1042).select(range(200))
+        general_ds = load_from_disk("./dataset/general_data_5k").shuffle(seed=1042).select(range(200))
+        train_cot_dataset = concatenate_datasets([ds, general_ds]).shuffle(seed=1042)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+    ## load v1 data (template cot)
+    if args.version == "v1_new_data_0.05k":
+        ds = load_from_disk("./dataset/cot_data_v1").shuffle(seed=1042).select(range(50))
+        general_ds = load_from_disk("./dataset/general_data_5k").shuffle(seed=1042).select(range(50))
+        train_cot_dataset = concatenate_datasets([ds, general_ds]).shuffle(seed=1042)
+        train_cot_dataset = train_cot_dataset.train_test_split(test_size=0.1)    
+                     
     if args.version == "v1_new_data_1:3":
         dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)
         ds = dataset_mm.get_dataset()
@@ -217,18 +250,6 @@ if __name__ == "__main__":
         print(len(train_cot_dataset["train"]))
         print(train_cot_dataset["train"][100])
         
-    # elif args.version == "v2_useful":
-    #     ds_ = load_from_disk("./dataset/cot_data_v2_llama")
-    #     ds_neg = load_from_disk("./dataset/cot_data_useful")
-    #     ds_neg = ds_neg.shuffle(seed=42).select(range(500))
-    #     ds = concatenate_datasets([ds_,ds_neg]).shuffle(seed=42)
-    #     print(ds[100])
-    #     train_cot_dataset = ds.train_test_split(test_size=0.1)
-    
-    # elif args.version == "v1_nsfw":
-    #     dataset_nsfw = NSFWDataset(task_configs=task_configs.Multitrust,think_mode=args.think_mode)
-    #     ds = dataset_nsfw.get_dataset()
-    
 ## add negative data for template cot(v1 vewrsion)
     elif args.version == "v1_useful":
         dataset_mm = MMSafetyBenchDataset(task_configs=task_configs.mm_safetybench,think_mode=args.think_mode)

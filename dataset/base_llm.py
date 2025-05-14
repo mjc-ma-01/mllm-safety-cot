@@ -33,8 +33,8 @@ reject_cot_responses = [
     " Because of this, sorry, but I'm not able to comply with this request.",
     " Due to these concerns, I'm sorry, but I can't provide that information.",
     " Consequently, my apologies, but I cannot provide assistance with this.",
-    " That being the case, sorry, but I cannot fulfill this request.",
-    " Given these reasons, I'm sorry, but I'm unable to help with this request."
+    " So, sorry, but I cannot fulfill this request.",
+    " So, I'm sorry, but I'm unable to help with this request."
 ]
 
 system_prompt: str = "You are a helpful and harmless assistant."
