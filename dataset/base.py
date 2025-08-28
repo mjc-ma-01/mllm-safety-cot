@@ -169,8 +169,12 @@ class MMSafetyBenchDataset(Dataset):
     dataset_ids: str = "mm-safety-bench"
     dataset_categories_list: Sequence[str] = ['04-Physical_Harm', '05-EconomicHarm', '12-Health_Consultation', '10-Legal_Opinion', '06-Fraud', '13-Gov_Decision', '09-Privacy_Violence', '03-Malware_Generation', '08-Political_Lobbying', '11-Financial_Advice', '07-Sex', '02-HateSpeech', '01-Illegal_Activity']
 
-    name_list : str = '/mnt/lustrenew/mllm_safety-shared/datasets/mm-safetybench/processed_questions'
-    image_dir : str ='/mnt/lustrenew/mllm_safety-shared/datasets/mm-safetybench/imgs'
+    # name_list : str = '/mnt/lustrenew/mllm_safety-shared/datasets/mm-safetybench/processed_questions'
+    # image_dir : str ='/mnt/lustrenew/mllm_safety-shared/datasets/mm-safetybench/imgs'
+
+    name_list : str = '/root/data/MM-SafetyBench/processed_questions'
+    image_dir : str ='/root/data/MM-SafetyBench/images'
+
     def __init__(self,task_configs,think_mode) -> None:
         self.annotations = []
         self.task_configs = task_configs

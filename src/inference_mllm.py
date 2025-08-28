@@ -19,11 +19,17 @@ model_map={
     "gamma3_4b": "//mnt/lustrenew/mllm_safety-shared/models/huggingface/google/gemma-3-4b-it",
     "SmolVLM": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/HuggingFaceTB/SmolVLM-Instruct",
     "llava1.5_7b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/llava-hf/llava-v1.6-mistral-7b-hf",
-    "qwen_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2-VL-7B-Instruct",
-    "qwen2.5_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-7B-Instruct",
+    # "qwen_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2-VL-7B-Instruct",
+    "qwen_7b_vl":"/fs-computility/ai-shen/shared/VLM/QwenVL/Qwen2-VL-7B-Instruct",
+
+    # "qwen2.5_7b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-7B-Instruct",
+    "qwen2.5_7b_vl":"/fs-computility/ai-shen/shared/VLM/QwenVL/Qwen2.5-VL-7B-Instruct",
+    
     "qwen2.5_32b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-32B-Instruct",
     "qwen2.5_3b_vl": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-VL-3B-Instruct",
-    "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-90B-Vision-Instruct",
+    # "llama_11b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-90B-Vision-Instruct",
+    "llama_11b":"/fs-computility/ai-shen/shared/hf-hub/models--meta-llama--Llama-3.2-11B-Vision/snapshots/3f2e93603aaa5dd142f27d34b06dfa2b6e97b8be",
+
     "llama_guard": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-Guard-3-11B-Vision",
     "llama_90b": "/mnt/lustrenew/mllm_safety-shared/models/huggingface/meta-llama/Llama-3.2-11B-Vision-Instruct"
 }
