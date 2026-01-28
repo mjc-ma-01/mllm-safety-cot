@@ -10,7 +10,7 @@ accelerate launch \
     --save_strategy steps \
     --save_steps 100 \
     --gradient_accumulation_steps 1 \
-    --output_dir /fs-computility/ai-shen/majiachen/results/sft_cot_llama+sharegpt4v02 \
+    --output_dir /fs-computility/ai-shen//results/sft_cot_llama+sharegpt4v02 \
     --bf16 \
     --torch_dtype bfloat16 \
     --logging_strategy="steps" \

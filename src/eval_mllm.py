@@ -104,9 +104,9 @@ def llama_evaluate(model, tokenizer, eval_dataset, bs):
 @dataclass
 class ScriptArgument:
     # "/mnt/lustrenew/mllm_safety-shared/models/huggingface/Qwen/Qwen2.5-7B-Instruct"
-    model_path: str = "/fs-computility/ai-shen/mllm_safety-shared/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct"
-    input_path: str = "/fs-computility/ai-shen/majiachen/project/MLLM_CoT/logs/sft_answer/model:sft_cot_llama+sharegpt4v01_2200/test:ood_samples:all/00000-00004.json"
-    save_score_path: str = "/fs-computility/ai-shen/majiachen/project/MLLM_CoT/logs/sft_answer/model:sft_cot_llama+sharegpt4v01_2200/test:ood_samples:all/00000-00004.json"
+    model_path: str = "models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct"
+    input_path: str = "/project/MLLM_CoT/logs/sft_answer/model:sft_cot_llama+sharegpt4v01_2200/test:ood_samples:all/00000-00004.json"
+    save_score_path: str = "/project/MLLM_CoT/logs/sft_answer/model:sft_cot_llama+sharegpt4v01_2200/test:ood_samples:all/00000-00004.json"
     cot: bool = True
     # test_dataset: str = "ood"
     seed: int = 42
@@ -146,8 +146,8 @@ if __name__ == "__main__":
         ds = json.load(f)
     eval_dataset = Dataset.from_list(ds)
     
-    score,results = llama_evaluate(model, tokenizer, eval_dataset, args.batch_size)
-
+    # score,results = llama_evaluate(model, tokenizer, eval_dataset, args.batch_size)
+# 
     # 保存结果
     save_path = args.save_score_path
     os.makedirs(os.path.dirname(save_path), exist_ok=True)

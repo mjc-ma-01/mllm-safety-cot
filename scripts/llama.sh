@@ -10,7 +10,7 @@ think_mode=True
 
 version=v2_useful
 train_task_names=mmsafetybench+sharedgpt4v_${version}
-base_dir=/mnt/lustrenew/mllm_safety-shared/tmp/majiachen/results/model:sft_mllm_${model_name}/train:${train_task_names}
+base_dir=/results/model:sft_mllm_${model_name}/train:${train_task_names}
 
 echo "training..."
 echo "run_name: $base_dir"
